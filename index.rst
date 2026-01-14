@@ -2,7 +2,7 @@
 Experiential Robotics Platform (XRP)
 ====================================
 
-What Is the XRP Platform?
+Що таке платформа XRP?
 -------------------------
 
 The XRP (Experiential Robotics Platform) [beta], developed through a collaboration 
