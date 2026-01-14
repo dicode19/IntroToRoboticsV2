@@ -1,31 +1,31 @@
 
-Experiential Robotics Platform (XRP)
+Платформа експериментальної робототехніки (XRP)
 ====================================
 
 Що таке платформа XRP?
 -------------------------
 
-The XRP (Experiential Robotics Platform) [beta], developed through a collaboration 
-between WPI and DEKA Research & Development Corp., aims to level the STEM playing 
-field globally and create a future generation of STEM innovators and technology 
-leaders.
+XRP (Платформа експериментальної робототехніки) [бета-версія], розроблена завдяки співпраці 
+між WPI та DEKA Research & Development Corp., має на меті вирівняти умови STEM-освіти 
+в усьому світі та створити майбутнє покоління STEM-інноваторів та технологічних 
+лідерів.
 
-The robot kits you received are designed to operate autonomously and perform 
-basic tasks. Its simple, tool-free assembly means robots can be built quickly, 
-and replacement parts can be easily 3-D printed. As part of this platform, 
-WPI will provide virtual support through online courses and will guide students 
-and teachers through the new system, including the ability to scale up using 
-the same hardware with free software updates. 
+Набори роботів, які ви отримали, призначені для автономної роботи та виконання 
+базових завдань. Завдяки простому складанню без інструментів роботів можна швидко створювати, 
+а запасні частини можна легко друкувати на 3D-принтері. У рамках цієї платформи 
+WPI надаватиме віртуальну підтримку через онлайн-курси та супроводжуватиме студентів 
+та вчителів у новій системі, включаючи можливість масштабування за допомогою 
+того самого обладнання з безкоштовними оновленнями програмного забезпечення.
 
-The XRP platform is part of WPI's global STEM education initiative, 
-which will bring inspiration and possibility to STEM education in 
-ways that make it available to all. 
+Платформа XRP є частиною глобальної ініціативи WPI у сфері STEM-освіти, 
+яка принесе натхнення та можливості в STEM-освіту таким чином, 
+щоб зробити її доступною для всіх.
 
 
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Course information
+   :caption: Інформація про курс
 
    course/course_info/index
    course/course_info/getting_help
@@ -33,7 +33,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :hidden:
-   :caption: Introduction to the XRP
+   :caption: Вступ до XRP
 
    course/XRPIntro/index
    course/XRPIntro/whatis
@@ -44,7 +44,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :hidden:
-   :caption: Robot Driving
+   :caption: Водіння робота
  
    course/driving/index
    course/driving/understanding_your_robots_drivetrain
@@ -62,7 +62,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :hidden:
-   :caption: Measuring Distances
+   :caption: Вимірювання відстаней
 
    course/measuring_distance/index
    course/measuring_distance/intro
@@ -73,7 +73,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :hidden:
-   :caption: Robot Control
+   :caption: Управління роботом
 
    course/robot_control/index
    course/robot_control/intro_to_robot_control
@@ -86,7 +86,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :hidden:
-   :caption: Sensing and Following Lines
+   :caption: Відчуття та слідування за лініями
    
    course/line_following/index
    course/line_following/understanding_the_sensor
@@ -103,7 +103,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :titlesonly:
-   :caption: Manipulation
+   :caption: Управління операціями
    :hidden:
 
    course/manipulation/index
@@ -114,7 +114,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :titlesonly:
-   :caption: Delivery Challenge
+   :caption: Виклик доставки
    :hidden:
 
    course/delivery_challenge/index
@@ -123,7 +123,7 @@ ways that make it available to all.
 .. toctree:: 
    :maxdepth: 1
    :hidden:
-   :caption: Appendix 1: Using the XRP Web Server
+   :caption: Додаток 1: Використання веб-сервера XRP
 
    course/webserver/webserver_intro
    course/webserver/dashboard
@@ -133,12 +133,12 @@ ways that make it available to all.
 
 .. toctree:: 
    :maxdepth: 1
-   :caption: Issues
+   :caption: Питання
    :hidden:   
 
-   `Report course issues <https://github.com/Open-STEM/IntroToRoboticsV2/issues>`_
+   `Повідомити про проблеми з курсом<https://github.com/Open-STEM/IntroToRoboticsV2/issues>`_
 
-Indices and tables
+Індекси та таблиці
 ==================
 
 * :ref:`genindex`
