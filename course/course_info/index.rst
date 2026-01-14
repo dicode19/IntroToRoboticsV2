@@ -1,14 +1,14 @@
 Welcome to Introduction to Robotics
 ===================================
-Welcome to the WPI Global STEM Education Initiative Introduction to Robotics 
-course using the new XRP Robots. This course teaches the basics of robotics and programming
-using two programming languages: Blockly and Python. For new programmers, we recommend
-that you start with Blockly 
-and switch to Python once you gain more familiarity with programming the robots.  
+Ласкаво просимо на курс «Вступ до робототехніки» від Глобальної ініціативи STEM-освіти WPI
+з використанням нових роботів XRP. Цей курс викладає основи робототехніки та програмування
+з використанням двох мов програмування: Blockly та Python. Для програмістів-початківців ми рекомендуємо
+починати з Blockly
+і переходити на Python, коли ви краще ознайомитеся з програмуванням роботів.
 
-The course has several modules you will work through, starting with an introduction 
-to robotics and later covering driving, sensors, the manipulator (robot arm), and more. Each module contains many interactive challenges using the robot; we recommend that you attempt each one in order to get a better understanding of how to program your XRP. With each module, new programming techniques are introduced to solve concrete robot problems, not as abstract unattached learning. This way, students will see the relevance and need for each concept introduced. The course ends with a challenging final project that 
-brings together everything you have learned in all the previous modules.
+Курс має кілька модулів, які ви опрацюєте, починаючи зі вступу
+до робототехніки та охоплюючи водіння, датчики, маніпулятор (руку робота) тощо. Кожен модуль містить багато інтерактивних завдань з використанням робота; ми рекомендуємо вам спробувати кожен з них, щоб краще зрозуміти, як програмувати свій XRP. У кожному модулі представлені нові методи програмування для вирішення конкретних проблем з роботами, а не як абстрактне окреме навчання. Таким чином, студенти побачать актуальність та необхідність кожної представленої концепції. Курс завершується складним підсумковим проектом, який
+об'єднує все, що ви вивчили в усіх попередніх модулях.
 
 .. figure:: deliveryRobotImage.png
     :align: center
