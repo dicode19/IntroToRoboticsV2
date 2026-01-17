@@ -1,146 +1,145 @@
-What is a robot
+Що таке робот?
 ===============
 
-In this course we talk about robots as devices that can:
+У цьому курсі ми говоримо про роботів як про пристрої, які можуть:
 
-* Sense their environment
-* Think and perceive what is happening around the robot
-* Carry out actions using actuators (motors)
+* Сприймати своє оточення
+* Мислити та усвідомлювати, що відбувається навколо робота
+* Виконувати дії за допомогою приводів (двигунів)
 
-There are many ways to define a robot, and this is only one of them. Still, it is a good idea to have a definition of precisely what a robot is. Let's look at different devices and try to decide whether each of these are robots according to our definitions.
+Існує багато способів визначення робота, і це лише один з них. Проте, добре мати чітке визначення того, що таке робот. Давайте розглянемо різні пристрої та спробуємо вирішити, чи є кожен з них роботом відповідно до наших визначень.
 
-Examples
+Приклади
 --------
 
-Radio Controlled Airplane
+Радіокерований літак
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: media/RCAirplane.png
   :width: 200
   :alt: Alternative text
 
-A radio-controlled airplane is operated by a person who holds a controller and uses the joysticks to control the airplane's flight path. It requires a remote pilot.
+Радіокерований літак керується людиною, яка тримає пульт управління і використовує джойстики для контролю траєкторії польоту літака. Для цього потрібен дистанційний пілот.
 
-Actuators:
+Приводи:
 
-* propeller motor
-* three control surface motors
+* двигун пропелера
+* три двигуни керуючих поверхонь
 
-Sensors: None
+Датчики: немає
 
-Summary: No sensors, no thinking, and it has to be completely controlled by a human.
+Підсумок: немає датчиків, немає мислення, і він повинен повністю контролюватися людиною.
 
-Not a robot.
+Це не робот.
 
-Drone
+Дрон
 ~~~~~
 
 .. image:: media/drone.png
   :width: 200
   :alt: Alternative text
 
-A quadrotor drone is capable of being teleoperated or using autonomous flight. The drone can fly a programmed course, avoid obstacles, return to the landing point, and automatically land.
+Квадрокоптер може управлятися дистанційно або літати в автономному режимі. Дрон може літати за запрограмованим маршрутом, оминати перешкоди, повертатися до місця посадки та автоматично приземлятися.
 
-Actuators:
+Приводи:
 
-* 4 propeller motors
-* camera aiming motor
+* 4 двигуни пропелера
+* двигун наведення камери
 
-Sensors: 
+Датчики: 
 
-* GPS (Global Positioning System) receiver
-* gyros and accelerometers
-* heading sensor
-* altitude sensor
-* rangefinder
+* Приймач GPS (Глобальна система позиціонування)
+* гіроскопи та акселерометри
+* датчик курсу
+* датчик висоти
+* далекомір
 
-The drone senses the environment based on its sensed location and surroundings, and flies on its own from one place to another.
+Дрон відчуває навколишнє середовище на основі свого визначеного місцезнаходження та оточення і самостійно літає з одного місця в інше.
 
-This is a robot.
+Це робот.
 
-Vacuum cleaner
+Пилосос
 ~~~~~~~~~~~~~~
 
 .. image:: media/vacuum.png
   :width: 200
   :alt: Alternative text
 
-A conventional vacuum cleaner is pushed by an operator around the area to clean the floor. 
-Actuators: Motor to turn the fan that sucks up dirt.
+Звичайний пилосос оператор пересуває по приміщенню, щоб прибрати підлогу. 
+Приводи: Двигун для обертання вентилятора, який всмоктує бруд.
 
-Sensors:
+Датчики:
 
-* Fan speed sensor to ensure consistent performance.
+* Датчик швидкості вентилятора для забезпечення стабільної роботи.
 
-The motor does have a sensor that keeps the motor running at a predetermined speed, but it does not sense the environment or have perception. The operator must supply all the "smarts". 
+Двигун має датчик, який підтримує його роботу на заданій швидкості, але він не відчуває навколишнє середовище і не має сприйняття. Оператор повинен забезпечити всю «розумність». 
 
-Not a robot.
+Це не робот.
 
  
-Autonomous vacuum cleaner
+Автономний пилосос
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: media/roomba.png
   :width: 200
   :alt: Alternative text
 
-An autonomous vacuum cleaner can — on its own — start up, vacuum one or more rooms, come back to clean its home base, then continue vacuuming until the whole job is done. It maps out each room in the house for more consistent operation.
+Автономний пилосос може самостійно запускатися, пилососити одну або кілька кімнат, повертатися до своєї базової станції для очищення, а потім продовжувати пилососити, поки вся робота не буде виконана. Він створює карту кожної кімнати в будинку для більш послідовної роботи.
 
-Actuators:
+Приводи:
 
-* Drive motor for the wheels to get around.
-* Motor for the vacuum for cleaning.
-* Motor in the base (not shown) that will suck the dirt out of the vacuum cleaner so it can continue cleaning.
+* Приводний двигун для коліс, щоб пересуватися.
+* Двигун для пилососа для прибирання.
+* Двигун в базі (не показаний), який висмоктує бруд з пилососа, щоб він міг продовжувати прибирання.
  
-Sensors:
+Датчики:
 
-* Camera for visualizing the room.
-* Switches on the bumper to allow it to turn around after hitting obstacles.
-* Rangefinders on the side to measure distance from walls.
-* Sensor to detect carpet vs floor to change the motor speed.
+* Камера для візуалізації кімнати.
+* Перемикачі на бампері, що дозволяють йому розвертатися після зіткнення з перешкодами.
+* Далекоміри з боків для вимірювання відстані від стін.
+* Датчик для розпізнавання килима та підлоги для зміни швидкості двигуна.
 
-An autonomous vacuum is fairly smart. It can learn the map of a house after a few runs and efficiently clean rooms. It can avoid obstacles, clean rooms, stop to recharge, and continue where it left off. 
+Автономний пилосос досить розумний. Він може вивчити карту будинку після декількох пробіжок і ефективно прибирати кімнати. Він може оминати перешкоди, прибирати кімнати, зупинятися для підзарядки і продовжувати роботу з того місця, де зупинився. 
 
-This is a robot.
+Це робот.
 
-Self-driving car
+Автомобіль з автопілотом
 ~~~~~~~~~~~~~~~~
 
 .. image:: media/tesla.png
   :width: 200
   :alt: Alternative text
 
-A self-driving car can be driven conventionally by a human or driven autonomously on city streets and highways on its own.
+Автомобіль з автопілотом може керуватися людиною у звичайному режимі або самостійно рухатися міськими вулицями та автомагістралями.
 
-Actuators:
+Приводи:
 
-* Wheels for driving.
-* Motors for controlling turning.
-* Actuators to allow the robot to break on its own.
+* Колеса для руху.
+* Двигуни для керування поворотами.
+* Приводи, що дозволяють роботу самостійно гальмувати.
 
-Sensors: 
+Датчики: 
 
-* 8 cameras both outside and inside the car to view the environment and driver's attentiveness
-* Rangefinders all around the car to measure the distance to adjacent vehicles
-* GPS to determine car's location, and more.
+* 8 камер зовні та всередині автомобіля для спостереження за навколишнім середовищем та уважністю водія.
+* Далекоміри по всьому периметру автомобіля для вимірювання відстані до сусідніх транспортних засобів.
+* GPS для визначення місцезнаходження автомобіля та інше.
 
-The car is smart and represents state of the art robotics. It can sense the environment, understand where it will be over time, and drive to its destination while safely avoiding obstacles. 
+Автомобіль є інтелектуальним і представляє собою найсучаснішу робототехніку. Він може відчувати навколишнє середовище, розуміти, де він буде через певний час, і рухатися до місця призначення, безпечно оминаючи перешкоди. 
 
-This is a robot.
+Це робот.
 
-What are the parts of robotics?
+З чого складається робототехніка?
 -------------------------------
 
-Robotics engineering is usually thought of as a combination of three disciplines. They are:
+Робототехніка зазвичай розглядається як поєднання трьох дисциплін. Це:
 
-* Mechanical engineering - the design and analysis of mechanisms and other mechanical systems.
-* Electrical engineering - the design of electronic circuits, especially all the sensors.
-* Computer science - the development of advanced software (computer programs) to interpret at all the sensor data, understand it, and drive the actuators.
+* Машинобудування — проектування та аналіз механізмів та інших механічних систем.
+* Електротехніка — проектування електронних схем, особливо всіх датчиків.
+* Інформатика — розробка сучасного програмного забезпечення (комп'ютерних програм) для інтерпретації всіх даних датчиків, їх розуміння та керування виконавчими механізмами.
 
-Robotics can be thought of as the synergy of these three fields. Designing robots requires a "systems" approach to design. Having knowledge of all three subjects allows one to develop more complex and capable systems than one with only a unitary background.
-
+Робототехніку можна розглядати як синергію цих трьох галузей. Проектування роботів вимагає «системного» підходу до проектування. Знання всіх трьох дисциплін дозволяє розробляти більш складні та функціональні системи, ніж ті, що базуються лише на одній з них.
 .. image:: media/stool.png
   :width: 200
   :alt: Alternative text
 
-Robotics is a 3-legged stool. Without any one of these subjects, it falls down.
+Робототехніка — це триногий стілець. Без будь-якої з цих дисциплін він падає.
