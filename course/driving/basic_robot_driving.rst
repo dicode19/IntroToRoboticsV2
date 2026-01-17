@@ -1,19 +1,19 @@
-Getting the Robot Moving
+Як змусити робота рухатися
 ========================
 
-Basic driving
+Основні принципи руху
 -------------
 
-In the last lesson we learned how to set the effort of each of your robot's 
-motors individually. Since both of the motors make up the robot's drivetrain,
-there's an easier way to write code to move the robot.
+У минулому уроці ми дізналися, як налаштувати потужність кожного з двигунів вашого робота 
+окремо. Оскільки обидва двигуни складають трансмісію робота,
+існує простіший спосіб написати код для руху робота.
 
-.. note:: 
+.. примітка:: 
 
-    For this lesson, put your XRP on a flat surface like a table or the floor.
+    Для цього уроку поставте XRP на рівну поверхню, наприклад, стіл або підлогу.
 
-Getting your XRP robot to move is simple! Here is some code you can use to drive both the left and right motors at 50% 
-effort:
+Змусити робота XRP рухатися дуже просто! Ось код, який ви можете використовувати для керування лівим і правим двигунами з 50% 
+потужністю:
 
 .. tab-set:: 
 
@@ -30,28 +30,27 @@ effort:
         .. image:: media/seteffortexample.png
             :width: 300
 
-:code:`0.5` and :code:`0.5` are the parameters of the function.
-The functions you used before only had one parameter, but functions can have as
-few or as many parameters as you want, or even none at all.
+:code:`0.5` and :code:`0.5` є параметрами функції.
+Функції, які ви використовували раніше, мали лише один параметр, але функції можуть мати стільки
+параметрів, скільки ви хочете, або навіть не мати їх взагалі.
+.. підказка:: 
 
-.. hint:: 
-
-    Parameters are inputs to a function that can dictate attributes like distance or angle to vary its behavior.
+    Параметри — це вхідні дані функції, які можуть визначати такі атрибути, як відстань або кут, щоб змінити її поведінку.
 
 
-.. admonition:: Try it out
+.. Порада: спробуйте
     
-    Add the code to your program to see your robot drive.
+    Додайте код до своєї програми, щоб побачити, як рухається ваш робот.
 
-    Try using different values to make the robot move at different speeds. What 
-    happens if you use different values for the left and right wheels?
+    Спробуйте використовувати різні значення, щоб робот рухався з різною швидкістю. Що 
+    станеться, якщо ви використаєте різні значення для лівого і правого коліс?
 
-    Afterward, place the robot on a ramp and run it again. Take notice of how
-    the robot moves slower when on the ramp. Why does this happen?
+    Після цього поставте робота на рампу і запустіть його знову. Зверніть увагу, як
+    робот рухається повільніше, коли знаходиться на рампі. Чому це відбувається?
 
-You may notice that your XRP does not drive perfectly straight even though you 
-used the same effort value for both motors. This is because the motors on the 
-XRP aren't perfect. Every motor is a little bit different. Some of them have 
-more friction inside them than others. In the next module we'll learn some ways 
-to solve this problem so your robot goes straight every time.
+Ви можете помітити, що ваш XRP не рухається ідеально прямо, навіть якщо ви 
+використовували однакове значення зусилля для обох двигунів. Це тому, що двигуни на 
+XRP не ідеальні. Кожен двигун трохи відрізняється від інших. Деякі з них мають 
+більше тертя всередині, ніж інші. У наступному модулі ми дізнаємося про деякі способи 
+вирішення цієї проблеми, щоб ваш робот завжди рухався прямо.
 
