@@ -1,54 +1,53 @@
-Getting Help
+Отримання допомоги
 =================
-Alongside this ReadTheDocs course, you will be using several online 
-resources for getting your questions answered. The support 
-tools for any technical Q&A will be monitored by the development 
-team and a growing community of users like you. We are using 
-Discourse for online support during this course.
+Поряд з цим курсом ReadTheDocs ви будете використовувати кілька онлайн-ресурсів 
+для отримання відповідей на свої запитання. Інструменти підтримки 
+для будь-яких технічних запитань і відповідей будуть контролюватися командою розробників 
+та зростаючою спільнотою користувачів, таких як ви. Ми використовуємо 
+Discourse для онлайн-підтримки під час цього курсу.
 
-Discourse
----------
-The XRP Discourse server provides an easy 
-way to communicate your questions, concerns, ideas, and 
-conversations across the world (within this robotics program). 
-Here you will find a place to posts questions and get answers to issues
-that you might be having. The staff at WPI will do our best to provide
-timely answers to your questions, or you might find other more experienced
-community members jumping in and answering your questions.
-You will find important resources, links, event 
-information, and office hours here.
+Сервер XRP Discourse
+--------------------
+Сервер XRP Discourse надає простий 
+спосіб спілкування, щоб ви могли ділитися своїми питаннями, проблемами, ідеями та 
+розмовами з усім світом (в рамках цієї програми з робототехніки). 
+Тут ви знайдете місце, де можна задавати питання та отримувати відповіді на проблеми,
+які можуть у вас виникнути. Співробітники WPI докладуть усіх зусиль, щоб
+своєчасно відповісти на ваші питання, або ви можете знайти інших, більш досвідчених
+членів спільноти, які долучаться та дадуть відповіді на ваші питання.
+Тут ви знайдете важливі ресурси, посилання, інформацію про події 
+та години роботи.
 
-Please follow these steps to join the Discourse server:
+Щоб приєднатися до сервера Discourse, виконайте такі кроки:
 
-#. You will want to create your account, go to https://xrp.discourse.group
+#. Створіть свій обліковий запис, перейшовши за посиланням https://xrp.discourse.group
 
-#. You can browse through all the resources on the Discourse server, if you want to post
-   questions and participate, you need to sign up for an account. To do that, click on the
-   Sign Up button in the top right corner of the window and enter your account information.
+#. Ви можете переглядати всі ресурси на сервері Discourse, але якщо ви хочете публікувати
+   питання та брати участь, вам потрібно зареєструвати обліковий запис. Для цього натисніть кнопку
+   «Зареєструватися» у верхньому правому куті вікна та введіть інформацію про свій обліковий запис.
 
 .. image:: DiscourseSignup.png
 
-#. And you are done! You can now ask any questions you have about the course here or just
-   chat with the other members of the course. We hope you will find this course fun and interesting!
+#. І все готово! Тепер ви можете задавати будь-які питання про курс тут або просто
+   спілкуватися з іншими учасниками курсу. Сподіваємося, що цей курс буде для вас цікавим і    корисним!
 
-If you want Discourse on your phone, for Android or iPhone 
-there is a Discourse app in the App Store that you can
-download. When signing up remember to use xrp.discourse.group
-for the site's address when asked.
+Якщо ви хочете мати Discourse на своєму телефоні, для Android або iPhone 
+в App Store є додаток Discourse, який ви можете
+завантажити. Під час реєстрації не забудьте вказати xrp.discourse.group
+як адресу сайту, коли вас про це запитають.
 
-
-GitHub issues
+Проблеми GitHub
 -------------
 
-Another way to contact us, particularly about issues or bugs with any of the software is
-to create issues in the GitHub repository where the software is developed.
+Інший спосіб зв'язатися з нами, особливо щодо проблем або помилок у будь-якому програмному забезпеченні, —
+створити проблему в репозиторії GitHub, де розробляється програмне забезпечення.
 
-To create a GitHub issue for the course that you are reading now, navigate to the `Issues page in the course
-GitHub repository <https://github.com/Open-STEM/IntroToRoboticsV2/issues>`_
+Щоб створити проблему GitHub для курсу, який ви зараз читаєте, перейдіть на сторінку «Проблеми» в курсі
+репозиторію GitHub <https://github.com/Open-STEM/IntroToRoboticsV2/issues>`_
 
-To create a GitHub issue for the XRP software libraries, navigate to our  
-`GitHub repository's issue page <https://github.com/Open-STEM/XRP_MicroPython/issues>`_
-and select "New issue". 
+Щоб створити проблему GitHub для бібліотек програмного забезпечення XRP, перейдіть на нашу  
+`сторінку проблем репозиторію GitHub <https://github.com/Open-STEM/XRP_MicroPython/issues>`_
+і виберіть «Нова проблема». 
 
-Describe your problem in detail and click "Submit new issue" to post your issue in the repository. 
-A member of the XRP team will reach out if we have further questions.
+Детально опишіть свою проблему та натисніть «Надіслати нову проблему», щоб опублікувати її в репозиторії. 
+Якщо у нас виникнуть додаткові питання, з вами зв'яжеться член команди XRP.
