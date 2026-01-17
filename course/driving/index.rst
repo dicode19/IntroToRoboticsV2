@@ -1,27 +1,26 @@
-Robot Driving: Module Overview
+Керування роботом: огляд модуля
 ==============================
 
-In this module students will:
+У цьому модулі студенти:
 
-* Learn how to make the robot drive at different speeds
-* Understand the relationship between the wheel speeds and the robot's motion
-* Be introduced to motor encoders and how to use them to measure the robot's movements
-* Learn about the built in driving functions which help make complicated motions easy
+* Дізнаються, як змусити робота рухатися з різною швидкістю.
+* Зрозуміють взаємозв'язок між швидкістю обертання коліс і рухом робота.
+* Ознайомляться з енкодерами двигунів і дізнаються, як їх використовувати для вимірювання рухів робота.
+* Дізнаються про вбудовані функції керування, які допомагають спростити складні рухи.
 
 
-At the end of this module, students will be able to...
+Наприкінці цього модуля учні зможуть...
 
-* Make the robot drive in straight lines, turn corners, and turn in place
-* Write and use basic functions in the Python programming language
-* Use different types of loops in Python
-* Break down a large, repetitive movement sequence into components and then convert into code
+* Змусити робота рухатися по прямій, повертати за рогом і повертати на місці
+* Писати та використовувати основні функції мови програмування Python
+* Використовувати різні типи циклів у Python
+* Розбивати великі, повторювані послідовності рухів на компоненти, а потім перетворювати їх на код
 
-Covered Standards (NGSS and CSTA):
------------------------------------
+Вивчені стандарти (NGSS та CSTA):
+------------- ----------------------
 
-**3A-AP-16** Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions.
+**3A-AP-16** Проектувати та ітеративно розробляти обчислювальні артефакти для практичних цілей, особистого самовираження або для вирішення соціальних проблем, використовуючи події для ініціювання інструкцій.
 
-**3A-AP-17** Decompose problems into smaller components through systematic analysis, using constructs such as procedures, modules, and/or objects.
+**3A-AP-17** Розкладати проблеми на менші компоненти шляхом систематичного аналізу, використовуючи конструкції, такі як процедури, модулі та/або об'єкти.
 
-**3B-AP-16** Demonstrate code reuse by creating programming solutions using libraries and APIs. 
-
+**3B-AP-16** Демонструвати повторне використання коду шляхом створення програмних рішень з використанням бібліотек та API. 
