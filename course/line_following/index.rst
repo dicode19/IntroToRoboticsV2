@@ -1,39 +1,30 @@
-Sensing and Following Lines: Module Overview
+Виявлення та слідування лініям: огляд модуля
 ============================================
 
-In this module students will:
+У цьому модулі студенти:
 
-* Understand the task of following a line with the robot
-* Learn to use the reflectance sensor to detect the line
-* Write simple programs for detecting and responding to lines
-* Write simple programs to follow lines
-* Enhance the simple program with better sensor measurements and calculations to
-  follow the line more smoothly.
+* Зрозуміють завдання слідування лінією за допомогою робота.
+* Навчяться використовувати датчик відбиття для виявлення лінії.
+* Напишуть прості програми для виявлення ліній та реагування на них.
+* Напишуть прості програми для слідування лініями.
+* Вдосконалять просту програму за допомогою кращих вимірювань датчика та розрахунків, щоб
+  слідувати лінією більш плавно.
 
-At the end of this module, students will be able to:
+Наприкінці цього модуля учні зможуть:
 
-* Discuss robot navigation concepts with their classmates
-* Get their robot to follow a line 
-* Develop simple sensor logic control for robot decision making 
+* Обговорювати концепції навігації роботів зі своїми однокласниками
+* Змусити свого робота слідувати за лінією 
+* Розробити просте логічне управління датчиками для прийняття рішень роботом 
 
-Covered Standards (NGSS and CSTA):
+Вивчені стандарти (NGSS та CSTA):
 -----------------------------------
 
-**HS-ETS1-2** Break a complex real-world problem into smaller, more manageable problems that each can be solved using scientific and engineering principles.
+**HS-ETS1-2** Розбивати складні реальні проблеми на менші, більш керовані проблеми, кожну з яких можна вирішити за допомогою наукових та інженерних принципів.
 
-**3A-AP-15** Justify the selection of specific control structures when tradeoffs involve implementation, readability, and program performance, and explain the benefits and drawbacks of choices made.
+**3A-AP-15** Обґрунтовувати вибір конкретних структур управління, коли компроміси стосуються реалізації, читабельності та продуктивності програми, а також пояснювати переваги та недоліки зробленого вибору.
 
-**3A-AP-16** Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions.
+**3A-AP-16** Проектувати та ітеративно розробляти обчислювальні артефакти для практичних цілей, особистого самовираження або для вирішення соціальних проблем, використовуючи події для ініціювання інструкцій.
 
-**3A-AP-17** Decompose problems into smaller components through systematic analysis, using constructs such as procedures, modules, and/or objects.
+**3A-AP-17** Розкладати проблеми на менші компоненти шляхом систематичного аналізу, використовуючи такі конструкції, як процедури, модулі та/або об'єкти.
 
-**3B-CS-02** Illustrate ways computing systems implement logic, input, and output through hardware components.
-
-**3B-AP-10** Use and adapt classic algorithms to solve computational problems.
-
-**3B-AP-11** Evaluate algorithms in terms of their efficiency, correctness, and clarity.
-
-**3B-AP-15** Analyze a large-scale computational problem and identify generalizable patterns that can be applied to a solution.
-
-**3B-AP-16** Demonstrate code reuse by creating programming solutions using libraries and APIs. 
-
+**3B-CS-02** Ілюструвати способи, якими обчислювальні системи реалізують логіку, введення,
