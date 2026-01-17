@@ -1,48 +1,49 @@
-Delivery Challenge: Module Overview 
+Завдання з доставки: огляд модуля
 ===================================
 
 .. image:: deliveryRobotImage.png
 
-The delivery robot has to bring packages from one location to another.
-Introduction
-To help people in need in the current pandemic, you and your colleagues have decided to build
-an autonomous delivery robot.
+Робот-доставник повинен доставляти пакунки з одного місця в інше.
 
-Your robot will pick up food and other supplies and deliver them to residences with minimal
-contact, all to help fight the spread of the coronavirus.
+Вступ
+Щоб допомогти людям, які потребують допомоги в умовах поточної пандемії, ви та ваші колеги вирішили створити
+автономного робота-доставника.
 
-Of course, a full-sized version will have to wait until you get millions of dollars
-in investments for your robotics company, but that doesn’t mean you can’t have fun
-dreaming with a scale model here.
+Ваш робот буде забирати продукти харчування та інші товари і доставляти їх до місць проживання з мінімальним
+контактом, щоб допомогти боротися з поширенням коронавірусу.
 
-Your robot will have an arm for lifting and carrying “bags” of goods and sensors to help
-it navigate a simple network of “streets.” Complicating things a little, not everything
-to be delivered is always put in the right spot for easy collection and sometimes road
-construction might block your path. But you’ll still need to make it work!
+Звичайно, повнорозмірна версія доведеться почекати, поки ви не отримаєте мільйони доларів
+інвестицій для своєї компанії з робототехніки, але це не означає, що ви не можете розважитися,
+мріючи про масштабну модель тут.
 
-The world is counting on you! Can you make it happen?
+Ваш робот матиме руку для підйому та перенесення «мішків» з товарами та датчики, які допоможуть
+йому орієнтуватися в простій мережі «вулиць». Щоб трохи ускладнити завдання, не всі
+товари, які потрібно доставити, завжди розміщуються в правильному місці для зручного забирання, а іноді дорожні
+роботи можуть перекривати шлях. Але ви все одно повинні зробити так, щоб це працювало!
 
-Objectives
+Світ розраховує на вас! Чи зможете ви це зробити?
+
+Цілі
 ----------
 
-The final project is a chance for you and your teammates to demonstrate that you can
-apply concepts and strategies from the course to a specific challenge. You will apply
-theoretical knowledge to the design of your system and use focused testing to improve
-the performance. The project will culminate in a demonstration where you will prove your
-robot’s performance. To help us understand more about your system and your process, you
-will also produce a report describing the system development and an assessment of how
-well it met your goals.
+Фінальний проект — це шанс для вас і ваших колег по команді продемонструвати, що ви можете
+застосувати концепції та стратегії, отримані під час курсу, для вирішення конкретного завдання. Ви застосуєте
+теоретичні знання до проектування вашої системи та використаєте цілеспрямоване тестування для поліпшення
+її продуктивності. Проект завершиться демонстрацією, під час якої ви доведете
+продуктивність вашого робота. Щоб допомогти нам краще зрозуміти вашу систему та процес, ви
+також підготуєте звіт, в якому опишете розробку системи та оціните, наскільки
+добре вона відповідала вашим цілям.
 
-The successful team will design, build, and demonstrate a robot that can accomplish
-a prescribed set of tasks. To be successful, you will need to:
+Успішна команда спроектує, побудує та продемонструє робота, який може виконати
+заданий набір завдань. Щоб досягти успіху, вам потрібно:
 
-Identify key performance criteria and develop a strategy for meeting your team’s objectives,
-Identify key factors that affect performance and use analysis and testing to specify them,
-Develop and apply a testing strategy to ensure performance,
-Evaluate the system performance, and
-Describe the system and your design process.
+Визначити ключові критерії продуктивності та розробити стратегію для досягнення цілей вашої команди,
+Визначити ключові фактори, що впливають на продуктивність, та використовувати аналіз і тестування для їх конкретизації,
+Розробити та застосувати стратегію тестування для забезпечення продуктивності,
+Оцінити продуктивність системи та
+Описати систему та ваш процес проектування.
 
-Challenge
+Виклик
 ---------
 
 Your challenge is to program your robot to pick up bags of supplies from known and unknown
@@ -54,109 +55,111 @@ sign. Since you will have to perform multiple runs, reliability will be essentia
 Course
 ------
 
-The course will consist of a strip of tape (to simulate roads) with a designated place to
-pick up bags and three specified drop zones. Most bags will be placed at the end of the
-main road, though some will be placed in a “free range” zone. Figure 1 shows a typical
-arena, though we realize that there will be some variation in each course.
+Ваше завдання полягає в тому, щоб запрограмувати робота так, щоб він підбирав мішки з вантажем із відомих і невідомих
+місць і доставляв їх до визначених пунктів призначення. Завдання побудовано таким чином,
+що завдання мають різний рівень складності. Наприклад, знаходження мішків, що знаходяться у вільному доступі, і
+їх підбирання принесе більше очок, так само як і вміння об'їжджати будівельний
+знак. Оскільки вам доведеться виконувати кілька пробіжок, надійність буде мати вирішальне значення.
 
 .. image:: deliveryRobotMap.png
 
-Figure 1: Diagram of the arena. Individual arenas will vary.
+Рисунок 1: Схема арени. Окремі арени можуть відрізнятися.
 
-Bags
+Сумки
 ----
-You will be expected to build your own delivery bags, for example from paper or card
-stock and paper clips. You should have at least two bags ready for the demo. You
-may “recycle” them as the demo progresses. Here is an example of an easy to make bag
-that can be constructed from a drink disposable cup you might find in a restaurant. 
+
+Від вас очікується, що ви зробите свої власні сумки для доставки, наприклад, з паперу або картону
+та скріпок. Ви повинні підготувати щонайменше дві сумки для демонстрації. Ви
+можете «переробляти» їх у міру проходження демонстрації. Ось приклад простої у виготовленні сумки,
+яку можна зробити з одноразового стаканчика для напоїв, який можна знайти в ресторані. 
 
 .. image:: bag.jpeg
     :width: 300
 
-Figure 2: Example of a bag for the delivery challenge
+Рисунок 2: Приклад сумки для доставки
 
-Collection
+Колекція
 ----------
 
-Most of the bags will be placed on the line at the end of the main road. You may place
-a piece of tape near the pickup zone to indicate where it starts, but the bags will be
-placed at different distances from the tape.
+Більшість мішків буде розміщено на лінії в кінці головної дороги. Ви можете розмістити
+шматок скотчу біля зони підбору, щоб позначити, де вона починається, але мішки будуть
+розміщені на різній відстані від скотчу.
 
-To earn points for collecting the free-range bag, you must demonstrate that its position
-can be arbitrary within the free-range zone (with the exception that you may face the
-bail in whatever position you deem most favorable).
+Щоб заробити очки за збір мішка з вільної зони, ви повинні продемонструвати, що його положення
+може бути довільним у межах вільної зони (за винятком того, що ви можете стояти обличчям до
+мішка в будь-якому положенні, яке вважаєте найбільш вигідним).
 
-Delivery zones
+Зони доставки
 --------------
 
-Each delivery zone or platform may be no larger than 10 cm in any horizontal dimension.
-The platforms for the delivery zones will be marked on the ground. You can make them
-out of cardboard or any other material. To score points, each container must be placed in
-a delivery zone and left there (upright) long enough to prove that it is stable.
+Кожна зона доставки або платформа не може бути більшою за 10 см у будь-якому горизонтальному вимірі.
+Платформи для зон доставки будуть позначені на землі. Ви можете зробити їх
+з картону або будь-якого іншого матеріалу. Щоб заробити очки, кожен контейнер повинен бути розміщений у
+зоні доставки і залишений там (у вертикальному положенні) достатньо довго, щоб довести свою стійкість.
 
-Operation
+Операція
 ---------
 
-You will start with your robot on the main road and a bag in the pickup zone. On
-command (a press of either button on the robot), your robot will drive to the pickup
-zone, pick up a bag, and deliver it to the specified address, which will be determined
-by the button press (e.g., ’GP20’ indicates a delivery to address A, etc.). Your robot
-will then return to the starting point, stop, and wait for the next command.
+Ви почнете з тим, що ваш робот буде знаходитися на головній дорозі, а сумка – у зоні забирання. За
+командою (натисканням будь-якої кнопки на роботі) ваш робот поїде до зони забирання,
+ забере сумку і доставить її за вказаною адресою, яка буде визначена
+натисканням кнопки (наприклад, «GP20» означає доставку за адресою А тощо). Потім ваш робот
+повернеться до вихідної точки, зупиниться і буде чекати наступної команди.
 
-After each delivery, you will place another bag in the pickup zone and repeat the
-process, pressing the button to indicate another delivery. You may recycle the
-bags as much as you wish.
+Після кожної доставки ви покладете інший мішок у зону завантаження і повторите
+процес, натиснувши кнопку, щоб вказати на іншу доставку. Ви можете переробляти
+мішки скільки завгодно.
 
-At two random points in the demo, your instructor will place a road construction
-sign on the main road for 30 seconds, and you will not receive credit for any delivery
-during which your vehicle hits the sign.
+У двох випадкових точках демонстрації ваш інструктор розмістить дорожній знак
+на головній дорозі на 30 секунд, і ви не отримаєте бали за будь-яку доставку,
+під час якої ваш транспортний засіб зіткнеться із знаком.
 
-The challenge will last 5 minutes. You may use any of the sensors that you’ve explored
-in this class to accomplish the challenge. Line following will be an important behavior,
-but collecting the free-range bags autonomously will require some creativity on your part.
+Випробування триватиме 5 хвилин. Ви можете використовувати будь-які датчики, які ви вивчали
+на цьому занятті, щоб виконати завдання. Важливим буде слідування лінії,
+але для самостійного збору мішків, що знаходяться у вільному доступі, вам знадобиться певна креативність.
 
-[Video of a sample run coming soon!]
+[Відео зразкового запуску буде доступне незабаром!]
 
-Scoring
--------
+Підрахунок очок
+---------------
 
-[Tune point values over time]
+[Налаштуйте значення балів у часі]
 
-In your run, your team should deliver as much weight as possible, plus and including the
-“free range” bags. Points will be allocated as follows:
+Під час забігу ваша команда повинна доставити якомога більше вантажу, включаючи
+сумки «вільного вигулу». Очки будуть нараховуватися наступним чином:
 
-You will receive 5 point for every package you deliver to addresses A or C. However, you
-may only get 50 points max (corresponding to 10 packages) for each delivery address;
-i.e., you must deliver to all three addresses to receive the maximum points.
-You will receive 5 additional points for each free-range bag (20 points max) scored
-at address B.
-Your total score will be multiplied by the number of unique addresses you delivered
-bags to. That is to say, if you scored 1 bag to Address A, and 1 bag to Address B, your
-final score would be 2 * (5+5) = 20 points. If you scored a free range bag on top of that,
-your score would be 3 * (5+5+5) = 45 points
-No points will be received for a delivery where the robot hits the road construction sign.
-You will lose 2 points for each time you have to touch your robot (e.g., to put it back
-on the line), other than to specify the delivery zone at the start of each delivery. 
+Ви отримаєте 5 очок за кожну посилку, доставлену за адресами А або С. Однак ви
+можете отримати максимум 50 очок (що відповідає 10 посилкам) за кожну адресу доставки;
+тобто, ви повинні доставити посилки за всіма трьома адресами, щоб отримати максимальну кількість очок.
+Ви отримаєте 5 додаткових балів за кожну сумку з вільним діапазоном (максимум 20 балів),
+доставлену за адресою B.
+Ваш загальний бал буде помножений на кількість унікальних адрес, за якими ви доставили
+сумки. Тобто, якщо ви доставили 1 сумку за адресою A і 1 сумку за адресою B, ваш
+кінцевий бал буде 2 * (5+5) = 20 балів. Якщо ви отримали додатковий бал за сумку з вільного випасу,
+ваша загальна кількість балів складе 3 * (5+5+5) = 45 балів
+Бали не нараховуються за доставку, під час якої робот зачіпає дорожній знак.
+Ви втратите 2 бали за кожний раз, коли доведеться торкатися робота (наприклад, щоб повернути його
+на лінію), крім випадків, коли це необхідно для визначення зони доставки на початку кожної доставки.  
 
 
-Covered Standards (NGSS and CSTA):
+Покриті стандарти (NGSS та CSTA):
 -----------------------------------
 
-**HS-ETS1-2** Break a complex real-world problem into smaller, more manageable problems that each can be solved using scientific and engineering principles.
+**HS-ETS1-2** Розбийте складну реальну проблему на менші, більш керовані проблеми, кожну з яких можна вирішити за допомогою наукових та інженерних принципів.
 
-**HS-ETS1-3** Evaluate a solution to a complex real-world problem based on prioritized criteria and tradeoffs that account for a range of constraints, including cost, safety, reliability, aesthetics, and maintenance, as well as social, cultural, and environmental impacts.
+**HS-ETS1-3** Оцініть рішення складної реальної проблеми на основі пріоритетних критеріїв та компромісів, що враховують низку обмежень, включаючи вартість, безпеку, надійність, естетику та технічне обслуговування, а також соціальні, культурні та екологічні наслідки.
 
-**3A-AP-16** Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions.
+**3A-AP-16** Проектуйте та ітеративно розробляйте обчислювальні артефакти для практичних цілей, особистого самовираження або для вирішення соціальних проблем, використовуючи події для ініціювання інструкцій.
 
-**3A-AP-17** Decompose problems into smaller components through systematic analysis, using constructs such as procedures, modules, and/or objects.
+**3A-AP-17** Розкладайте проблеми на менші складові за допомогою систематичного аналізу, використовуючи такі конструкції, як процедури, модулі та/або об'єкти.
 
-**3B-CS-02** Illustrate ways computing systems implement logic, input, and output through hardware components.
+**3B-CS-02** Проілюструйте способи, якими обчислювальні системи реалізують логіку, введення та виведення даних за допомогою апаратних компонентів.
 
-**3B-AP-10** Use and adapt classic algorithms to solve computational problems.
+**3B-AP-10** Використовувати та адаптувати класичні алгоритми для вирішення обчислювальних задач.
 
-**3B-AP-11** Evaluate algorithms in terms of their efficiency, correctness, and clarity.
+**3B-AP-11** Оцініть алгоритми з точки зору їх ефективності, правильності та зрозумілості.
 
-**3B-AP-15** Analyze a large-scale computational problem and identify generalizable patterns that can be applied to a solution.
+**3B-AP-15** Проаналізуйте великомасштабну обчислювальну задачу та визначте узагальнені закономірності, які можна застосувати для її вирішення.
 
-**3B-AP-16** Demonstrate code reuse by creating programming solutions using libraries and APIs. 
+**3B-AP-16** Продемонструйте повторне використання коду, створюючи програмні рішення з використанням бібліотек та API.. 
 
