@@ -8,7 +8,7 @@
 Вступ
 
 Щоб допомогти людям, які потребують допомоги в умовах поточної пандемії, ви та ваші колеги вирішили створити
-автономного робота-доставника.
+автономного робота-кур'єра.
 
 Ваш робот буде забирати продукти харчування та інші товари і доставляти їх до місць проживання з мінімальним
 контактом, щоб допомогти боротися з поширенням коронавірусу.
@@ -46,15 +46,6 @@
 
 Виклик
 ---------
-
-Your challenge is to program your robot to pick up bags of supplies from known and unknown
-locations and deliver them to specified delivery points. The challenge is constructed such
-that the tasks have a range of difficulty. For example, located the free range bag and
-scoring them will earn more points, as will being able to navigate around the construction
-sign. Since you will have to perform multiple runs, reliability will be essential.
-
-Course
-------
 
 Ваше завдання полягає в тому, щоб запрограмувати робота так, щоб він підбирав мішки з вантажем із відомих і невідомих
 місць і доставляв їх до визначених пунктів призначення. Завдання побудовано таким чином,
