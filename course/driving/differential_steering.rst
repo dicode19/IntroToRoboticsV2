@@ -57,14 +57,14 @@
 
 .. math:: 
   
-    \text{ratio between wheel speeds} = \frac{r_1}{r_2}
+    \text{співвідношення між швидкостями коліс} = \frac{r_1}{r_2}
 
 
 Поєднавши їх, отримуємо:
 
 .. math:: 
     
-    \text{ratio between wheel speeds} = \frac{r_{desired} - \frac{r_{bot}}{2}}{r_{desired} + \frac{r_{bot}}{2}}
+    \text{співвідношення між швидкостями коліс} = \frac{r_{бажаний} - \frac{r_{bot}}{2}}{r_{бажаний} + \frac{r_{bot}}{2}}
 
 .. admonition:: Спробуйте
 
