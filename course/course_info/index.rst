@@ -1,4 +1,4 @@
-Welcome to Introduction to Robotics
+Ласкаво просимо до вступу до робототехніки!
 ===================================
 Ласкаво просимо на курс «Вступ до робототехніки» від Глобальної ініціативи STEM-освіти WPI
 з використанням нових роботів XRP. Цей курс викладає основи робототехніки та програмування
@@ -13,17 +13,12 @@ Welcome to Introduction to Robotics
 .. figure:: deliveryRobotImage.png
     :align: center
 
-    Final project delivery robot challenge (see final project module for more information)
+    Фінальний проектний челендж з роботом для виконання (див. модуль «Фінальний проект» для          отримання додаткової інформації)
 
-The course can be run with one robot per student or with teams of a few students working on each robot. Working in teams allows students to help each other as they work through the course. But one student must not be doing all the work, preventing the other team members from learning the material.
+Курс може проводитися з одним роботом на учня або з командами з кількох учнів, які працюють над кожним роботом. Робота в командах дозволяє учням допомагати один одному під час проходження курсу. Але один учень не повинен виконувати всю роботу, заважаючи іншим членам команди вивчати матеріал.
 
-This is a brand-new course with new robots and software, so there may be bugs 
-and unexpected problems. We will strive to be responsive to any questions you 
-might have. If you have any questions or find anything not working as you 
-expect it to, feel free to contact us.
+Це абсолютно новий курс з новими роботами та програмним забезпеченням, тому можуть виникати помилки та неочікувані проблеми. Ми прагнутимемо реагувати на будь-які ваші запитання. Якщо у вас виникнуть будь-які запитання або ви помітите, що щось працює не так, як ви очікуєте, звертайтеся до нас.
 
-For questions and technical support for the XRP, see our Discourse server.
-There are instructions on how to sign up in the `Getting Help`
-section of this course.
+Щоб отримати відповіді на запитання та технічну підтримку щодо XRP, дивіться наш сервер Discourse. Інструкції щодо реєстрації наведено в розділі «Отримання допомоги» цього курсу.
 
 
