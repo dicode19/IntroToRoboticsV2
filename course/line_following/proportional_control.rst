@@ -1,55 +1,55 @@
-Following the Line: Proportional Control
+Слідування за лінією: пропорційне керування
 ========================================
 
-In the measuring distances module, you used proportional control to make the
-robot drive straight along a wall. We can apply proportional control to the line
-following problem too!
+У модулі вимірювання відстаней ви використовували пропорційне керування, щоб
+робот рухався прямо вздовж стіни. Ми можемо застосувати пропорційне керування і до завдання
+слідування за лінією!
 
 
-The perks of proportional control
+Переваги пропорційного керування
 ---------------------------------
 
-Let's circle back to the previous exercise - following the line by either
-turning left or right depending on whether the robot is situated to the left or
-the right of the line.
+Повернемося до попереднього завдання — слідування лінії шляхом
+повороту вліво або вправо залежно від того, чи знаходиться робот ліворуч чи
+праворуч від лінії.
 
-What is immediately striking about following the line in this way? Well, the
-robot must constantly oscillate in order to stay on the edge of the line,
-because even the smallest deviation from the edge of the line results in the
-robot wildly turning to compensate. In addition, it does not react any more
-forcefully to bigger deviations like when the line starts curving, and as soon
-as it loses sight of the line, it has no way of recovering.
+Що відразу впадає в око при такому слідуванні за лінією? Ну,
+робот повинен постійно коливатися, щоб залишатися на краю лінії,
+тому що навіть найменше відхилення від краю лінії призводить до того, що
+робот різко повертає, щоб компенсувати це. Крім того, він не реагує більш
+рішуче на більші відхилення, наприклад, коли лінія починає вигинатися, і як тільки
+він втрачає лінію з поля зору, він не має можливості відновитися.
 
-Instead of only having two cases, it seems like we'd want a whole bunch of
-cases, for anywhere from a sharp left turn to going perfectly straight to a
-sharp right turn, and everything in between, based on whether the reflectance
-sensor is completely on white, grey, black, or somewhere in between.
+Замість двох випадків, здається, нам потрібно ціла низка
+випадків, від різкого повороту вліво до руху по прямій до
+різкого повороту вправо, і все, що між ними, залежно від того, чи датчик відбиття
+повністю на білому, сірому, чорному або десь посередині.
 
 .. figure:: media/p_control_1.png
     :align: center
 
-    Desired steering actions based on what the sensor sees.
+    Бажані дії рульового управління на основі того, що бачить датчик.
 
-Having a long chain of if-else statements doesn't sound fun. Perhaps we can look
-at this with a completely fresh approach?
+Наявність довгого ланцюжка операторів if-else не здається приємною справою. Можливо, ми можемо поглянути
+на це з абсолютно нового боку?
 
-From the previous module, we looked at proportional control to smoothly control
-the robot's distance to the wall using the distance sensor. Can we use the same
-concept here?
+У попередньому модулі ми розглядали пропорційне регулювання для плавного контролю
+відстані робота до стіни за допомогою датчика відстані. Чи можемо ми використовувати ту саму
+концепцію тут?
 
-Calculating error
+Розрахунок помилки
 -----------------
 
-With proportional control, we have an error value we desire for it to tend to
-zero, and some motor output is controlled proportional to the error to minimize
-that error - in the case of maintaining a certain distance to the wall, the
-error was the difference between the target and actual distance, and the output
-was the speed of both drive motors. In the case of line following, the error is
-the difference from 0.5 - since ideally, the robot follows the grey edge of the
-line and goes straight - and the motor output is how the robot should turn.
+При пропорційному регулюванні ми маємо значення похибки, яке ми хочемо звести до
+нуля, і частина вихідної потужності двигуна регулюється пропорційно похибці, щоб мінімізувати
+цю похибку - у випадку підтримки певної відстані до стіни,
+похибка була різницею між цільовою і фактичною відстанню, а вихідною потужністю
+була швидкість обох приводних двигунів. У випадку слідування лінії похибка є
+різницею від 0,5 — оскільки в ідеалі робот слідує за сірим краєм
+лінії і рухається прямо — а вихідна потужність двигуна визначає, як робот повинен повертати.
 
 
-So, we can obtain error value with the following code:
+Отже, ми можемо отримати значення похибки за допомогою наступного коду:
 
 .. tab-set::
 
@@ -64,12 +64,12 @@ So, we can obtain error value with the following code:
         .. image:: media/set_error.png
             :width: 300
 
-Above, we subtract 0.5 to *normalize* the reflectance value: the error is
-negative when the robot is too far left and needs to turn right, and positive
-when the robot is too far right and needs to turn left. Let's put that code into
-the test. We can put it in the loop, print out the error at each iteration, and
-move the robot around the line to see how the error changes. The code is as
-follows:
+Вище ми віднімаємо 0,5, щоб *нормалізувати* значення відбиття: помилка є
+негативною, коли робот знаходиться занадто далеко ліворуч і повинен повернути праворуч, і позитивною,
+коли робот знаходиться занадто далеко праворуч і повинен повернути ліворуч. Давайте перевіримо цей код на
+практиці. Ми можемо помістити його в цикл, виводити помилку при кожній ітерації і
+переміщати робота по лінії, щоб побачити, як змінюється помилка. Код виглядає
+наступним чином:
 
 .. tab-set::
 
@@ -83,29 +83,29 @@ follows:
             while True:
                 error = reflectance.get_left() - 0.5
                 print("Error: ", error)
-                sleep(0.1) # This sleep makes the loop run 10 times every second
+                sleep(0.1) # Цей сон змушує цикл виконуватися 10 разів на секунду
 
     .. tab-item:: Blockly
 
         .. image:: media/print_error.png
             :width: 300
 
-Implementing proportional control
+Впровадження пропорційного управління
 ---------------------------------
 
-Based on the computed error, we want that to determine how much the robot turns. 
+На основі обчисленої похибки ми хочемо визначити, на скільки повинен повернутись робот. 
 
 .. figure:: media/p_control_2.png
     :align: center
 
-    Desired steering actions and proportional control output based on what the
-    sensor sees.
+    Бажані дії керування та пропорційний вихідний сигнал управління на основі того, що
+    бачить датчик.
 
-This image illustrates how the error impacts how much we want to turn. Remember:
-making the robot turn is simply setting the left and right motors to different
-efforts. So, the solution is to set a base effort, say, 50% effort, that both
-motors move at when the error is at 0. Then, have the calculated error influence
-the difference in efforts between the two motors. As explained through code:
+Це зображення ілюструє, як похибка впливає на те, наскільки ми хочемо повернути. Пам'ятайте:
+повернути робота означає просто встановити різні зусилля для лівого і правого двигунів.
+ Отже, рішення полягає в тому, щоб встановити базове зусилля, скажімо, 50%, з яким обидва
+двигуни рухаються, коли похибка дорівнює 0. Потім розрахована похибка впливає на
+різницю в зусиллях між двома двигунами. Як пояснено в коді:
 
 .. tab-set::
 
@@ -120,14 +120,12 @@ the difference in efforts between the two motors. As explained through code:
         .. image:: media/set_effort_error.png
             :width: 300
 
-This would be run inside the loop. The base_effort represents the average effort
-of the motors, no matter how much the robot turns. KP scales how much the robot
-should turn based on the error - a higher KP means the robot will react more
-violently to small deviations in error.
+Це буде виконуватися всередині циклу. base_effort представляє середнє зусилля двигунів, незалежно від того, наскільки повертається робот. KP масштабує, наскільки робот повинен повертатися, виходячи з похибки - більш високе значення KP означає, що робот буде реагувати більш
+різко на невеликі відхилення в похибці.
 
-Let's do a quick check to make sure the code makes sense. We assume base_effort
-= 0.5 and KP = 1. If the reflectance reads whitish-grey and yields a value of
-around 0.25, the error would be -0.25, meaning that the left motor's effort is:
+Давайте швидко перевіримо, чи має сенс цей код. Припустимо, що base_effort
+= 0,5 і KP = 1. Якщо відбиття має біло-сірий колір і дає значення
+близько 0,25, помилка буде -0,25, що означає, що зусилля лівого двигуна становить:
 
 .. math:: 
 
@@ -137,7 +135,7 @@ around 0.25, the error would be -0.25, meaning that the left motor's effort is:
     & = 0.75
     \end{align}
 
-and the right motor's speed is: 
+а швидкість правого двигуна становить: 
 
 .. math:: 
 
@@ -147,30 +145,28 @@ and the right motor's speed is:
     & = 0.25
     \end{align}
 
-Motor efforts of 0.75 and 0.25 would indicate a turn to the right, and the code
-does as desired.
+Моторні зусилля 0,75 і 0,25 вказують на поворот вправо, і код працює як потрібно.
 
-This is a video illustrating line following with one-sensor control. Notice the
-smoother tracking compared to on/off control, yet the robot is still unable to
-recover from the last bend, because even a small amount of strafing from the
-line results in the robot completely losing where it is. Also, the KP value was
-not equal to 1 here; it's up to you to figure out the best KP value for your
-bot.
+Це відео ілюструє слідування лінії за допомогою управління одним датчиком. Зверніть увагу на
+більш плавне відстеження в порівнянні з управлінням увімкнення/вимкнення, проте робот все ще не може відновити рівновагу після останнього повороту, оскільки навіть невелике відхилення від
+лінії призводить до того, що робот повністю втрачає орієнтацію. Крім того, значення KP тут
+не дорівнювало 1; вам належить самостійно визначити найкраще значення KP для вашого
+бота.
 
 
 .. figure:: media/proportional_line_following.gif
     :align: center
 
-    XRP following a line with proportional control. The robot would not be able 
-    to follow a curved line this quickly using on-off control!
+    XRP слідує лінії з пропорційним керуванням. Робот не зміг би 
+    так швидко слідувати кривій лінії, використовуючи імпульсне керування!
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте це
     
-    Write code for the robot to follow the line with proportional control, as
-    shown in the video above. Note: this isn't much more than calculating error
-    as shown in the previous section then integrating the above line of code in 
-    a loop.
+    Напишіть код для робота, щоб він слідував за лінією з пропорційним керуванням, як
+    показано у відео вище. Примітка: це не набагато більше, ніж обчислення похибки,
+    як показано в попередньому розділі, а потім інтегрування вищезазначеного рядка коду в 
+    цикл.
 
-    Play around with the value of KP. How does a higher or lower KP affect the
-    amount of oscillation when following the line, and how responsive the robot
-    is to curved lines? What is the optimal value of KP?
+    Поекспериментуйте зі значенням KP. Як вищий або нижчий KP впливає на
+    величину коливань під час слідування за лінією та на чутливість робота
+    до кривих ліній? Яке оптимальне значення KP?
