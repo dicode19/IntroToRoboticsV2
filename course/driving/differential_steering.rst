@@ -67,9 +67,9 @@
 
 Поєднавши їх, отримуємо:..
 
- math:: 
+ ..math:: 
     
-    \text{співвідношення між швидкостями коліс} = \frac{r_{бажаний} - \frac{r_{бот}}{2}}{r_{бажаний} + \frac{r_{бот}}{2}}..
+    \text{ratio between wheel speeds} = \frac{r_{desired} - \frac{r_{bot}}{2}}{r_{desired} + \frac{r_{bot}}{2}}
 
  admonition:: Спробуйте
 
