@@ -1,95 +1,95 @@
-Advanced: Circles and Differential Steering
+Для просунутих: Кола та диференціальне керування
 ===========================================
 
-In this section, we derive the math needed to drive in circles of any radius.
-Fundamentally, this requires driving the two motors at different ratio, but it
-takes a little calculation to figure out this ratio for a given radius.
+У цьому розділі ми виведемо математичні формули, необхідні для руху по колу будь-якого радіусу.
+В основному, для цього потрібно керувати двома двигунами з різним співвідношенням, але
+потрібно трохи порахувати, щоб визначити це співвідношення для заданого радіусу.
 
 .. youtube:: kd2-mhI2CgE
 
-The robot goes in an arc. The wheels draw out 2 different circles with 2
-different radii. The arc with the smaller radius (:math:`r_1`, the white line)
-has a smaller circumference. That means the left wheel has driven a smaller
-distance. It has gone slower.
+Робот рухається по дузі. Колеса малюють 2 різні кола з 2
+різними радіусами. Дуга з меншим радіусом (:math:`r_1`, біла лінія)
+має меншу довжину. Це означає, що ліве колесо проїхало меншу
+відстань. Воно рухалося повільніше.
 
-How would you drive in an arc with a given radius?
+Як би ви рухалися по дузі з заданим радіусом?
 --------------------------------------------------
-We know the wheels trace out arcs when we make the wheels go at different
-speeds, but how do we decide what the wheel speeds should be?
+Ми знаємо, що колеса малюють дуги, коли ми змушуємо їх рухатися з різною
+швидкістю, але як ми вирішуємо, якою має бути швидкість коліс?
 
-What do we know?
+Що ми знаємо?
 ----------------
 
-Let us start with what we know about the two arcs, and the arc we want the
-center of the robot to go through. 
+Почнемо з того, що ми знаємо про дві дуги та дугу, по якій ми хочемо, щоб
+проїхав центр робота. 
 
   
-The first thing we can say about any circle is that the radius is proportional
-to the circumference. This means that the inner and outer arc lengths are
-proportional to the inner and outer radii, or 
+Перше, що ми можемо сказати про будь-яке коло, це те, що радіус пропорційний
+до окружності. Це означає, що довжини внутрішньої та зовнішньої дуг
+пропорційні внутрішньому та зовнішньому радіусам, або ..
 
-.. math:: 
+ math:: 
     
-    \frac{\text{left wheel distance}}{\text{right wheel distance}} = \frac{r_1}{r_2}
+    \frac{\text{відстань лівого колеса}}{\text{відстань правого колеса}} = \frac{r_1}{r_2}
 
-This means that the *ratio* between the wheel speeds is equal to
+Це означає, що *співвідношення* між швидкостями коліс дорівнює
 :math:`\frac{r_1}{r_2}`.
 
-Hey! We found out what the ratio between the wheel speeds is supposed to be if
-we know the two radii. But how do we find what the two radii are? We only know
-what we want the radius of the orange circle to be.
+Гей! Ми з'ясували, яким має бути співвідношення між швидкостями коліс, якщо
+ми знаємо два радіуси. Але як ми можемо знайти ці два радіуси? Ми знаємо тільки,
+ яким ми хочемо, щоб був радіус помаранчевого кола.
 
-But we know what the distance between the two wheels are. 
+Але ми знаємо, яка відстань між двома колесами. ..
 
-.. image:: media/Screenshot2023-03-07142430.png
+ image:: media/Screenshot2023-03-07142430.png
 
-If :math:`r_{bot}` is the distance between the two wheels, then
+Якщо :math:`r_{bot}` — відстань між двома колесами, то..
 
-.. math:: 
+ math:: 
     
     r_1 = r_{desired} - \frac{r_{bot}}{2} 
 
-since r1 is less than the desired radius, and
+оскільки r1 менше за бажаний радіус, і..
 
-.. math:: 
+ math:: 
     
     r_2 = r_{desired} + \frac{r_{bot}}{2}
  
-We found out the radii of the circles we want the left and right wheels to
-trace, and we know how to find the ratio between the wheel speeds from that. 
+Ми визначили радіуси кіл, які повинні пройти ліве і праве колеса,
+і знаємо, як знайти співвідношення між швидкостями коліс на основі цього. 
 
-Remember:  
+Пам'ятайте:  ..
 
-.. math:: 
+ math:: 
   
-    \text{ratio between wheel speeds} = \frac{r_1}{r_2}
+    \text{співвідношення між швидкостями коліс} = \frac{r_1} {r_2}
 
 
-Putting them together, we get,
+Поєднавши їх, отримуємо:..
 
-.. math:: 
+ math:: 
     
-    \text{ratio between wheel speeds} = \frac{r_{desired} - \frac{r_{bot}}{2}}{r_{desired} + \frac{r_{bot}}{2}}
+    \text{співвідношення між швидкостями коліс} = \frac{r_{бажаний} - \frac{r_{бот}}{2}}{r_{бажаний} + \frac{r_{бот}}{2}}..
 
-.. admonition:: Try it out
+ admonition:: Спробуйте
 
-    Write code to make the robot drive in a circle. Use the :code:`set_speed`
-    function, and use a speed of 5 cm per second for the left wheel speed. 
-    Use the ratio you calculated to find out what the right wheel speed should 
-    be (multiply 5 by the ratio)
+    Напишіть код, щоб робот рухався по колу. Використовуйте функцію :code:`set_speed`
+    і швидкість 5 см на секунду для лівого колеса. 
+    Використовуйте розраховане співвідношення, щоб визначити швидкість правого колеса 
+    (помножте 5 на співвідношення)
 
-    Now try using 5 for the right wheel speed, and use the ratio for the left 
-    wheel. What happened?
+    Тепер спробуйте використовувати 5 для швидкості правого колеса і співвідношення для лівого 
+    колеса. Що сталося?
 
-Additional challenges 
+Додаткові завдання 
 ---------------------
 
-Try to make the robot do a point turn! What is the radius of the circle that you
-want it to drive in then? 
+Спробуйте змусити робота зробити поворот на місці! Який радіус кола ви
+хочете, щоб він проїхав? 
 
-Try and make the robot turn around one of the wheels. What is the new desired
-radius?
+Спробуйте змусити робота обернутися навколо одного з коліс. Який новий бажаний
+радіус?
 
-Try making the robot drive backwards in an arc
+Спробуйте змусити робота їхати назад по дузі
 
  
