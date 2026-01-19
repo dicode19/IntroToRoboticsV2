@@ -1,36 +1,37 @@
-Intersection into Drop Off  
-=========================
+Перехрестя в зоні висадки пасажирів  
+==================================
 
-Now that we've learned how to detect an intersection and develop custom functions, let's try to put it all together to create a program that can drop a basket off at a designated location.
+Тепер, коли ми навчилися визначати перехрестя і розробляти власні функції, спробуємо об'єднати все це, щоб створити програму, яка зможе доставити кошик у визначене місце.
 
-The Process:  
+Процес:  
 ------------
 
-Let's first think about the process: 
+Спочатку давайте поміркуємо над процесом: 
 
-We want to first detect an intersection and know that we can accomplish this by waiting for both line sensors to detect a line. 
+Спочатку ми хочемо виявити перетин і знаємо, що це можна зробити, дочекавшись, поки обидва лінійні датчики виявлять лінію. 
 
-Once we detect an intersection, we want to turn 180 degrees to ensure that we are facing the correct direction to drop off the basket.
+Як тільки ми виявляємо перехрестя, ми хочемо повернути на 180 градусів, щоб переконатися, що ми рухаємося в правильному напрямку, щоб скинути кошик.
 
-Then, we want to travel a certain distance to ensure that we are at the correct location to drop off the basket.
+Потім ми хочемо проїхати певну відстань, щоб переконатися, що ми знаходимося в правильному місці для вивантаження кошика.
 
-Once we are at the correct location, we want to drop off the basket.
+Як тільки ми опинимося в потрібному місці, ми хочемо скинути кошик.
 
-Then, we want to drive back to the intersection. Since we are already facing "backwards", this means that we don't have to correct our orientation before returning to the intersection.
+Потім ми хочемо повернутися до перехрестя. Оскільки ми вже їдемо «заднім ходом», це означає, 
+що нам не потрібно коригувати напрямок руху перед поверненням до перехрестя.
 
-Finally, we want to put the arm back into the starting position and start line following again.
+Нарешті, ми хочемо повернути руку у вихідне положення і знову почати слідування по лінії.
 
-Put together, this process can be broken into these steps:
+В цілому цей процес можна розділити на такі етапи:
 
-1. Detect an intersection
-2. Turn 180 degrees
-3. Travel our desired distance
-4. Drop off the basket
-5. Drive back to the intersection
-6. Put the arm back into the starting position
-7. Start line following again
+1. Виявити перехрестя.
+2. Повернути на 180 градусів.
+3. Проїхати потрібну відстань.
+4. Виставити кошик.
+5. Повернутися до перехрестя.
+6. Повернути руку у вихідне положення.
+7. Почати знову слідувати за лінією.
 
-We can use the functions we've already created to do this:
+Для цього ми можемо використовувати функції, які ми вже створили:
 
 .. error:: 
 
