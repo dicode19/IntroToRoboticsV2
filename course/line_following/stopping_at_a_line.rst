@@ -1,17 +1,17 @@
-Stopping at a Line
+Зупинка на лінії
 ==================
 
-In the last module, you wrote and tested a function which could accurately 
-determine if the reflectance sensor was able to see a line. In this activity, 
-you'll use that function to make the robot stop when it sees a line.
+У попередньому модулі ви написали та протестували функцію, яка могла точно 
+визначити, чи датчик відбиття бачить лінію. У цьому завданні 
+ви використаєте цю функцію, щоб змусити робота зупинятися, коли він бачить лінію.
 
 .. figure:: media/stop_at_line.gif
     :align: center
 
-    The XRP stopping when it sees a line.
+    XRP зупиняється, коли бачить лінію.
 
-Let's consider a previous exercise - using a while loop to drive a
-certain distance:
+Розглянемо попереднє завдання — використання циклу while для проходження
+певної відстані:
 
 .. tab-set::
 
@@ -25,11 +25,8 @@ certain distance:
                 drivetrain.set_speed(5, 5)
             drivetrain.stop()
 
-        In this code, the condition being checked is
-        ``drivetrain.get_left_encoder_position() < 20`` meaning that the robot will
-        drive forward at 5 cm/s until the left encoder reads a distance of 20 cm. This 
-        code can be easily modified to replace the current condition with a condition 
-        that uses the function you wrote.
+        У цьому коді перевіряється умова
+        ``drivetrain.get_left_encoder_position() < 20`` що означає, що робот буде рухатися вперед зі           швидкістю 5 см/с, поки лівий енкодер не прочитає відстань 20 см. Цей код можна легко                   модифікувати, щоб замінити поточну умову на умову, яка використовує функцію, яку ви написали.
     
     .. tab-item:: Blockly
 
@@ -39,37 +36,30 @@ certain distance:
         .. |ico1| image:: media/left_encoder_condition.png
             :height: 3ex
 
-        In this code, the condition being checked is |ico1| meaning that the robot will
-        drive forward at 5 cm/s until the left encoder reads a distance of 20 cm. This 
-        code can be easily modified to replace the current condition with a condition 
-        that uses the function you wrote.
+        У цьому коді перевіряється умова |ico1|, що означає, що робот буде рухатися вперед зі                  швидкістю 5 см/с, поки лівий енкодер не зчитає відстань 20 см. Цей код можна легко                     модифікувати, щоб замінити поточну умову на умову, яка використовує функцію, яку ви написали.  
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Modify the example code to use your function (``is_over_line()``) as the 
-    condition for the loop.
+    Змініть приклад коду, щоб використовувати вашу функцію (``is_over_line()``) як     
+    умову для циклу.
 
-    If you need to "invert" the value of your function (convert ``False`` to
-    ``True`` and ``True`` to ``False``), you can use the ``not`` *operator*
-    before calling your function like this: ``not is_over_line()``. This code
-    does exactly what it sounds like: returns ``True`` when the robot is ``not``
-    over the line.
+    Якщо вам потрібно «інвертувати» значення вашої функції (перетворити «False» на    
+    ``True``, а ``True`` в ``False``), ви можете використати оператор ``not`` *перед викликом функції,     наприклад: ``not is_over_line()``. Цей код робить саме те, що й має робити: повертає ``True``,         коли робот ``не`` знаходиться над лінією.    
 
-Once you've tested your code and proved it to meet the challenge, make a new 
-function called ``drive_until_line()`` and put your code in it. Don't delete 
-this function, as you'll need it later!
+Після того, як ви протестували свій код і переконалися, що він відповідає завданням, 
+створіть нову функцію під назвою ``drive_until_line()`` і вставте в неї свій код. 
+Не видаляйте цю функцію, вона знадобиться вам пізніше!
 
-Challenge activity
+Виклик
 ------------------
 
-For an added challenge, try to write code which makes the robot capable of 
-driving over and stopping at several lines. The robot should drive over a line,
-stop for some amount of time, say two seconds, and then start driving again 
-until it sees another line. This cycle should repeat forever.
+Для додаткового виклику спробуйте написати код, який дозволить роботу 
+проїхати кілька ліній і зупинитися на них. Робот повинен проїхати лінію,
+зупинитися на деякий час, скажімо, на дві секунди, а потім знову рушити 
+до наступної лінії. Цей цикл повинен повторюватися нескінченно.
 
 .. tip:: 
 
-    You'll need to write some logic which handles the robot driving *off* of the
-    line too! Your code from the main activity might not be enough to handle
-    this! Think about what your code would do if it started out *already on* a
-    line.
+    Вам потрібно буде написати логіку, яка буде обробляти виїзд робота *за межі* лінії! 
+    Вашого коду з основної активності може бути недостатньо для обробки цього! 
+    Подумайте, що буде робити ваш код, якщо він почне роботу *вже на* лінії.
