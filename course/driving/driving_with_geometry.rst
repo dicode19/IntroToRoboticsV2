@@ -1,29 +1,27 @@
-Driving With Geometry
+Водіння з геометрією
 =====================
 
-The XRP's driving and turning functions can also be used to draw geometric patterns!
-By driving a set distance and turning by a certain angle several times, you can draw a 
-shape with as many sides as you want.
+Функції руху та повороту XRP також можна використовувати для малювання геометричних фігур!
+Проїхавши певну відстань і кілька разів повернувши на певний кут, можна намалювати 
+фігуру з будь-якою кількістю сторін.
 
 .. tip:: 
 
-    To see the path your XRP has driven, you can place a dry-erase marker between the
-    robot's wheels and trace your pattern on a whiteboard.
+    Щоб побачити шлях, який проїхав ваш XRP, ви можете помістити маркер для сухого стирання між     колесами робота і простежити ваш малюнок на дошці.
 
 
-To draw any polygon, you just need to know the size of the shape's exterior angles,
-and you need to decide how long the sides should be. Then, you just have to drive straight with the distance
-of a side length and turn the number of degrees of the corresponding exterior angle.
-Repeat this until the shape is finished.
+Щоб намалювати будь-який багатокутник, потрібно лише знати розмір зовнішніх кутів фігури
+і вирішити, якою має бути довжина сторін. Потім потрібно просто рухатися прямо на відстань, що дорівнює довжині сторони, і повертати на кількість градусів, що відповідає зовнішньому куту.
+Повторюйте це, поки фігура не буде завершена.
 
 .. image:: media/exterior-angle.png
 
-Triangle
+Трикутник
 --------
 
-For a triangle, the interior angles measure 60 degrees and the exterior angles measure 120 degrees.
-We can trace a triangle with side lengths of 30 cm by having our robot drive straight for 30 cm
-three times and turn 120 degrees in between each drive straight.
+Для трикутника внутрішні кути дорівнюють 60 градусів, а зовнішні кути — 120 градусів.
+Ми можемо накреслити трикутник зі сторонами довжиною 30 см, якщо наш робот проїде прямо 30 см
+тричі і поверне на 120 градусів між кожним прямим рухом.
 
 
 .. tab-set::
@@ -46,12 +44,10 @@ three times and turn 120 degrees in between each drive straight.
             :width: 300
 
 
-Square
+Квадрат
 ------
 
-The process for tracing a square is similar to tracing a triangle. The interior angles are 90 degrees so
-the exterior angles are also 90 degrees. Keeping a side length of 30 cm, we can trace a square by 
-programming our robot to drive straight for 30 cm four times and turn 90 degrees between each drive straight.
+Процес обведення квадрата схожий на обведення трикутника. Внутрішні кути дорівнюють 90 градусам, тому зовнішні кути також дорівнюють 90 градусам. Зберігаючи довжину сторони 30 см, ми можемо обвести квадрат, запрограмувавши нашого робота рухатися прямо 30 см чотири рази і повертати на 90 градусів між кожним прямим рухом.
 
 .. tab-set::
 
@@ -74,25 +70,19 @@ programming our robot to drive straight for 30 cm four times and turn 90 degrees
         .. image:: media/square-blockly.png
             :width: 300
 
-Polygons
+Багатокутники
 --------
 
-We can generalize the procedure used to make a triangle and square to make any regular polygon; you just have to
-determine the exterior angle and choose a side length. However, for polygons with many sides, this process can get very tedious. 
-Instead of repeating the same code multiple times, we can use a function to simplify the process. 
+Ми можемо узагальнити процедуру, яка використовується для створення трикутника і квадрата, щоб створити будь-який правильний багатокутник; потрібно лише визначити зовнішній кут і вибрати довжину сторони. Однак для багатокутників з великою кількістю сторін цей процес може бути дуже нудним. Замість того, щоб повторювати один і той самий код кілька разів, ми можемо використовувати функцію, щоб спростити процес. 
 
-First, lets determine what information the function needs. To trace a polygon, you need to determine the number of sides 
-and the length of each side. We can create a function that takes these two values as an input. 
-The function will drive the distance we give it, turn by the exterior angle, and then repeat that process
-as many times as there are sides in the shape. We can use a loop for this. The one problem is:
-how do we know the measure of the exterior angles? Fortunately, this can be easily calculated with this equation:
+Спочатку визначимо, яка інформація потрібна функції. Щоб прокреслити багатокутник, потрібно визначити кількість сторін і довжину кожної сторони. Ми можемо створити функцію, яка приймає ці два значення як вхідні. Функція буде рухатися на задану відстань, повертати на зовнішній кут, а потім повторювати цей процес стільки разів, скільки є сторін у фігурі. Для цього ми можемо використовувати цикл. Єдина проблема: як дізнатися величину зовнішніх кутів? На щастя, це можна легко обчислити за допомогою цього рівняння:
 
 .. math:: 
     360/n
 
-With the variable *n* representing the number of sides of your polygon, this equation 
-determines the number of degrees of your polgyon's exterior angles. With this information, you 
-can now write a function to trace any regular polygon!
+Зі змінною *n*, що позначає кількість сторін вашого багатокутника, це рівняння 
+визначає кількість градусів зовнішніх кутів вашого багатокутника. Маючи цю інформацію, ви 
+тепер можете написати функцію для відстеження будь-якого правильного багатокутника!
 
 .. tab-set::
     
@@ -112,21 +102,15 @@ can now write a function to trace any regular polygon!
         .. image:: media/polygon-blockly.png
             :width: 450
 
-Pinwheel
+Вітрячок
 --------
 
-Now we know how to easily draw any polygon, but we can take it one step further and draw a polygon pinwheel.
-This pattern consists of several polygons extending out from a center point. Your XRP can execute this
-by tracing several polygons consecutively and turning slightly between each new polygon. A pinwheel of 3 squares should look 
-something like this:
+Тепер ми знаємо, як легко намалювати будь-який багатокутник, але можемо піти ще далі і намалювати багатокутник-вертушку. Цей візерунок складається з декількох багатокутників, що розходяться від центральної точки. Ваш XRP може виконати це, промальовуючи кілька багатокутників поспіль і трохи повертаючись між кожним новим багатокутником. Вертушка з 3 квадратів повинна виглядати приблизно так:
 
 .. image:: media/pinwheel-square.jpg
     :width: 240
 
-Programming this may seem like a daunting task, but it is actually quite simple. Every time you want to trace a piece
-of the pinwheel, you just need to call your polygon function from before and then turn your robot slightly. We can calculate the measure of this
-turn by dividing 360 degrees by the number of polygons we are tracing in order to keep even spacing between each polygon.
-Repeat this process as many times as there are polygons in the pinwheel, and your pattern will be finished!
+Програмування цього може здатися складним завданням, але насправді це досить просто. Кожного разу, коли ви хочете простежити частину вертушки, вам просто потрібно викликати свою функцію багатокутника, а потім трохи повернути робота. Ми можемо обчислити величину цього повороту, розділивши 360 градусів на кількість багатокутників, які ми простежуємо, щоб зберегти рівномірний інтервал між кожним багатокутником. Повторіть цей процес стільки разів, скільки є багатокутників у вітрячку, і ваш візерунок буде готовий!
 
 .. tab-set::
 
