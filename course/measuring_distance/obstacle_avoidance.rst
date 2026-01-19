@@ -1,19 +1,19 @@
-Obstacle Avoidance 
+Уникнення перешкод 
 ==================
 
-One useful application of the ultrasonic sensor is obstacle avoidance. 
+Одним із корисних застосувань ультразвукового датчика є уникнення перешкод. 
 
-In this tutorial, we will learn how to use the ultrasonic sensor to first stop at a certain distance from an object, and then to avoid the object by turning a random angle away from an object. 
+У цьому підручнику ми навчимося використовувати ультразвуковий датчик, щоб спочатку зупинитися на певній відстані від об'єкта, а потім уникнути зіткнення з об'єктом, повертаючись під випадковим кутом від нього. 
 
-Step 1: Going forward a certain distance
+Крок 1: Просунутися на певну відстань
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first step in obstacle avoidance is stopping at a certain distance from an object.
-To do this, we want to continuously read the rangefinder distance and check whether it is less than,
-let's say, 10 cm. Once it crosses this threshold, we want to stop the robot.
+Першим кроком уникнення перешкод є зупинка на певній відстані від об'єкта.
+Для цього ми хочемо постійно зчитувати відстань датчика відстані та перевіряти, чи вона менша,
+скажімо, 10 см. Як тільки вона перевищує цей поріг, ми хочемо зупинити робота.
 
-To accomplish this, we can use a while loop with a condition that checks whether the
-rangefinder distance is less than 10 cm.
+Для цього ми можемо використовувати цикл while з умовою, яка перевіряє, чи
+відстань датчика менша за 10 см.
 
 .. tab-set::
 
@@ -32,19 +32,16 @@ rangefinder distance is less than 10 cm.
         .. image:: media/forwarduntildistance.png
             :width: 300
 
-Step 2: Turing 180 degrees once an object is detected
+Крок 2: Поворот на 180 градусів після виявлення об'єкта
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Instead of simply stopping, we'd like to turn around 180 degrees, go forward, and repeat,
-turning 180 whenever we detect an object.
+Замість того, щоб просто зупинитися, ми хочемо розвернутися на 180 градусів, рухатися вперед і повторювати це, розвертаючись на 180 градусів щоразу, коли виявляємо об'єкт.
 
-To turn 180 degrees, we'd want to replace :code:`drivetrain.stop()` with :code:`drivetrain.turn(180)`.
-After this, we'd want to go forward again. But instead of writing :code:`drivetrain.set_speed(10, 10)` again,
-notice that we're just trying to run these two steps over and over:
-    1. Go forward until an object is detected
-    2. Turn 180 degrees
+Щоб повернути на 180 градусів, нам потрібно замінити :code:`drivetrain.stop()` на :code:`drivetrain.turn(180)`. Після цього нам потрібно знову рухатися вперед. Але замість того, щоб знову писати :code:`drivetrain.set_speed(10, 10)`, зверніть увагу, що ми просто намагаємося виконувати ці два кроки знову і знову:
+    1. Рухатися вперед, поки не буде виявлено об'єкт
+    2. Повернути на 180 градусів
 
-It looks like we can wrap these two steps in a while loop! Here's what the code looks like:
+Схоже, ми можемо об'єднати ці два кроки в циклі while! Ось як виглядає код:
 
 .. tab-set::
 
@@ -69,23 +66,19 @@ It looks like we can wrap these two steps in a while loop! Here's what the code 
         .. image:: media/forwardturnrepeat.png
             :width: 300
 
-Step 3: Turing a random angle once an object is detected
+Крок 3: Поворот під випадковим кутом після виявлення об'єкта
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Even though we're turning around after detecting an object, you should notice that your robot is getting stuck in a cycle.
-Because the robot is turning 180 degrees, it often turns back into the object it just detected. To fix this, many
-robots like iRobot's Roomba use a simple algorithm known as "bump and run." If you bump into an object, instead of turning 180
-degrees, the robot should turn away from it at a random angle to increase the chance it'll explore a new area.
+Незважаючи на те, що ми повертаємося після виявлення об'єкта, ви повинні помітити, що ваш робот застрягає в циклі. Оскільки робот повертається на 180 градусів, він часто повертається до об'єкта, який щойно виявив. Щоб виправити це, багато роботів, таких як iRobot's Roomba, використовують простий алгоритм, відомий як «bump and run» (зіткнись і біжи). Якщо ви зіткнулися з об'єктом, замість того, щоб повертатися на 180 градусів, робот повинен відвернутися від нього під випадковим кутом, щоб збільшити шанс, що він досліджуватиме нову територію.
 
-However, if the robot were to turn to a completely random angle, there would be a chance the robot barely turns at all if the random
-number is small. So, we'd want to give the robot a reasonable random range of angles to pick from.
+Однак, якщо робот повернеться під абсолютно випадковим кутом, існує ймовірність, що він майже не повернеться, якщо випадкове число буде невеликим. Тому ми хочемо надати роботу розумний діапазон випадкових кутів, з яких він може вибирати.
 
 .. tab-set::
 
     .. tab-item:: Python
 
-        We can use :code:`random.randint(135, 225)` to generate a random number between 135 and 225, which we can turn that many degrees.
-        Though, note that we need to :code:`import random` at the top of our program to import the library that contains this function.
+        Ми можемо використовувати :code:`random.randint(135, 225)` для генерації випадкового числа            від 135 до 225, яке ми можемо перетворити на відповідну кількість градусів.        
+        Однак зверніть увагу, що нам потрібно :code:`import random` у верхній частині програми, щоб           імпортувати бібліотеку, яка містить цю функцію.
 
         .. code-block:: python
 
@@ -113,4 +106,4 @@ number is small. So, we'd want to give the robot a reasonable random range of an
             :width: 400
 
 
-And voi la! We have successfully created a program where our robot can avoid objects forever!
+І ось! Ми успішно створили програму, за допомогою якої наш робот може назавжди уникати перешкод!
