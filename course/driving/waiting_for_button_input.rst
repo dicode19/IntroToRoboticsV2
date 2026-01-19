@@ -1,14 +1,14 @@
-Waiting for Button Input
+Очікування введення з кнопки
 ========================
 
-You may have noticed that your code runs immediately after uploading it. This is
-nice sometimes, but sometimes you aren't coding in the same place you will be
-running your code, and the robot suddenly driving itself off the table isn't an
-ideal result. In order to have the code run on command, we can use the on board
-buttons to tell the code when to run.
+Ви, мабуть, помітили, що ваш код запускається одразу після завантаження. 
+Іноді це добре, але іноді ви пишете код не в тому місці, де будете його
+виконувати, і раптова їзда робота зі столу не є ідеальним результатом. 
+Щоб код запускався за командою, ми можемо використовувати вбудовані
+кнопки, щоб вказати коду, коли його запускати.
 
-The XRP has a button which you can read from code. To make it easy, **XRPLib**
-has a built in function which will wait for the button to be pressed for you.
+XRP має кнопку, яку можна прочитати з коду. Для зручності **XRPLib**
+має вбудовану функцію, яка буде чекати, поки ви натиснете кнопку.
 
 .. tab-set::
 
@@ -28,14 +28,13 @@ has a built in function which will wait for the button to be pressed for you.
         .. image:: media/waitForButton.png
             :width: 300
 
-This function is part of :code:`board` since the button is on the XRP's main 
-controller board.
+Ця функція є частиною :code:`board`, оскільки кнопка знаходиться на головній 
+платі контролера XRP.
 
-This code will wait until the button is pressed, and then wait an additional 
-1 second (for you to get your finger out of the way) and then start driving.
+Цей код буде чекати, поки не буде натиснута кнопка, а потім ще 1 секунду (щоб ви встигли прибрати палець) і тільки після цього почне рух.
 
-There is also a function which lets you read the current state of the button
-without waiting for it:
+Також є функція, яка дозволяє зчитати поточний стан кнопки,
+не чекаючи на неї:
 
 .. code-block:: python
 
