@@ -1,14 +1,11 @@
-Using the Web Server as a Dashboard 
+Використання веб-сервера як панелі інструментів 
 ===================================
 
-The most useful application of the webserver is as a dashboard. The webserver can display live-updated 
-data from the robot, which can be a great debugging tool. Printing values that your robot calculates or 
-senses can help you understand why a bug is occuring because these values might not be what you expect, 
-and the only way to determine them is to read them as the program runs.
+Найбільш корисним застосуванням веб-сервера є його використання в якості інформаційної панелі. Веб-сервер може відображати дані, що оновлюються в режимі реального часу від робота, що може бути чудовим інструментом для налагодження. Виведення значень, які обчислює або вимірює ваш робот, може допомогти вам зрозуміти, чому виникає помилка, оскільки ці значення можуть не відповідати вашим очікуванням, а єдиний спосіб їх визначити — це зчитати їх під час виконання програми.
 
-You can send a value to the web server with just one line. 
-The :code:`webserver.log_data(label, data)` function will create a label on the webserver with the corresponding data. 
-If you call this multiple times, it will update the label on the webserver with the most recent value, which is how it is live-updated.
+Ви можете надіслати значення на веб-сервер лише одним рядком.
+Функція :code:`webserver.log_data(label, data)` створить мітку на веб-сервері з відповідними даними.
+Якщо ви викличете цю функцію кілька разів, вона оновить мітку на веб-сервері найновішим значенням, і саме так відбувається оновлення в режимі реального часу.
 
 .. tab-set::
 
@@ -33,9 +30,9 @@ If you call this multiple times, it will update the label on the webserver with 
         .. image:: media/dashboard.png
             :width: 600
 
-Now, after running this code, you may have noticed that it isn't live-updating. This is because the log_data function is only being called once.
-Your first instinct may be to put this in a loop, but that won't work because the webserver takes control of the main event loop.
-To get your data updating automatically, we can use the MicroPython :code:`Timer` class.
+Тепер, після запуску цього коду, ви, можливо, помітили, що він не оновлюється в режимі реального часу. Це тому, що функція log_data викликається тільки один раз.
+Вашим першим інстинктом може бути помістити це в цикл, але це не спрацює, оскільки веб-сервер бере під контроль основний цикл подій.
+Щоб ваші дані оновлювалися автоматично, ми можемо використовувати клас MicroPython :code:`Timer`.
 
 .. tab-set::
 
@@ -65,10 +62,10 @@ To get your data updating automatically, we can use the MicroPython :code:`Timer
 
     .. tab-item:: Blockly
 
-        This is not yet supported in Blockly.
+        Це ще не підтримується в Blockly.
 
-This will now update the distance every second. You can change the period to whatever you want. 
-One thing to take note of here is that the function that is called by the timer must take one parameter, which is the timer itself.
-We don't use this parameter in this example, but it is required to be there.
+Тепер відстань буде оновлюватися кожну секунду. Ви можете змінити період на будь-який інший. 
+Слід звернути увагу на те, що функція, яка викликається таймером, повинна приймати один параметр, яким є сам таймер.
+У цьому прикладі ми не використовуємо цей параметр, але він повинен бути присутнім.
 
-Now you can use this to debug your robot. You can add as many labels as you want, and in the future there will be more logging options available.
+Тепер ви можете використовувати це для налагодження свого робота. Ви можете додавати скільки завгодно міток, а в майбутньому з'являться додаткові опції реєстрації.
