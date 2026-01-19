@@ -1,24 +1,24 @@
-Staying in the Circle
+Залишатися в колі
 =====================
 
-Your robot is now capable of stopping when it sees a line. You can use this 
-functionality to keep your robot trapped inside a circle! You'll find out why 
-you'd want to do this in the next module, which is a challenge activity!
+Ваш робот тепер здатний зупинятися, коли бачить лінію. 
+Ви можете використовувати цю функцію, щоб утримати робота в колі! 
+Ви дізнаєтеся, навіщо це потрібно, в наступному модулі, який є завданням-викликом!
 
-Let's break this problem down into a series of steps:
+Розбиймо цю проблему на кілька етапів:
 
-#. Drive forward until a line is seen (the edge of the circle)
-#. Stop driving so that the robot doesn't leave the circle
-#. Turn around
-#. Repeat
+#. Проїжджайте вперед, поки не побачите лінію (край кола)
+#. Припиніть рух, щоб робот не виїхав за межі кола
+#. Повернись
+#. Повторити
 
-You already have code which does steps 1 and 2 (``drive_until_line()``), and you
-learned back in the robot driving module how to do step 3
-(``drivetrain.turn()``, see :doc:`/course/driving/calling_drive_functions` for a
-refresher)
+Ви вже маєте код, який виконує кроки 1 і 2. (``drive_until_line()``), а ви
+в модулі з керування роботами навчилися виконувати крок 3
+(``drivetrain.turn()``, see :doc:`/course/driving/calling_drive_functions` для
+повторення)
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Write an infinite loop which keeps the robot in a circle. Try out different 
-    angles when turning around. You may want to try not turning a full 180 
-    degrees.
+    Напишіть нескінченний цикл, який утримує робота в колі. Спробуйте різні     
+    кути при повороті. Можливо, ви захочете спробувати не повертати на повні 180     
+    градусів.
