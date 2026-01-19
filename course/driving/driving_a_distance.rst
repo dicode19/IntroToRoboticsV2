@@ -1,22 +1,20 @@
-Driving a Distance
+Водіння на відстані
 ==================
 
-Controlling your speed
+Контроль швидкості
 ----------------------
 
-In addition to setting the effort of the drivetrain's motors, we can also set 
-their *speed*. Remember, effort is not the same as speed. We can also ask the 
-XRP's motors to go a certain speed. When using this function, the XRP will
-actively measure the speed of the wheels using the motor's *encoder*. If the 
-speed falls too low, the motor will automatically increase the effort it applies
-to speed back up.
+Окрім налаштування зусилля двигунів трансмісії, ми також можемо налаштувати 
+їх *швидкість*. Пам'ятайте, що зусилля не є тим самим, що швидкість. Ми також можемо попросити 
+мотори XRP рухатися з певною швидкістю. При використанні цієї функції XRP буде
+активно вимірювати швидкість коліс за допомогою *енкодера* мотора. Якщо швидкість падає занадто низько, мотор автоматично збільшить зусилля, яке він застосовує, щоб знову набрати швидкість.
 
 .. tip:: 
 
-    Don't worry if you've never heard of an *encoder*. We'll talk more about 
-    them later in the lesson.
+    Не хвилюйтеся, якщо ви ніколи не чули про *encoder*. Ми поговоримо про них детальніше     
+    пізніше в цьому уроці.
 
-To set the speed of the drivetrain motors, we use a new function:
+Для налаштування швидкості двигунів трансмісії ми використовуємо нову функцію:
 
 .. tab-set:: 
 
@@ -33,78 +31,70 @@ To set the speed of the drivetrain motors, we use a new function:
         .. image:: media/setspeedexample.png
             :width: 300
 
-This tells the drivetrain to set the speed of each drivetrain wheel to travel at
-5 centimeters per second. This means if you put the robot down and let both motors
-drive at this speed, the robot would move 5 centimeters forwards each second.
+Це вказує трансмісії встановити швидкість кожного колеса трансмісії для руху зі швидкістю
+5 сантиметрів на секунду. Це означає, що якщо ви поставите робота на землю і дозволите обом двигунам рухатися з цією швидкістю, робот буде рухатися вперед на 5 сантиметрів щосекунди.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Add the code to your program and run it. Try the same exercise of pushing 
-    something up against the wheels of your XRP. Notice how as you add 
-    resistance, the motor will increase its effort to keep the speed constant.
-    When you remove the resistance, the effort will go back down.
+    Додайте код до своєї програми та запустіть її. Спробуйте виконати те саме завдання,             притиснувши щось до коліс вашого XRP. Зверніть увагу, що при додаванні     
+    опору двигун збільшить зусилля, щоб підтримувати постійну швидкість.    
+    Коли ви знімете опір, зусилля знову зменшаться..
 
-Since both wheels are now going the same speed, your robot should now also drive
-straight, unlike when using the :code:`set_effort` function.
+Оскільки обидва колеса тепер рухаються з однаковою швидкістю, ваш робот також повинен рухатися
+прямо, на відміну від використання :code:`set_effort` функція.
 
 .. tip:: 
     
-    If you want the robot to go backwards, use a negative speed value just like
-    you did with the effort value.
+    Якщо ви хочете, щоб робот рухався назад, використовуйте від'ємне значення швидкості, так        само як ви зробили це з значенням зусилля.
 
-Driving a distance
+Проїзд на автомобілі
 ------------------
 
-We know that we can ask the wheels to spin at a certain speed using a function, 
-but what if we want to make the robot drive a certain distance?
+Ми знаємо, що за допомогою функції можна задати певну швидкість обертання коліс, 
+але що робити, якщо ми хочемо, щоб робот проїхав певну відстань?
 
-We could ask the robot to move at some speed, and if we know how far it will 
-move each second (for this example we are using a speed of 5 cm/s), we can calculate
-how many seconds we should drive for to reach that distance.
+Ми можемо задати роботові певну швидкість руху, і якщо ми знаємо, яку відстань він проїде 
+за секунду (у цьому прикладі ми використовуємо швидкість 5 см/с), ми можемо обчислити,
+скільки секунд потрібно їхати, щоб проїхати цю відстань.
 
-Let's use :math:`d` to represent the distance we want to drive in cm. But, we want
-a number in seconds, so we need to convert by the means of *dimensional analysis*.
+Використаємо :math:`d` для позначення відстані, яку ми хочемо проїхати, в см. Але нам потрібне
+число в секундах, тому ми повинні перетворити його за допомогою *розмірного аналізу*.
 
-To do this, write an expression for the known value with units included:
+Для цього запишіть вираз для відомого значення з включеними одиницями виміру:
 
 .. math::
     (d  \text{ cm})
 
-Dimensional analysis involves multiplying this expression by special representations
-of "1" to convert units. In this case, our speed is 5 cm per second, so we can equate
-:math:`5 \text{ cm} = 1 \text{ second}`. Rearranging, we have our special representation of 1:
+Розмірний аналіз передбачає множення цього виразу на спеціальні представлення
+числа «1» для перетворення одиниць виміру. У цьому випадку наша швидкість становить 5 см за секунду, тому ми можемо прирівняти :math:`5 \text{ cm} = 1 \text{ second}`. Перегрупувавши, ми отримаємо наше спеціальне представлення 1:
 
 .. math:: 
 
     \frac{1 \text{ second}}{5 \text{ cm}} = 1
 
-We can now multiply our expression with this special representation of 1:
+Тепер ми можемо помножити наш вираз на це спеціальне представлення числа 1:
 
 .. math::
     (d \text{ cm}) \cdot \frac{1 \text{ second}}{5 \text{ cm}}
 
-Cancelling out units and simplifying, we obtain:
+Скорочуючи одиниці виміру та спрощуючи, отримуємо:
 
 .. math::
     (d  \cancel{\text{ cm}}) \cdot \frac{1 \text{ second}}{5 \cancel{\text{ cm}}} = \frac{d}{5} \text{ seconds}
 
 
-This resultant expression makes sense! If we want to go 5 cm, we plug in d = 5, and :math:`\frac{5}{5} = 1`,
-so we drive for one second. If we want to go 2.5 cm, we plug in d = 2.5, and :math:`\frac{2.5}{5} = 0.5`,
-so we drive for half a second.
+Отриманий вираз має сенс! Якщо ми хочемо просунутися на 5 см, підставляємо d = 5 і :math:`\frac{5}{5} = 1`,
+тож ми їдемо одну секунду. Якщо ми хочемо проїхати 2,5 см, ми підставляємо d = 2,5, і :math:`\frac{2.5}{5} = 0.5`, тож ми їдемо півсекунди.
 
-Keep in mind that this equation is only valid if the robot is moving at 5 cm per
-second. If you change that speed to be faster or slower, you'll need to change
-the denominator of the fraction to that speed to fix the equation.
+Майте на увазі, що це рівняння дійсне тільки в тому випадку, якщо робот рухається зі швидкістю 5 см в секунду. Якщо ви зміните цю швидкість на більшу або меншу, вам потрібно буде змінити
+знаменник дробу на цю швидкість, щоб виправити рівняння.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Calculate how many seconds you need to drive for to go one meter if your 
-    robot is moving at 5 cm per second. Remember, there are 100 cm in a meter.
+    Обчисліть, скільки секунд потрібно, щоб проїхати один метр, якщо ваш     
+    робот рухається зі швидкістю 5 см за секунду. Пам'ятайте, що в метрі 100 см.
 
-To put the above theory into practice, we need to learn about a new function in Python: 
-:code:`sleep`, which makes the XRP wait for some number of seconds before 
-continuing to the next instruction in the code.
+Щоб застосувати вищевикладену теорію на практиці, нам потрібно дізнатися про нову функцію в Python: :code:`sleep`, що змушує XRP чекати кілька секунд, перш ніж перейти до наступної інструкції в коді.
 
 .. tab-set:: 
 
@@ -127,27 +117,26 @@ continuing to the next instruction in the code.
 
 .. tip:: 
     
-    The :code:`#` symbol in Python creates a *comment*. If you add one to a line
-    of code, anything that comes after it on that line will be ignored by the 
-    robot. You can use it to leave notes for yourself, or to quickly disable a 
-    line of code while debugging problems.
+    Цей :code:`#` символ у Python створює *коментар*. Якщо ви додасте один до рядка    
+    коду, все, що йде після нього в цьому рядку, буде проігноровано     
+    роботом. Ви можете використовувати це, щоб залишати собі нотатки або швидко вимкнути     
+    рядок коду під час налагодження проблем..
 
-    We use comments in our examples to give you hints about how to write your
-    code. You don't need to copy our comments into your code, but you should
-    write your own so that you can easily remember what your code does.
+    У наших прикладах ми використовуємо коментарі, щоб дати вам підказки щодо написання коду.       Вам не потрібно копіювати наші коментарі у свій код, але ви повинні    
+    написати свої власні, щоб легко запам'ятати, що робить ваш код.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Add the code to your program and try it out. Remember to replace :code:`x` 
-    with the value you calculated. Try running your robot next to a meter stick
-    to see how accurately your robot drives!
+    Додайте код до своєї програми та випробуйте її. Не забудьте замінити :code:`x`     
+    на обчислене значення. Спробуйте запустити робота поруч із метровою лінійкою,
+    щоб перевірити, наскільки точно він рухається!
 
-This code you wrote is pretty useful, but what if you wanted to drive other 
-distances?
+Цей код, який ви написали, є досить корисним, але що, якщо ви хочете проїхати інші 
+відстані?
 
-Let's say that we want to drive three distances in a row: 25, 50, and 75 cm.
-How could we program the robot to do this? The easy solution is to copy and 
-paste the code you wrote before three times, and modify it each time:
+Припустимо, що ми хочемо проїхати три відстані поспіль: 25, 50 і 75 см.
+Як ми можемо запрограмувати робота, щоб він це зробив? Просте рішення — скопіювати і 
+вставити код, який ви написали раніше, тричі, і щоразу модифікувати його:
 
 .. add blockly tab once math can be inputted into "sleep" block
 .. code-block:: python
@@ -170,18 +159,17 @@ paste the code you wrote before three times, and modify it each time:
     sleep(75 / 5)
     drivetrain.stop()
 
-This looks pretty repetitive. Most of this code is exactly the same. In fact,
-the only change between each block is the parameter we are passing to the
-:code:`sleep` function. This is a perfect example of why we have functions.
-Let's write our own function to drive the robot a certain distance.
+Це виглядає досить повторюваним. Більша частина цього коду є абсолютно однаковою. Насправді,
+єдина зміна між кожним блоком — це параметр, який ми передаємо до функції
+:code:`sleep`. Це ідеальний приклад того, навіщо нам потрібні функції.
+Давайте напишемо власну функцію, щоб проїхати на роботі певну відстань..
 
 .. tab-set:: 
 
     .. tab-item:: Python
 
-        Python uses the keyword :code:`def` to let you, the programmer, tell it that you
-        would like to *define* a new function. A full function definition looks like 
-        this:
+        Python використовує ключове слово :code:`def`, щоб ви, програміст, могли повідомити             йому, що ви хочете *define* нову функцію. Повне визначення функції виглядає так         
+::
 
         .. code-block:: python
 
@@ -190,38 +178,34 @@ Let's write our own function to drive the robot a certain distance.
                 # code in your function can use the parameters by name like this:
                 print(parameter1 / 5)
 
-        In this example function, there are three parameters. Functions can have as 
-        many or as few parameters as you want, or even have no parameters at all.
+        У цій прикладній функції є три параметри. Функції можуть мати стільки параметрів,
+        скільки ви хочете, або навіть не мати їх взагалі.
 
     .. tab-item:: Blockly
 
-        In Blockly, you create functions by dragging a block that looks like the picture
-        below. The interface allows you to specify the function name, and pass *parameters*
-        to the function body. Here, we have a function called some_task (which you should rename
-        based on what your function does) that takes in a parameter called :code:`text`, and uses
-        prints the :code:`text` value. Functions can have as  many or as few parameters as you want,
-        or even have no parameters at all.
+        У Blockly ви створюєте функції, перетягуючи блок, який виглядає як на малюнку        
+        нижче. Інтерфейс дозволяє вам вказати ім'я функції та передати *параметри*        
+        до тіла функції. Тут ми маємо функцію під назвою some_task (яку ви повинні                      перейменувати відповідно до того, що робить ваша функція), яка приймає параметр під             назвою :code:`text`, і використовує друкує :code:`text` значення. Функції можуть мати           стільки параметрів, скільки ви хочете, або навіть не мати параметрів взагалі.
 
         .. image:: media/blocklyfunctiondefinition.png
             :width: 300
 
-        The below blocks *calls* the function we defined above to run it. The value "Hello" is passed
-        to the :code:`text` parameter, which results in "Hello" being printed to the console.
+        Нижче наведені блоки *викликають* функцію, яку ми визначили вище, щоб її виконати.              Значення "Hello" передається до параметра :code:`text`, в результаті чого "Hello"               виводиться на консоль..
 
         .. image:: media/blocklyfunctioncall.png
             :width: 300
 
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Define a function called :code:`drive_distance` that takes in one parameter: 
-    :code:`distance_to_drive`. Use the parameter in your function as the 
-    numerator of your fraction.
+    Визначте функцію з назвою :code:`drive_distance` що приймає один параметр: 
+    :code:`distance_to_drive`. Використовуйте параметр у вашій функції як     
+    чисельник вашого дробу.
 
-    Use your function to make the robot drive 3 distances in a row.
+    Використовуйте свою функцію, щоб змусити робота проїхати 3 відстані поспіль.
 
 .. tip:: 
 
-    Define your functions towards the top of your file, underneath the 
-    :code:`import` statements. This way, code later in the file will be able to 
-    use them.
+    Визначте свої функції у верхній частині файлу, під 
+    :code:`import` оператори. Таким чином, код, що знаходиться далі у файлі, зможе     
+    їх використовувати.
