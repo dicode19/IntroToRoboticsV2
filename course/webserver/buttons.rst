@@ -1,12 +1,11 @@
-Creating Custom Webserver Buttons
+Створення власних кнопок веб-сервера
 ==========================================
 
-Last lesson, you learned how to bind simple drive commands to the arrow buttons.
-But, what if you want to perform more complicated code tasks? or what if you have more than 5 commands you want to run from the webserver?
+На минулому уроці ви дізналися, як прив'язати прості команди диска до кнопок зі стрілками.
+Але що робити, якщо ви хочете виконувати більш складні завдання з кодом? Або якщо у вас є більше 5 команд, які ви хочете запустити з веб-сервера?
 
-Well, XRPLib provides the tools to do that! 
-With the :code:`webserver.add_button(label, func)` method, you can add any function you want to the webserver,
-along with a helpful label that describes what your function does!
+XRPLib надає інструменти для цього! 
+За допомогою методу :code:`webserver.add_button(label, func)` ви можете додати до веб-сервера будь-яку функцію, а також корисну мітку, яка описує, що робить ваша функція!
 
 .. tab-set::
 
@@ -49,8 +48,7 @@ along with a helpful label that describes what your function does!
             media/custom-buttons.png
 
 
-After running this code, you should see your new button(s) appear under the Custom Buttons section of the web page!
-Note: We recommend leaving your robot plugged in the first time you run a new function on the webserver, 
-just to make sure that it doesn't have any errors.
+Після запуску цього коду ви повинні побачити нові кнопки в розділі «Custom Buttons» (Настроювані кнопки) веб-сторінки!
+Примітка: ми рекомендуємо залишити робота підключеним до мережі під час першого запуску нової функції на веб-сервері, щоб переконатися, що він не має жодних помилок.
 
-And there you go! That's all the basics of how to use the webserver!
+Ось і все! Це всі основи використання веб-сервера!
