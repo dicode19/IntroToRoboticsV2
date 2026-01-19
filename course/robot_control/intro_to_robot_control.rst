@@ -1,35 +1,35 @@
-Controlling Behavior: Introduction
+Контроль поведінки: Вступ
 ==================================
 
-Now that robot has information about it's environment (through the use of sensors), let's go over how we can use this information to control our robot's behavior.
+Тепер, коли робот має інформацію про своє оточення (завдяки датчикам), давайте розглянемо, як ми можемо використовувати цю інформацію для керування поведінкою нашого робота..
 
 
-Open Loop Control
+Відкритий контур регулювання
 -----------------
 
-Before incorporating sensor information, let's go over a simple, open-loop controller. 
+Перш ніж включити інформацію з датчиків, давайте розглянемо простий контролер з відкритим контуром. 
 
-All this means is that we are going to tell the robot to do something without checking to see if it actually did it.
+Це означає, що ми будемо давати роботу команду виконати певну дію, не перевіряючи, чи він її дійсно виконав.
 
-For example, an oven is an open-loop controller. If you set the cook time to 30 minutes, the oven will cook for 30 minutes regardless of whether or not the food is actually done.
+Наприклад, духовка є контролером з відкритим контуром. Якщо ви встановите час приготування на 30 хвилин, духовка буде готувати протягом 30 хвилин незалежно від того, чи їжа вже готова.
 
-This is a useful controller for simpler processes like ovens that don't need to adapt to their environment. However, for more complex processes like autonomous cars, we would want to incorporate sensor information to make sure that the car is actually doing what we want it to do.
+Це корисний контролер для простіших процесів, таких як духовки, які не потребують адаптації до навколишнього середовища. Однак для більш складних процесів, таких як автономні автомобілі, ми хотіли б включити інформацію з датчиків, щоб переконатися, що автомобіль дійсно робить те, що ми від нього очікуємо.
 
-Closed Loop Control
+Закритий контур управління
 -------------------
 
-Closed loop control is when we use sensor information to control our robot's behavior.
+Закритий контур управління — це коли ми використовуємо інформацію з датчиків для управління поведінкою нашого робота.
 
-For example, a self-driving car is a closed-loop controller. It uses sensor information to determine if it is in the correct lane, if it is too close to other cars, etc. and adjusts its behavior accordingly.
+Наприклад, безпілотний автомобіль є контролером із замкнутим контуром. Він використовує інформацію від датчиків, щоб визначити, чи знаходиться він на правильній смузі руху, чи не занадто близько до інших автомобілів тощо, і відповідно коригує свою поведінку.
 
-In this lesson, we will be using closed-loop control to control our robot's behavior, specifically, we will cover discrete control. 
+У цьому уроці ми будемо використовувати замкнутий контур управління для контролю поведінки нашого робота, а саме, ми розглянемо дискретне управління. 
 
-Python Programming Note: Conditionals
--------------------------------------
+Примітка щодо програмування на Python: Умовні оператори
+------------------------------------------------------
 
-A conditional is a statement in code where the program will only execute a certain block of code if a certain condition is met.
+Умовний оператор — це оператор у коді, за якого програма виконує певний блок коду лише за умови виконання певної умови.
 
-In the context of on-off controllers, "if statements" are an important type of conditional and are shown in this example:
+У контексті контролерів увімкнення-вимкнення оператори «if» є важливим типом умовних операторів і показані в цьому прикладі:
 
 .. tab-set::
 
@@ -45,7 +45,7 @@ In the context of on-off controllers, "if statements" are an important type of c
 		.. image:: media/if_true.png
 			:width: 300
 
-The if statement above will print "Hello World!" because its condition is true.
+Вищезазначена інструкція if виведе на екран «Hello World!», оскільки її умова є істинною.
 
 .. tab-set::
 
@@ -61,7 +61,7 @@ The if statement above will print "Hello World!" because its condition is true.
 		.. image:: media/if_false.png
 			:width: 300
 
-The if statement above will not print "Hello World!" because its condition is always false.
+Вищезазначена інструкція if не виведе на екран «Hello World!», оскільки її умова завжди є хибною.
 
 .. tab-set::
 
@@ -78,15 +78,15 @@ The if statement above will not print "Hello World!" because its condition is al
 		.. image:: media/condition.png
 			:width: 300
 
-The if statement above will print "Hello World!" because the variable "i" is less than 5, satisfying the condition. 
+Вищезазначена умова if виведе на екран «Hello World!», оскільки змінна «i» менше 5, що задовольняє умову. 
 
-In simpler controllers, if statements can be used to define our "control law". A control law is a set of rules that determines how our robot should behave.
+У простіших контролерах для визначення нашого «закону управління» можна використовувати оператори if. Закон управління — це набір правил, що визначають, як повинен поводитися наш робот.
 
-On-off Control
---------------
+Управління вмиканням-вимиканням
+------------------------------
 
-On-off control is a simple closed-loop controller that uses a binary signal (on or off) to control a process.
+Регулювання типу «включено-виключено» — це простий контролер із замкнутим контуром, який використовує двійковий сигнал (включено або виключено) для керування процесом.
 
-For example, a thermostat is an on-off controller. If the temperature is below the target temperature, the thermostat turns on the heater. If the temperature is above the target temperature, the thermostat turns off the heater.
+Наприклад, термостат є контролером увімкнення-вимкнення. Якщо температура нижча за задану, термостат вмикає нагрівач. Якщо температура вища за задану, термостат вимикає нагрівач.
 
-In this lesson, we will be using on-off control to control our robot's behavior. Specifically, we will use an on-off controller to "standoff" our robot from an object.
+У цьому уроці ми будемо використовувати управління вмиканням-вимиканням для контролю поведінки нашого робота. Зокрема, ми будемо використовувати контролер вмикання-вимикання, щоб «відсторонити» нашого робота від об'єкта.
