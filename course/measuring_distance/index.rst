@@ -1,29 +1,29 @@
-Measuring Distances: Module Overview 
+Вимірювання відстаней: огляд модуля 
 ====================================
 
-In this module students will:
+У цьому модулі студенти будуть:
 
-* Understand the basics of measuring distance and its application
-* Learn to use distance sensors to determine the robot's location with respect to the target.
-* Use reading from the sensor to avoid obstacles or stop before the object
-* Locate and align to objects using the distance sensor
+* Розуміти основи вимірювання відстані та її застосування
+* Навчитися використовувати датчики відстані для визначення положення робота відносно цілі.
+* Використовувати показання датчика для уникнення перешкод або зупинки перед об'єктом
+* Визначати місцезнаходження об'єктів та вирівнюватись по відношенню до них за допомогою датчика відстані
 
-Covered Standards (NGSS and CSTA):
+Покриті стандарти (NGSS та CSTA):
 -----------------------------------
 
-**HS-ETS1-2** Break a complex real-world problem into smaller, more manageable problems that each can be solved using scientific and engineering principles.
+**HS-ETS1-2** Розбийте складну реальну проблему на менші, більш керовані проблеми, кожну з яких можна вирішити за допомогою наукових та інженерних принципів.
 
-**3A-AP-16** Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions.
+**3A-AP-16** Проектуйте та ітеративно розробляйте обчислювальні артефакти для практичних цілей, особистого самовираження або для вирішення соціальних проблем, використовуючи події для ініціювання інструкцій.
 
-**3A-AP-17** Decompose problems into smaller components through systematic analysis, using constructs such as procedures, modules, and/or objects.
+**3A-AP-17** Розкладайте проблеми на менші складові за допомогою систематичного аналізу, використовуючи такі конструкції, як процедури, модулі та/або об'єкти.
 
-**3B-CS-02** Illustrate ways computing systems implement logic, input, and output through hardware components.
+**3B-CS-02** Проілюструйте способи, якими обчислювальні системи реалізують логіку, введення та виведення даних за допомогою апаратних компонентів.
 
-**3B-AP-10** Use and adapt classic algorithms to solve computational problems.
+**3B-AP-10** Використовувати та адаптувати класичні алгоритми для вирішення обчислювальних задач.
 
-**3B-AP-11** Evaluate algorithms in terms of their efficiency, correctness, and clarity.
+**3B-AP-11** Оцініть алгоритми з точки зору їх ефективності, правильності та зрозумілості.
 
-**3B-AP-15** Analyze a large-scale computational problem and identify generalizable patterns that can be applied to a solution.
+**3B-AP-15** Проаналізуйте великомасштабну обчислювальну задачу та визначте узагальнені закономірності, які можна застосувати для її вирішення.
 
-**3B-AP-16** Demonstrate code reuse by creating programming solutions using libraries and APIs. 
+**3B-AP-16** Продемонструйте повторне використання коду, створюючи програмні рішення з використанням бібліотек та API. 
 
