@@ -1,46 +1,46 @@
-Parking Garage Challenge! (Bonus Activity)
+Виклик паркінгу! (Додаткове завдання)
 ===========================================
 
-Now that we've learned how to follow lines using a proportional controller, let's try to apply this knowledge to a more complicated scenario: a parking garage!
+Тепер, коли ми навчилися слідувати лініям за допомогою пропорційного контролера, спробуємо застосувати ці знання в більш складному сценарії: паркінгу!
 
-The Goal
+Мета
 ~~~~~~~~
 
-The primary goal of our robot is to successfully find and park in an empty space. 
+Основна мета нашого робота — успішно знайти вільне місце та припаркуватися на ньому. 
 
-To accomplish this goal, we can break the problem down into 2 smaller steps: 
+Для досягнення цієї мети ми можемо розбити проблему на 2 менші етапи: 
 
-1. Find an empty parking spot
-2. Properly park in the empty parking spot
+1. Знайти вільне місце для паркування
+2. Правильно паркуйтеся на порожньому паркувальному місці
 
-Finding an Empty Parking Spot
+Пошук вільного місця для паркування
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The main process we will employ here is simple: 
+Основний процес, який ми будемо використовувати тут, є простим: 
 
-1.  Go forward the length of a parking spot 
-2.  Turn 90 degrees right and check to see if the parking spot is open
-3.  If the parking spot is not open, turn 180 degrees left and check to see if the parking spot on the left is open
-4.  If both parking spots are not open, turn back to straight using the line following understanding_the_sensor
+1.  Проїдьте довжину паркувального місця 
+2.  Поверніть на 90 градусів праворуч і перевірте, чи є вільне місце для паркування.
+3.  Якщо паркувальне місце не вільне, поверніть на 180 градусів вліво і перевірте, чи вільне паркувальне місце зліва.
+4.  Якщо обидва паркувальні місця не відкриті, поверніть назад на пряму, використовуючи лінію, що слідує за understanding_the_sensor.
 
-In order to see if a parking spot is open, we can use our ultrasonic range finder and see if there is any object in a parking spot. 
+Щоб перевірити, чи є вільне місце для паркування, ми можемо скористатися ультразвуковим далекоміром і перевірити, чи є на місці для паркування якісь предмети. 
 
-Leveraging the Line Following Sensors
+Використання датчиків слідування лінії
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this activity, we can use our line following sensors for three main purposes:
+У цій вправі ми можемо використовувати датчики слідування лінії для трьох основних цілей:
 
-1.  To follow the line on the ground to the next parking spot
-2.  To detect the "end" of the parking spot
-3.  To turn back to straight after checking the left parking spot
+1.  Слідувати лінії на землі до наступного місця для паркування
+2.  Для виявлення «кінця» паркувального місця
+3.  Повернути назад на пряму після перевірки лівого паркувального місця
 
-In terms of following the line, we can use the same proportional controller that we used in the previous activities. 
+Щодо дотримання лінії, ми можемо використовувати той самий пропорційний контролер, який використовували в попередніх завданнях. 
 
-As for detecting the end of the parking spot, we can use the same logic that we used when detecting an intersection. 
+Щодо виявлення кінця паркувального місця, ми можемо використовувати ту саму логіку, яку використовували для виявлення перехрестя. 
 
-Finally, to turn back to straight, we can turn the XRP clockwise until the left line following sensor detects the line.
+Нарешті, щоб повернути назад у пряме положення, ми можемо повернути XRP за годинниковою стрілкою, поки лівий лінійний датчик не виявить лінію.
 
-By breaking this complicated problem down into a series of smaller steps, we can easily program our XRP to park itself!
+Розбивши цю складну задачу на низку невеликих кроків, ми можемо легко запрограмувати наш XRP на самостійне паркування!
 
-.. TODO a graphic would be super useful throughout this section 
-.. also include code and a video of the robot parking itself
+.. TODO графічне зображення було б дуже корисним у цьому розділі 
+.. також включають код і відео, на якому робот самостійно паркується
