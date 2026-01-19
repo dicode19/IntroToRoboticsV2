@@ -136,7 +136,7 @@ WPI надаватиме віртуальну підтримку через он
    :caption: Питання
    :hidden:   
 
-   `Повідомити про проблеми з курсом<https://github.com/Open-STEM/IntroToRoboticsV2/issues>`_
+   `Повідомити про проблеми з курсом <https://github.com/Open-STEM/IntroToRoboticsV2/issues>`_
 
 Індекси та таблиці
 ==================
