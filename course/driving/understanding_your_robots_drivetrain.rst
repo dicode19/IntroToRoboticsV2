@@ -1,13 +1,13 @@
-Understanding Your Robot's Drivetrain
+Розуміння трансмісії вашого робота
 =====================================
 
-Introduction
+Вступ
 ------------
 
-The main body of your XRP is called the *drivetrain*. We call it this because it
-holds the two wheels which drive your robot around. Specifically, the XRP has a 
-*differential drivetrain*. This is the same kind of drivetrain that you would 
-see on a skid-steer loader. 
+Основна частина вашого XRP називається *трансмісія*. Ми називаємо її так, тому що вона
+утримує два колеса, які рухають вашого робота. Зокрема, XRP має 
+*диференціальну трансмісію*. Це той самий тип трансмісії, який ви 
+бачите на міні-навантажувачі. 
 
 .. image:: media/skidSteerLoader.png
   :width: 300
@@ -15,108 +15,99 @@ see on a skid-steer loader.
 .. image:: media/XRPImage.jpeg
   :width: 300
 
-The XRP robot turns using skid-steering which means that while the robot is turning
-some of the wheels, sometimes the front casters, will be skidding. This requires
-more energy to complete the turns and depends on the friction of the front casters
-and the particular driving surface.
+Робот XRP повертає за допомогою поворотного механізму, що означає, що під час повороту
+деякі колеса, іноді передні ролики, будуть ковзати. Це вимагає
+більше енергії для виконання поворотів і залежить від тертя передніх роликів
+та конкретної поверхні руху.
 
-Each wheel of your XRP's drivetrain has a motor attached to it. We can use code 
-to tell this motor what we'd like it to do. Getting the robot to move in a desired
-path is done by setting the speeds of the two drive motors. There are a lot of
-variations in how these motors can be set. Here are some basic examples:
+До кожного колеса трансмісії вашого XRP прикріплений двигун. Ми можемо використовувати код ,
+ щоб вказати цьому двигуну, що ми хочемо, щоб він робив. Щоб робот рухався по бажаній
+траєкторії, потрібно встановити швидкість двох приводних двигунів. Існує безліч
+варіантів налаштування цих двигунів. Ось кілька основних прикладів:
 
-Driving straight
+Їхати прямо
 ----------------
-The most fundamental common driving that the robot will do is traveling straight.
-To do this, both wheels move forward at the same speed so that
-the robot moves straight.
+Найбільш фундаментальним рухом, який виконує робот, є рух прямо.
+Для цього обидва колеса рухаються вперед з однаковою швидкістю, щоб
+робот рухався прямо.
 
 .. image:: media/forwardsdriving.png
   :width: 300
 
-Turning in an arc
+Поворот по дузі
 -----------------
-Robots can turn in an arc-shaped turn, where one wheel drives faster than the other,
-causing the robot to turn away from the faster wheel. As the difference in speed
-between the two wheels increases, the turn tightens. If the turn continues, the robot
-will drive in a complete circle. In this case, the radius of the circle decreases
-as the wheel speed differences increase.
+Роботи можуть повертати по дузі, коли одне колесо обертається швидше за інше,
+що змушує робота повертати в бік від швидшого колеса. Зі збільшенням різниці в швидкості
+між двома колесами поворот стає більш крутим. Якщо поворот триває, робот
+проїде повне коло. У цьому випадку радіус кола зменшується
+зі збільшенням різниці в швидкості коліс.
 
 .. image:: media/arcturn.png
   :width: 300
 
-Turning in place
+Поворот на місці
 ----------------
-One advantage the XRP has over a car steering system is that it can turn in place
-where the robot turns on a point roughly between the two wheels. This
-allows the robot to easily get out of tight spaces without having to make a wide
-arc turn. The point turn is often used for navigating the robot between two places
-since it follows an easily predictable path.
+Однією з переваг XRP над системою керування автомобілем є те, 
+що вона може повертати на місці, де робот повертає приблизно між двома колесами. 
+Це дозволяє роботу легко виїжджати з вузьких просторів без необхідності робити широкий
+поворот по дузі. Поворот на місці часто використовується для переміщення робота між двома місцями, оскільки він слідує легко передбачуваним шляхом.
 
 .. image:: media/pointturn.png
   :width: 300
 
-Turning on one wheel
+Поворот на одному колесі
 --------------------
-If one wheel drives forward or backward, and the other wheel remains stopped, the
-robot will turn in place, with the turning center being the stationary wheel. This
-is often called a swing turn because the robot swings around the non-moving wheel.
-With a swing turn, the diameter of the circle traced by the outside wheel is
-double the wheel track.
+Якщо одне колесо рухається вперед або назад, а інше залишається нерухомим,
+робот поверне на місці, причому центром повороту буде нерухоме колесо. Це
+часто називають поворотом з розворотом, оскільки робот розвертається 
+навколо нерухомого колеса. При повороті з розворотом діаметр кола, 
+яке описує зовнішнє колесо, вдвічі перевищує колію колеса.
 
 .. image:: media/swingturn.png
   :width: 300
 
 
 
-Effort
+Зусилля
 ------
 
-There are several ways we can tell the motors what to do. The most basic thing 
-we can control is the *effort* the motor should be applying.
+Існує кілька способів, за допомогою яких ми можемо вказати двигунам, що робити. Найпростіша річ, яку ми можемо контролювати, — це *зусилля*, яке повинен застосовувати двигун.
 
-Imagine you are riding a bike on a flat surface, pedalling at a normal speed. 
-Now imagine you encounter a hill. If you keep pedalling at the same speed, you
-won't slow down when you go up the hill. However, this is not easy! You'd need 
-to pedal *harder* to go the same speed up the hill.
+Уявіть, що ви їдете на велосипеді по рівній поверхні, крутячи педалі з нормальною швидкістю. 
+Тепер уявіть, що ви натрапили на пагорб. Якщо ви продовжуєте крутити педалі з тією ж швидкістю, ви не сповільнитеся, піднімаючись на пагорб. Однак це не так просто! Вам доведеться 
+крутити педалі *сильніше*, щоб піднятися на пагорб з тією ж швидкістю.
 
-Now instead imagine that when you get to the hill, you keep pedalling as hard as 
-you were on the flat section. You'll go up the hill slower, but you won't be as 
-tired. This is what we mean by the *effort* of the motor. You're not telling the
-motor how fast it should move, but rather how hard it should work. If you tell 
-your robot's motors to work at a constant effort, your robot's speed will change
-depending on whether it is driving on a flat surface or an inclined one.
+А тепер уявіть, що, діставшись до пагорба, ви продовжуєте крутити педалі так само інтенсивно, як 
+і на рівній ділянці. Ви підніметеся на пагорб повільніше, але не будете так 
+втомлені. Це те, що ми маємо на увазі під *зусиллям* двигуна. Ви не вказуєте
+двигуну, як швидко він повинен рухатися, а скоріше, як сильно він повинен працювати. Якщо ви накажете двигунам вашого робота працювати з постійним зусиллям, швидкість вашого робота буде змінюватися залежно від того, рухається він по рівній поверхні чи по похилій.
 
 .. youtube:: z6aIVpf3qN0
 
 .. youtube:: Zcr83kcO_Pk
 
-In both videos, the robot is using the same effort. In the first video, the robot is slowly moving uphill because gravity is fighting against
-its effort. In the second video, the robot is moving quickly downhill because gravity is working in the
-same direction as the effort. The force output from the motors is the same, but the speed will depend on
-resistance to the force.
+В обох відеороликах робот докладає однакових зусиль. У першому відеоролику робот повільно рухається вгору, оскільки сила тяжіння протидіє його зусиллям. У другому відеоролику робот швидко рухається вниз, оскільки сила тяжіння діє в тому ж напрямку, що і зусилля. Сила, що розвивається двигунами, однакова, але швидкість залежить від опору, що чиниться цій силі.
 
 .. tip:: 
 
-    Effort is also like the throttle in a car. If you're going up a hill, you 
-    need to push the throttle more to maintain the same speed on the hill. If 
-    you don't push the throttle more, you'll slow down.
+    Зусилля також подібні до педалі газу в автомобілі. Якщо ви підіймаєтеся вгору по схилу, вам     потрібно натиснути на педаль газу сильніше, щоб зберегти ту саму швидкість на схилі. 
+    Якщо ви не натиснете на педаль газу сильніше, ви сповільнитеся.
 
-First movements
+Перші рухи
 ---------------
 
 .. note:: 
 
-    Elevate your XRP on top of a box or other object so that the wheels aren't touching anything and can spin freely.
+    Підніміть XRP на коробку або інший предмет, щоб колеса нічого не торкалися і могли вільно обертатися.
 
-Before driving the robot around, let's write some simple code to spin one of the
-wheels. This will help you get familiar with the XRP programming environment and
-check that your XRP itself is working properly.
+Перш ніж керувати роботом, давайте напишемо простий код, щоб обертати одне з
+коліс. Це допоможе вам ознайомитися з середовищем програмування XRP і
+перевірити, чи правильно працює ваш XRP.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Create a new file in the IDE called :code:`spin_wheels.py`. Add the 
-    following code to it:
+    Створіть новий файл в IDE під назвою :code:`spin_wheels.py`. Додайте до нього     
+    наступний код:
 
     .. code-block:: python
 
@@ -124,81 +115,78 @@ check that your XRP itself is working properly.
 
         left_motor.set_effort(0.5)
 
-    Run the code and see what happens.
+    Запустіть код і подивіться, що буде.
 
-Let's break down the code line by line:
+Розберемо код по рядках:
 
-:code:`from XRPLib.defaults import *` tells your robot to load code from 
-**XRPLib**. Don't worry too much about what all the commands in this line mean 
-right now, just know that you'll put this line at the top of most of your XRP
-programs.
+:code:`from XRPLib.defaults import *` наказує вашому роботу завантажити код з 
+**XRPLib**. Не переймайтеся надто тим, що означають усі команди в цьому рядку 
+зараз, просто знайте, що ви будете розміщувати цей рядок у верхній частині більшості своїх програм XRP.
 
-:code:`left_motor.set_effort(0.5)` uses a *function* provided for you in **XRPLib** 
-called :code:`set_effort` that is applied to the left motor. The :code:`0.5` is a *parameter* to 
-this function which tells it that we'd like the motor to apply 50% effort. 
-On the XRP, we write percentages as decimal numbers between 0 and 1, with 1 being 100%.
+:code:`left_motor.set_effort(0.5)` uвикористовує *функцію*, надану вам у **XRPLib** 
+called :code:`set_effort` який застосовується до лівого двигуна. :code:`0.5` є *параметром* цієї функції, який вказує, що ми хочемо, щоб двигун застосовував 50% зусилля.
+У XRP ми записуємо відсотки у вигляді десяткових чисел від 0 до 1, де 1 дорівнює 100%.
 
-.. Explain functions in greater depth later on (pinwheel activity?)
-.. A *function* is a block of code that can be used multiple times in your program
-.. to make complicated tasks easier. For example, the
-.. :code:`left_motor.set_effort()` function tells the left motor to apply an effort
-.. you as the programmer specify.
+.. Пізніше поясніть функції більш детально (завдання з вітрячком?)
+.. *Функція* — це блок коду, який можна використовувати в програмі кілька разів.
+.. щоб спростити складні завдання. Наприклад,
+.. :code:`left_motor.set_effort()` функція дає команду лівому двигуну прикласти зусилля
+.. ви, як програміст, визначаєте.
 
-.. :code:`left_motor.set_effort` is a function that we provide for you in
-.. **XRPLib**. Later in the course you will see how you can write your own
-.. functions to make it easy to make the robot do complicated sequences of actions.
+.. :code:`left_motor.set_effort` є функцією, яку ми надаємо вам у
+.. **XRPLib**. Пізніше в курсі ви побачите, як можна написати власний
+.. функції, що полегшують виконання роботом складних послідовностей дій.
 
-.. When you want to use a function, you *call* it by writing its name in your code.
-.. This causes the function's code to start running.
+.. Коли ви хочете використати функцію, ви *викликаєте* її, вказавши її ім'я у своєму коді.
+.. Це призводить до запуску коду функції.
 
-.. The number you put between the parenthesis is a *parameter* (sometimes also
-.. called called an *argument*) of the function. These allow you to tell the
-.. function how it should do its job. As the programmer, you must provide a *value*
-.. for each *parameter*. If we wanted to make the robot drive forwards at full
-.. speed, we would *call* the function like this:
+.. Число, яке ви вказали в дужках, є *параметром* (іноді також
+.. називається *аргументом*) функції. Вони дозволяють вам повідомити
+.. функція повинна виконувати свою роботу. Як програміст, ви повинні надати *значення*
+.. для кожного *параметра*. Якщо ми хотіли б, щоб робот рухався вперед на повній
+.. швидкість, ми б *викликали* функцію таким чином:
 
-Now that we've tested the left motor, let's test the right one! How do you think
-you would modify the code to spin the right motor? Simply replace
-:code:`left_motor` with :code:`right_motor`.
+Тепер, коли ми перевірили лівий двигун, давайте перевіримо правий! Як ви думаєте,
+як потрібно змінити код, щоб запустити правий двигун? Просто замініть
+:code:`left_motor` на :code:`right_motor`.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Modify your code and run it on the robot. Make sure the right wheel spins.
+    Змініть код і запустіть його на роботі. Переконайтеся, що обертається правильне колесо.
     
-    Push an object like a pencil against the wheel to add some resistance.
-    Notice how the wheel slows down when you do this, since it would need more
-    effort to keep going the same speed.
+    Притисніть до колеса якийсь предмет, наприклад олівець, щоб створити опір.    
+    Зверніть увагу, як колесо сповільнюється, коли ви це робите, оскільки йому потрібно більше      зусиль, щоб зберегти ту саму швидкість.
 
 
-Going backwards
+Рухаючись назад
 ---------------
 
-We've gotten the wheels spinning forwards, but what if we want to go backwards?
-To do this, we simply have to pass in a *negative* number for the effort
-parameter. This means that we can use any number between -1 and 1 for the effort
-value. -1 will be full effort backwards, 1 will be full effort forwards, and 0 
-will stop the motor.
+Ми змусили колеса обертатися вперед, але що робити, якщо ми хочемо рухатися назад?
+Для цього нам просто потрібно ввести *від'ємне* число для параметра effort.
+Це означає, що ми можемо використовувати будь-яке число від -1 до 1 для значення effort.
+-1 буде означати повну силу назад, 1 буде означати повну силу вперед, а 0 
+зупинить двигун.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Try to write code that makes both wheels spin backwards.
+    Спробуйте написати код, який змусить обидва колеса обертатися назад.
 
-This table shows some different effort values and what the wheel would do:
+У цій таблиці наведено різні значення зусилля та відповідні дії колеса:
 
 .. list-table::
    :header-rows: 1
 
-   * - Speed value
-     - Wheel action
+   * - Значення швидкості
+     - Дія колеса
    * - 1
-     - Wheel spins forwards at 100% effort
+     - Колесо обертається вперед із 100% зусиллям
    * - 0.5
-     - Wheel spins forwards at 50% effort
+     - Колесо обертається вперед із зусиллям 50%
    * - 0
-     - Wheel stops spinning
+     - Колесо перестає обертатися
    * - -0.5
-     - Wheel spins backwards at 50% effort
+     - Колесо обертається назад із зусиллям 50%
    * - -1
-     - Wheel spins backwards at 100% effort
+     - Колесо обертається назад при 100% зусиллі
 
 
