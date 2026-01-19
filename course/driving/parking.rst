@@ -1,30 +1,30 @@
-Parking Challenge
+Виклик паркування
 =================
 
-Challenge Description
+Опис завдання
 ---------------------
-This challenge features a sequence of turns that the robot must perform in order
-to get to the “end” of the Labyrinth. The robot must first begin at the starting
-point, and get to the goal area by completing turning and forward movement behaviors. 
+Це завдання передбачає послідовність поворотів, які робот повинен виконати, щоб
+дістатися до «кінця» лабіринту. Робот повинен спочатку стартувати з початкової
+точки і дістатися до зони фінішу, виконуючи повороти та рухи вперед. 
 
-Materials needed
+Необхідні матеріали
 ----------------
-* White board or six 8.5”x11” sheets of paper (use scotch tape to tape the six sheets of paper together to form a 25.5”x22” rectangle. Turn it over and tape outside border to floor with blue masking tape.
-* Black electrical tape (you can substitute blue masking tape for this exercise)
-* Red electrical tape or red marker 
-* Scissors (or cutting tool)
-* Ruler (or straightedge)
+* Біла дошка або шість аркушів паперу розміром 8,5”x11” (за допомогою скотчу склейте шість аркушів паперу, щоб утворити прямокутник розміром 25,5”x22”. Переверніть його і приклейте зовнішній край до підлоги за допомогою синього малярського скотчу.
+* Чорна ізоляційна стрічка (для цього завдання можна замінити синьою малярською стрічкою)
+* Червона ізоляційна стрічка або червоний маркер 
+* Ножиці (або ріжучий інструмент)
+* Лінійка (або пряма вимірювальна стрічка)
 
-Project specifications
+Технічні характеристики проекту
 ----------------------
 
 .. figure:: media/labyrinth.png
     :width: 300
     :align: center
     
-    Carnegie Mellon Robotics Academy, Labyrinth Challenge 
+    Академія робототехніки Карнегі-Меллона, виклик «Лабіринт» 
 
-The robot should do the following:
+Робот повинен виконати наступне:
 
-* Begin fully contained in position 1 and then maneuver to goal area.
-* Reach and be fully contained within position 2 without crossing any black lines.
+* Почніть з положення 1, а потім маневруйте до зони мети.
+* Досягніть положення 2 і повністю утримайтеся в ньому, не перетинаючи жодної чорної лінії.
