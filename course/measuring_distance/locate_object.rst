@@ -1,32 +1,25 @@
-Locating a Nearby Object
+Пошук найближчого об'єкта
 ===========================
 
-Another way to utilize the ultrasonic rangefinder is to use it to locate a nearby object. 
+Інший спосіб використання ультразвукового далекоміра – це пошук об'єктів, що знаходяться поблизу. 
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    What's the most effective way to locate an object? Try it out!
+    Який найефективніший спосіб знайти предмет? Спробуйте!
 
-Turn and Detect
-~~~~~~~~~~~~~~~
+Повернути і виявити
+~~~~~~~~~~~~~~~~~~~~
 
-To first detect an object, the robot can slowly spin in a circle while continuously polling the rangefinder.
-Then, when an object is detected, it can stop spinning, and head towards the object.
+Щоб спочатку виявити об'єкт, робот може повільно обертатися по колу, постійно опитуючи дальномір.
+Потім, коли об'єкт виявлено, він може припинити обертання і рухатися до об'єкта.
 
-How can we tell when an object is detected? Imagine that the robot is in the center of an empty room, and a
-random object is placed somewhere near the robot. The rangefinder would be giving large distance readings, until
-it reaches the object, at which point the distance reading would drop. It's the *change* in distance readings that
-hints that an object has been detected.
+Як ми можемо визначити, коли об'єкт виявлено? Уявіть, що робот знаходиться в центрі порожньої кімнати, а десь поблизу нього розміщено випадковий об'єкт. Далекомір буде показувати великі значення відстані, поки не досягне об'єкта, після чого значення відстані зменшиться. Саме *зміна* значень відстані вказує на те, що об'єкт виявлено.
 
-How can we find the change in distance readings over each iteration of the loop? We can store the previous distance
-reading in a variable, and compare it to the current distance reading. If this change is greater than some threshold,
-then we can assume that an object has been detected.
+Як ми можемо знайти зміну показань відстані за кожну ітерацію циклу? Ми можемо зберегти попереднє показання відстані у змінній і порівняти його з поточним показанням відстані. Якщо ця зміна перевищує певний поріг, то ми можемо припустити, що об'єкт був виявлений.
 
-To code this, we can start by setting the drive motor speeds to spin in opposite directions to start spinning
-the robot in place. Then, once the change in distance reading is greater than
-the threshold, the robot can stop spinning and head towards the object.
+Щоб запрограмувати це, ми можемо почати з налаштування швидкості приводних двигунів на обертання в протилежних напрямках, щоб почати обертання робота на місці. Потім, коли зміна показань відстані перевищить поріг, робот може припинити обертання і рухатися до об'єкта.
 
-In the following example code, we use a change threshold of 30 cm.
+У наведеному нижче прикладі коду ми використовуємо поріг зміни 30 см.
 
 .. tab-set::
 
@@ -63,32 +56,28 @@ In the following example code, we use a change threshold of 30 cm.
         .. image:: media/detection.png
             :width: 900
 
-Improving Accuracy
+Покращення точності
 ~~~~~~~~~~~~~~~~~~
 
-Do you see any issues with this solution?
+Чи бачите ви якісь проблеми в цьому рішенні?
 
-When the rangefinder distance dips below the threshold, the implication isn't that the robot has found an object,
-but rather that the robot has found its *edge*. So, the robot will aim for the edge of the object, rather than the center.
+Коли відстань дальноміра опускається нижче порогу, це не означає, що робот знайшов об'єкт,
+а скоріше, що робот знайшов його *край*. Отже, робот буде націлюватися на край об'єкта, а не на його центр.
 
-Instead, the robot should remember the heading it faces when detecting *both* edges. Then, the robot can aim for the center
-between those edges, and thus the center of the object. We can store each edge angle in variables, naming them :code:`firstAngle`
-and :code:`secondAngle`.
+Натомість робот повинен запам'ятати напрямок, в якому він знаходиться, коли виявляє *обидва* краї. Потім робот може націлитися на центр між цими краями, а отже, і на центр об'єкта. Ми можемо зберегти кожен кут краю у змінних, назвавши їх :code:`firstAngle` і :code:`secondAngle`.
 
-We're already quite familiar with turning until an edge is detected. Now, we'll need to detect *both* edges. However, it would be
-quite unwieldy and error-prone to just copy the edge detection code, so let's make a function to generalize this. Note that the existing
-code detects a sudden *decrease* in distance, but we want to handle sudden *increases* in distances too.
+Ми вже добре знайомі з поворотом до виявлення краю. Тепер нам потрібно виявити *обидва* краї. Однак просто скопіювати код виявлення краю було б досить незручно і схильно до помилок, тому давайте створимо функцію для узагальнення цього. Зверніть увагу, що існуючий код виявляє раптове *зменшення* відстані, але ми хочемо обробляти і раптові *збільшення* відстані.
 
-How can we support both behaviors in a single function? We can pass in a parameter to specify whether we want to detect an increase
-or decrease in distance! We can call this parameter :code:`isIncrease` and pass in a boolean (true or false) value.
+Як ми можемо підтримати обидві поведінки в одній функції? Ми можемо передати параметр, щоб вказати, чи хочемо ми виявити збільшення
+або зменшення відстані! Ми можемо назвати цей параметр :code:`isIncrease` і передати в нього булеве значення (true або false).
 
-If :code:`increase` is :code:`True`, then we want to detect an increase in distance, which is when :code:`currentDistance - previousDistance > changeThreshold`.
+Якщо :code:`increase` дорівнює :code:`True`, то ми хочемо виявити збільшення відстані, яке відбувається, коли :code:`currentDistance - previousDistance > changeThreshold`.
 
-If :code:`increase` is :code:`False`, then we want to detect a decrease in distance, which is when :code:`previousDistance - currentDistance > changeThreshold`.
+Якщо :code:`increase` дорівнює :code:`False`, то ми хочемо виявити зменшення відстані, яке відбувається, коли :code:`previousDistance - currentDistance > changeThreshold`.
 
-For more flexibility, let's add a parameter for the change threshold.
+Для більшої гнучкості додамо параметр для порогу зміни.
 
-Here's the function definition:
+Ось визначення функції:
 
 .. tab-set::
 
@@ -128,7 +117,7 @@ Here's the function definition:
         .. image:: media/detectiondefinition.png
             :width: 900
 
-Here's the equivalent function call to the turn and detection code in the previous section:
+Ось еквівалентний виклик функції до коду повороту та виявлення в попередньому розділі:
 
 .. tab-set::
 
@@ -143,14 +132,14 @@ Here's the equivalent function call to the turn and detection code in the previo
         .. image:: media/detectioncall.png
             :width: 200
 
-Now, it's time to write the full program to detect both edges and turn to the center.
+Тепер настав час написати повну програму для виявлення обох країв і повороту до центру.
 
-Implementing Dual Edge Detection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Впровадження подвійного виявлення країв
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let's walk through each step of the process in code.
+Давайте пройдемося по кожному кроку процесу в коді.
 
-First, the robot should spin in place until it detects the first edge, then stop. This is simply the function call we saw earlier.
+Спочатку робот повинен обертатися на місці, поки не виявить перший край, а потім зупинитися. Це просто виклик функції, який ми бачили раніше.
 
 .. tab-set::
 
@@ -165,7 +154,7 @@ First, the robot should spin in place until it detects the first edge, then stop
         .. image:: media/detectioncall.png
             :width: 200
 
-Next, we want to record the robot's heading for this first edge, and store it to :code:`firstAngle`.
+Далі ми хочемо записати напрямок руху робота до цього першого краю і зберегти його в :code:`firstAngle`.
 
 .. tab-set::
 
@@ -180,7 +169,7 @@ Next, we want to record the robot's heading for this first edge, and store it to
         .. image:: media/firstangle.png
             :width: 200
 
-Then, the robot should spin in place again until it detects the second edge, which is when there is a sudden increase in distance.
+Потім робот повинен знову обертатися на місці, поки не виявить другий край, коли відбудеться раптове збільшення відстані.
 
 .. tab-set::
 
@@ -195,10 +184,7 @@ Then, the robot should spin in place again until it detects the second edge, whi
         .. image:: media/turntoedgetrue.png
             :width: 200
 
-Once the robot has detected the second edge, it should record its heading and store it to :code:`secondAngle`. Now, need to figure
-out how much the robot needs to backtrack to aim for the center of the object. We can do this by finding the difference between
-the two angles, and dividing by two. This is half the angle between the two edges, and if the robot backtracks by this amount,
-it will be facing the center of the object. Let's store this in a variable called :code:`angleToTurn`.
+Як тільки робот виявить другий край, він повинен записати його напрямок і зберегти його в :code:`secondAngle`. Тепер потрібно з'ясувати, на скільки робот повинен відступити, щоб націлитися на центр об'єкта. Ми можемо це зробити, знайшовши різницю між двома кутами і розділивши її на два. Це половина кута між двома краями, і якщо робот відступить на цю відстань, він буде спрямований до центру об'єкта. Давайте збережемо це в змінній під назвою :code:`angleToTurn`.
 
 .. tab-set::
 
@@ -214,9 +200,9 @@ it will be facing the center of the object. Let's store this in a variable calle
         .. image:: media/angletoturn.png
             :width: 400
 
-Finally, the robot can turn this much to face the center of the object, and head towards it.
+Нарешті, робот може повернутись настільки, щоб опинитися обличчям до центру об'єкта, і рухатись у його напрямку.
 
-Here's the full code. Note that half-second pauses are added to make the robot's actions more visible:
+Ось повний код. Зверніть увагу, що для кращої наочності дій робота додано півсекундні паузи:
 
 .. tab-set::
 
