@@ -1,62 +1,60 @@
-Following the Line: Proportional Control with Both Sensors
+Дотримання лінії: пропорційне керування з обома датчиками
 ==========================================================
 
-Line following with proportional control using one sensor is quite an
-improvement to on/off control. Yet, it's not perfect - if the reflectance sensor
-crosses over the center of the line, it's game over.
+Слідування лінії з пропорційним керуванням за допомогою одного датчика є значним
+поліпшенням порівняно з керуванням типу «увімкнено/вимкнено». 
+Однак це не ідеальний варіант — якщо датчик відбиття перетинає центр лінії, гра закінчується.
 
 .. figure:: media/p_control_2_sensors_actions.png
     :align: center
 
-    Desired steering actions based on what the sensor sees.
+    Бажані дії рульового управління на основі того, що бачить датчик.
 
-The issue is - the robot has no way of knowing which side of the line it is
-following at all! If it sees the right edge of the line, it will assume it still
-is detecting the left edge, and thus keep turning right past the point of no
-return!
+Проблема в тому, що робот не має можливості дізнатися, по якій стороні лінії він рухається!
+Якщо він бачить правий край лінії, він буде вважати, що все ще
+виявляє лівий край, і тому продовжуватиме повертати праворуч, проїжджаючи точку неповернення!
 
-It would be neat if we could actually follow the center of the line, and can
-recognize both cases in which the robot drifts to the left or the right of the
-center of the line, and makes a correction. This would largely increase the
-"controllable" range of what the reflectance sensor sees and can correctly react
-to. Conveniently, it seems like we haven't yet made use of the second
-reflectance sensor on the right...
+Було б чудово, якби ми могли фактично слідувати за центром лінії і
+розпізнавати обидва випадки, коли робот відхиляється вліво або вправо від
+центру лінії, і вносити корективи. Це значно збільшило б
+«контрольований» діапазон того, що бачить датчик відбиття і на що може правильно реагувати.
+Зручно, що, схоже, ми ще не використовували другий датчик відбиття праворуч. .
 
-If we recorded the reflectance of both sensors as we moved the robot around the
-line, there are a few major "categories" of behaviors the robot would perform.
-For a minute, assume the rectangle is a black line and the two red squares are
-the location of the reflectance sensors.
+Якщо ми записували відбиття обох датчиків під час переміщення робота по лінії,
+то можна виділити кілька основних «категорій» поведінки, які виконував би робот.
+На хвилинку уявімо, що прямокутник — це чорна лінія, а два червоні квадрати —
+місце розташування датчиків відбиття.
 
 .. figure:: media/p_control_2_sensors_left.png
     :align: center
 
-    Simplified view of both reflectance sensors completely off of the line.
+    Спрощений вигляд обох датчиків відбиття, повністю відключених від лінії.
 
-Sensors read ~0 and ~0. Robot does not know if it is on either the left or right
-side of the line.
+Датчики показують ~0 і ~0. Робот не знає, чи знаходиться він зліва чи справа
+від лінії.
 
 .. figure:: media/p_control_2_sensors_half.png
     :align: center
 
-    Simplified view of both reflectance sensors half on the line.
+    Спрощений вигляд обох датчиків відбиття, розташованих наполовину на лінії.
 
-Sensors read ~0 and ~1. Robot knows it is on the left side and turns right.
+Датчики зчитують ~0 і ~1. Робот розуміє, що знаходиться зліва, і повертає праворуч.
 
 .. figure:: media/p_control_2_sensors_centered.png
     :align: center
 
-    Simplified view of both reflectance sensors centered on the line.
+    Спрощений вигляд обох датчиків відбиття, розташованих по центру лінії.
 
-Sensors read ~0.5 and ~0.5. Robot knows it is on the center and goes straight.
+Датчики показують ~0,5 і ~0,5. Робот розуміє, що знаходиться в центрі, і рухається прямо.
 
-The other two major categories you can extrapolate for yourself.
+Дві інші основні категорії ви можете експортувати самостійно.
 
-So, how can we effectively combine the readings of the left and right
-reflectance sensors using proportional control to have the robot follow the
-line? There's quite an elegant solution that I encourage for you to try to
-figure out yourselves before the answer is revealed.
+Отже, як ми можемо ефективно поєднати показання лівого та правого
+датчиків відбиття за допомогою пропорційного регулювання, щоб робот слідував за
+лінією? Існує досить елегантне рішення, яке я рекомендую вам спробувати
+вирішити самостійно, перш ніж буде розкрито відповідь.
 
-Implementation
+Впровадження
 --------------
 .. tab-set::
 
@@ -71,13 +69,13 @@ Implementation
         .. image:: media/error.png
             :width: 300
 
-At the beginning this line of code may not make a lot of sense - but let's
-dissect it. Remember our previous convention of positive error meaning the robot
-is too far left and needs to turn right, and vice versa.
+Спочатку цей рядок коду може здатися не дуже зрозумілим, але давайте
+розберемо його. Згадайте нашу попередню угоду про те, що позитивна помилка означає, що робот
+знаходиться занадто далеко ліворуч і повинен повернути праворуч, і навпаки.
 
-In this case, if the robot is following the left edge of the line, then the left
-sensor detects close to white while the right sensor detects close to black, and
-so:
+У цьому випадку, якщо робот рухається вздовж лівого краю лінії, то лівий
+датчик фіксує колір, близький до білого, а правий датчик фіксує колір, близький до чорного, 
+і отже:
 
 .. math:: 
 
@@ -87,8 +85,8 @@ so:
     \end{align}
 
 
-Which causes the robot to turn right. On the other hand, if the
-robot is following the right edge of the line:
+Це змушує робота повернути праворуч. З іншого боку, якщо
+робот рухається вздовж правого краю лінії:
 
 .. math:: 
 
@@ -97,17 +95,17 @@ robot is following the right edge of the line:
     & = 1
     \end{align}
 
-Which causes the robot to turn left. When the robot is right at the center, both
-sensor values are the same and so the error is 0, and as the robot starts
-drifting towards either direction, the magnitude of the error increases and thus
-the robot compensates accordingly.
+Це змушує робота повернути ліворуч. Коли робот знаходиться точно в центрі, обидва
+значення датчиків однакові, тому похибка дорівнює 0, а коли робот починає
+відхилятися в будь-якому напрямку, величина похибки збільшується, і
+робот відповідно компенсує її.
 
-The most interesting case is when the robot is completely off the line - in this
-case, both sensors read white, leaving an error of 0, and so the robot just goes
-straight. Given that the robot wouldn't know which direction to compensate if it
-was completely off the line, this seems like a reasonable result.
+Найцікавіший випадок - це коли робот повністю з'їжджає з лінії - в цьому
+випадку обидва датчики показують білий колір, залишаючи похибку 0, і робот просто рухається
+прямо. З огляду на те, що робот не знає, в якому напрямку компенсувати, якщо він
+повністю з'їхав з лінії, це здається розумним результатом.
 
-And so, our final code is as follows:
+Отже, наш остаточний код виглядає наступним чином:
 
 .. tab-set::
 
@@ -130,19 +128,18 @@ And so, our final code is as follows:
         .. image:: media/set_effort_program.png
             :width: 550
 
-Here's what that looks like. Note that KP used in this video was not equal to 1:
+Ось як це виглядає. Зверніть увагу, що KP, використаний у цьому відео, не дорівнював 1:
 
 .. error:: 
     
     TODO add video
 
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    * Combine what you've learned with encoders to create a function that 
-      follows the line using two sensors for some given distance, and, then stop
-      the motors.
-    * What KP value is best? 
-    * Compare one sensor to two sensor line following. What bends in the black
-      line is two sensor line following able to handle that one sensor line
-      following cannot?
+    * Поєднайте отримані знання з енкодерами, щоб створити функцію, яка       
+      слідує за лінією, використовуючи два датчики на певній відстані, а потім зупиняє      
+      двигуни.
+    * Яке значення KP є найкращим? 
+    * Порівняйте один датчик з двома датчиками, що слідують за лінією. Що згинається в чорній      
+      лінії, що два датчики, які слідують за лінією, здатні впоратися з тим, з чим не може впоратися        один датчик, що слідує за лінією?
