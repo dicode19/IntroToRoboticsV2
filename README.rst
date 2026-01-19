@@ -1,7 +1,7 @@
-IntroToRobotics 
+Вступ до робототехніки 
 ===============
 
-This is the active development repository for the readthedocs curriculum, found here:
+Це активне сховище розробки для навчальної програми readthedocs, яке можна знайти тут:
 https://introtoroboticsv2.readthedocs.io/en/latest/index.html
 
 Introduction to Robotics Curriculum
