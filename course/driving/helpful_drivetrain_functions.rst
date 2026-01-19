@@ -1,11 +1,11 @@
-Helpful Drivetrain Functions
+Корисні функції трансмісії
 ============================
 
-Throughout this module, we've explored different ways to drive forwards
-and turn, through setting efforts, speeds, and reading the encoders. However,
-XRPLib also provides some handy functions to make it easy for the user.
-These functions use more complicated calculations to ensure that the XRP 
-drives smoothly and exactly to the right distance every time.
+Протягом цього модуля ми розглянули різні способи руху вперед
+і повороту за допомогою налаштування зусиль, швидкості та зчитування енкодерів. Однак
+XRPLib також надає кілька зручних функцій, що полегшують роботу користувача.
+Ці функції використовують більш складні обчислення, щоб забезпечити плавний рух XRP 
+і точне дотримання потрібної відстані кожного разу.
 
 .. tab-set:: 
 
@@ -20,27 +20,27 @@ drives smoothly and exactly to the right distance every time.
         .. image:: media/straight.png
             :width: 300
 
-This function will drive the robot straight forward for a distance in
-centimeters that you specify. The other two parameters are *optional*. You can 
-provide a value for them, but if you don't, the default value will be used.
+Ця функція буде рухати робота прямо вперед на відстань у
+сантиметрах, яку ви вкажете. Інші два параметри є *опціональними*. 
+Ви можете вказати для них значення, але якщо ви цього не зробите, 
+буде використано значення за замовчуванням.
 
-Calling the function like this: :code:`drivetrain.straight(20)` will make the
-robot go straight 20 centimeters, and use the default values for everything
-else, meaning a maximum effort applied of 50% and no timeout.
+Виклик функції таким чином: :code:`drivetrain.straight(20)` змусить
+робота проїхати 20 сантиметрів прямо, використовуючи стандартні значення для всього
+іншого, тобто максимальне зусилля 50% і відсутність тайм-ауту.
 
-You can also use a negative value for distance to drive backwards.
+Ви також можете використовувати від'ємне значення для відстані, щоб рухатися назад.
 
-The :code:`max_effort` parameter specifies how much effort the robot is allowed
-to apply while driving. By default it is 50%, which is a good effort for normal
-driving on a flat surface.
+Параметр :code:`max_effort` визначає, скільки зусиль робот може
+застосовувати під час руху. За замовчуванням це 50%, що є достатнім зусиллям для нормального
+руху по рівній поверхні..
 
-The :code:`timeout` parameter specifies a time, in seconds, that the robot
-should try to drive before giving up. For example, what if your robot runs into
-something while driving, and the wheels get stuck? The robot will use the
-encoders to measure the wheels and notice that it never arrived at the distance
-you set, so it will try forever and none of your code will run afterwards. The
-timeout lets you set a maximum time that the XRP should try for before giving
-up. Usually, you won't need to use this, but it is there if you need it.
+Параметр :code:`timeout` визначає час у секундах, протягом якого робот
+повинен намагатися рухатися, перш ніж здатися. Наприклад, що робити, якщо ваш робот натрапив на
+перешкоду під час руху і колеса застрягли? 
+Робот буде використовувати енкодери для вимірювання коліс і помітить, що він ніколи не доїхав до заданої вами відстані, тому буде намагатися безкінечно, і жоден з ваших кодів не буде виконуватися після цього.
+Тайм-аут дозволяє встановити максимальний час, протягом якого XRP повинен намагатися, перш ніж
+здатися. Зазвичай вам не доведеться використовувати цю функцію, але вона є, якщо вам знадобиться.
 
 .. tab-set:: 
 
@@ -55,15 +55,14 @@ up. Usually, you won't need to use this, but it is there if you need it.
         .. image:: media/turn.png
             :width: 300
 
-This function is similar to the :code:`straight` function, except that it
-rotates the robot instead of driving it forwards.
+Ця функція схожа на функцію :code:`straight`, за винятком того, що вона
+обертає робота, а не рухає його вперед.
 
-The :code:`turn_degrees` parameter lets you tell the robot how many degrees it
-should turn. Positive values will turn counterclockwise, and negative values turn
-clockwise.
+Параметр :code:`turn_degrees` дозволяє вказати роботу, на скільки градусів він
+повинен повернутись. Позитивні значення означають поворот проти годинникової стрілки, а негативні значення — поворот за годинниковою стрілкою.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Write code to drive the robot straight for 20 centimeters and then turn 90
-    degrees clockwise. Don't forget to add the 
-    :code:`from XRPLib.defaults import *` statement at the top of your program.
+    Напишіть код, щоб робот проїхав 20 сантиметрів прямо, а потім повернув на 90    
+    градусів за годинниковою стрілкою. Не забудьте додати оператор     
+    :code:`from XRPLib.defaults import *` у верхній частині програми.
