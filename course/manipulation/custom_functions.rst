@@ -1,37 +1,36 @@
-Picking up a Basket
+Підбираючи кошик
 ===================
 
-Now that we've covered how to move the XRP arm to specific angles, we can start to think about how to use the arm 
-to pick up objects. In this section, we'll cover how to use the arm to pick up a basket which is one of the challenges for your final project described in detail in the next module.
+Тепер, коли ми розглянули, як переміщати руку XRP під певними кутами, ми можемо почати думати про те, як використовувати руку для підйому предметів. У цьому розділі ми розглянемо, як використовувати руку для підйому кошика, що є одним із завдань вашого фінального проекту, детально описаного в наступному модулі.
 
-The Process 
+Процес 
 -----------
 
-Let's first think about what the process of picking up a basket would look like. Imagine the a small paper
-cup with a bail attached over the top to that you can hook with the servo arm. An example of a basket is
-shown in the video below.
+Спочатку давайте подумаємо, як буде виглядати процес підйому кошика. Уявіть собі невеликий паперовий
+стаканчик з ручкою, прикріпленою до верхньої частини, за яку можна зачепитися сервоприводом. 
+Приклад кошика показано на відео нижче.
 
-An example of the steps required to aquire the basket are:
+Приклад кроків, необхідних для придбання кошика:
 
 
-#. Lower the arm to a height where it will be inside the bail.
-#. Back up the robot so that the arm goes inside the bail.
-#. Raise the arm to lift the bucket off the ground.
-#. Drive away carying the bucket.
+#. Опустіть руку на висоту, на якій вона буде знаходитися всередині дужки.
+#. Відведіть робота назад так, щоб його рука потрапила всередину дужки.
+#. Підніміть руку, щоб підняти ковш з землі.
+#. Поїдьте, несучи відро.
 
-Now the robot can drive away while carrying the basket. 
+Тепер робот може від'їжджати, несучи кошик. 
 
-Try placing your robot in front of a basket and then writing a program to pick it up as shown in the
-following video.
+Спробуйте поставити робота перед кошиком, а потім написати програму, щоб підняти його, як показано на
+наступному відео.
 
 
 .. image:: 
     RobotGrab.gif
     
 
-Integrating Locating and Pickup 
+Інтеграція пошуку та самовивозу 
 -------------------------------
 
-Now that we've covered how to pick up a basket, we can start to think about how to integrate this with code that we have previously written to locate a nearby object. 
+Тепер, коли ми розглянули, як підняти кошик, можемо почати думати про те, як інтегрувати це з кодом, який ми раніше написали для пошуку найближчого об'єкта.
 
-To do this, you will re-use the code that you have written to how execute the pickup process when the robot is in front of the basket.
+Для цього ви повторно використаєте код, який ви написали для виконання процесу підйому, коли робот знаходиться перед кошиком.
