@@ -1,11 +1,10 @@
-Remotely Controlling your XRP
+Дистанційне керування вашим XRP
 =============================
 
-With the webserver, you can also control your XRP remotely.
-The webserver class has a few methods that allow you to register functions to be called when an arrow button is pressed,
-which we can use to control the XRP. 
+За допомогою веб-сервера ви також можете дистанційно керувати своїм XRP.
+Клас веб-сервера має кілька методів, які дозволяють реєструвати функції, що викликаються при натисканні кнопки зі стрілкою, які ми можемо використовувати для керування XRP. 
 
-Below is an example of how to register some basic drive functions to be called when the arrow buttons are pressed:
+Нижче наведено приклад того, як зареєструвати деякі основні функції приводу, які будуть викликатися при натисканні кнопок зі стрілками:
 
 .. tab-set::
 
@@ -45,9 +44,9 @@ Below is an example of how to register some basic drive functions to be called w
         .. image:: media/rc-blockly.png
             :width: 600
 
-These functions are then registered to the webserver, and when the arrow buttons are pressed, the corresponding function is called.
-The arrows will appear if any of these functions are registered, and will be disabled if they are not.
+Ці функції потім реєструються на веб-сервері, і при натисканні кнопок зі стрілками викликається відповідна функція.
+Стрілки з'являться, якщо будь-яка з цих функцій зареєстрована, і будуть вимкнені, якщо вони не зареєстровані.
 
 .. note::
-    You can also use lambda functions to register functions to the webserver, 
-    which can be useful for simple functions, but are out of scope for this lesson.
+    Ви також можете використовувати лямбда-функції для реєстрації функцій на веб-сервері,     
+    що може бути корисно для простих функцій, але виходить за рамки цього уроку.
