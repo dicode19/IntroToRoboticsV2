@@ -1,45 +1,45 @@
-Introduction to Manipulation
-============================
+Вступ до керування маніпулятором
+================================
 
-Now that we've covered different ways of controlling your robot's movement, let's cover how we can control the robot's arm to manipulate our environment. 
+Тепер, коли ми розглянули різні способи керування рухами робота, давайте розглянемо, як ми можемо керувати рукою робота для маніпулювання навколишнім середовищем. 
 
-The XRP Arm
+XRP Рука
 -----------
 
-Every robot needs to be able to interact with it's environment. 
+Кожен робот повинен бути здатний взаємодіяти зі своїм оточенням. 
 
-Your XRP does this with a simple 1 DOF arm.
+Ваш XRP робить це за допомогою простого маніпулятора з 1 ступенем свободи.
 
-In this case, "DOF" stands for "Degree of Freedom" and refers to the number of ways the arm can move. 
+У цьому випадку «DOF» означає «ступінь свободи» і позначає кількість способів, якими рука може рухатися. 
 
-Accurate Control of the XRP arm
+Точне управління рукою XRP
 -------------------------------
 
-To move your XRP's arm, use this function:
+Щоб перемістити руку XRP, скористайтеся цією функцією:
 
 .. code-block:: python
 
     servo.set_angle(angle)
 
-In this case, the function takes in a single argument, which is the angle in degrees that you want
-the arm to move to. The angle has a range of [0, 135] degrees. 
+У цьому випадку функція приймає один аргумент, який є кутом у градусах, 
+на який ви хочете перемістити руку. Кут має діапазон від [0, 135] градусів. 
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Try writing code that moves the arm to an angle of 90 degrees, sleeps for 1 second, and then moves the arm back to an angle of 0 degrees.
+    Спробуйте написати код, який переміщує руку під кутом 90 градусів, 
+    вимикає її на 1 секунду, а потім повертає назад під кутом 0 градусів.
 
-Other Robotics Manipulators
+Інші робототехнічні маніпулятори
 ---------------------------
 
-There are many types of robotic manipulation. `Here <https://www.youtube.com/watch?v=wXxrmussq4E>`_ is a very complicated example,
-where Boston Dynamics' Spot robot opens a door and lets itself in.
+Існує багато видів роботизованих маніпуляцій. `Тут <https://www.youtube.com/watch?v=wXxrmussq4E>`_ наведено дуже складний приклад, де робот Spot від Boston Dynamics відкриває двері і заходить всередину.
 
-The XRP arm is a very simple manipulator.
+XRP-рука є дуже простим маніпулятором.
 
-Most robots have more complex manipulators, with more degrees of freedom.
+Більшість роботів мають більш складні маніпулятори з більшою кількістю ступенів свободи.
 
-For example, Boston Dynamic's Spot robot has a 5 DOF arm that can be used to open doors, turn valves, and even pick up objects.
+Наприклад, робот Spot від Boston Dynamic має руку з 5 ступенями свободи, яку можна використовувати для відкривання дверей, повертання клапанів і навіть підйому предметів.
 
-For more complicated manipulators like the one that Spot has, roboticists often have to create control laws specific to those manipulators. 
+Для більш складних маніпуляторів, таких як той, що є у Spot, робототехніки часто мають створювати закони управління, специфічні для цих маніпуляторів. 
 
-In the case of Spot, the arm is equipped with a camera that help Spot better understand it's environment and avoid obstacles while trying to use it's arm.
+У випадку Spot, рука оснащена камерою, яка допомагає Spot краще розуміти навколишнє середовище та уникати перешкод під час використання руки.
