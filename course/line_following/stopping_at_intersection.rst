@@ -1,78 +1,75 @@
-Stopping at an Intersection
+Зупинка на перехресті
 ===========================
 
-With what you've learned in this module, you can now use proportional control to
-drive your robot quickly and accurately along a line using both reflectance
-sensors. However, smooth line following is not the only reason the XRP has two
-sensors. Having two sensors also allows us to detect intersections between two
-lines.
+Завдяки знанням, отриманим у цьому модулі, ви тепер можете використовувати пропорційне керування для
+швидкого та точного переміщення робота вздовж лінії за допомогою обох датчиків відбиття.
+Однак плавне слідування лінії — не єдина причина, чому XRP має два датчики. 
+Наявність двох датчиків також дозволяє нам виявляти перетини між двома лініями.
 
-Consider this diagram from the last module:
+Розгляньте цю діаграму з останнього модуля:
 
 .. figure:: media/p_control_2_sensors_centered.png
     :align: center
 
-    Simplified diagram of the reflectance sensors centered on a line.
+    Спрощена схема датчиків відбиття, розташованих по центру лінії.
 
-Notice how both reflectance sensors are mostly on the line, but not fully. Just 
-like at the start of the module, you'll need to do some measurements of what the
-line sensors read. This time, you'll need to see what they read when the robot 
-is centered on the line. This is how the robot would be positioned on the line 
-if it was following it accurately.
+Зверніть увагу, що обидва датчики відбиття знаходяться в основному на лінії, але не повністю. 
+Так само, як і на початку модуля, вам потрібно буде зробити кілька вимірювань того, що
+показують лінійні датчики. Цього разу вам потрібно буде подивитися, що вони показують, 
+коли робот знаходиться по центру лінії. Саме так робот буде розташовуватися на лінії, 
+якщо він точно слідує за нею.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Write an infinite loop to log the values from both line sensors using the
-    webserver. Place your robot centered on the line and see what the values
-    are.
+    Напишіть нескінченний цикл для запису значень з обох лінійних датчиків за допомогою    
+    веб-сервера. Поставте робота по центру лінії і подивіться, які значення    
+    отримані.
 
-Use the values you measure to determine a new threshold value. Note that this 
-threshold will probably not be close to halfway between the white and black 
-values, as your robot's sensors may not actually be centered perfectly on the 
-edges of your line, as this depends on the width of the line you are using. A 
-good value for this threshold would be about halfway between the value you just
-measured and the maximum value you measured back in the first module.
+Використовуйте виміряні значення для визначення нового порогового значення. Зверніть увагу, що цей 
+поріг, ймовірно, не буде близьким до середини між білим і чорним 
+значеннями, оскільки датчики вашого робота можуть бути не ідеально відцентровані на 
+краях лінії, оскільки це залежить від ширини лінії, яку ви використовуєте. 
+Хорошим значенням для цього порогу буде приблизно середина між значенням, яке ви щойно
+виміряли, і максимальним значенням, яке ви виміряли в першому модулі.
 
 .. tip:: 
 
-    If you don't remember your sensor's maximum value, just place the robot 
-    sideways on the line so that both line sensors are over the line. Use the 
-    same code you just used to read the values again.
+    Якщо ви не пам'ятаєте максимальне значення датчика, просто поставте робота     
+    боком на лінію так, щоб обидва датчики лінії знаходилися над лінією. Використовуйте     
+    той самий код, який ви щойно використовували, щоб знову прочитати значення.
 
-Consider what the line sensor would see when it crosses an intersection:
+Розглянемо, що побачить лінійний датчик, коли перетинає перехрестя:
 
 .. figure:: media/line_crossing.png
     :align: center
 
-    Simplified diagram of the reflectance sensors over an intersection.
+    Спрощена схема датчиків відбиття над перехрестям.
 
-When crossing an intersection, the sensor sees nothing but black. This means 
-that when **both sensors** see **completely black**, we can assume we are at an 
-intersection.
+При перетині перехрестя датчик бачить тільки чорний колір. Це означає, 
+що коли **обидва датчики** бачать **повністю чорний колір**, 
+ми можемо припустити, що знаходимося на перехресті.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Write a function ``is_at_intersection()`` which reads the values of both 
-    line sensors and returns ``True`` if the robot is at an intersection.
+    Напишіть функцію ``is_at_intersection()``, яка зчитує значення обох     
+    лінійних датчиків і повертає ``True``, якщо робот знаходиться на перехресті.
 
-Now that you have a way to detect an intersection, it's time to tie everything 
-together.
+Тепер, коли ви знаєте, як виявити перетин, настав час зв'язати все 
+разом.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Write a function ``follow_line_until_intersection()`` which runs your line
-    following algorithm until an intersection is detected, and then stops the 
-    robot.
+    Напишіть функцію ``follow_line_until_intersection()``, яка виконує ваш алгоритм 
+    слідування за лінією до виявлення перетину, а потім зупиняє робота.
 
-Challenge
+Виклик
 ---------
 
-Try writing code to turn at an intersection. Pick a direction to turn, and then 
-have your robot turn that direction until it is over the other line of the 
-intersection, and then start following that line
+Спробуйте написати код для повороту на перехресті. Виберіть напрямок повороту, 
+а потім нехай ваш робот поверне в цьому напрямку, поки не перетне іншу лінію 
+перехрестя, а потім почне рухатися вздовж цієї лінії.
 
 .. tip:: 
 
-    You will need to have your robot's wheels centered over the intersection for
-    this to work. Use one of the ``drivetrain`` functions to do this after you
-    arrive at the intersection.
+    Для того, щоб це працювало, колеса вашого робота повинні бути розташовані по центру перехрестя.    
+    Для цього використовуйте одну з функцій «drivetrain» після того, як ви прибудете на перехрестя.
