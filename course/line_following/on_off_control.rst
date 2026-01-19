@@ -1,54 +1,52 @@
-Following the Line: On/Off Control
+Дотримання лінії: управління увімкненням/вимкненням
 ==================================
 
-Now, let's turn our attention towards one of the core challenges in the final
-project - following a line. In the project, the robot will need to drive to
-multiple different locations, but doing this just based on distance can result
-in the robot not getting to exactly the right place. What if the wheels slip
-while driving? What if the robot needs to drive along a complex curve? It's
-easier to follow a line than it is to exactly measure out the course the robot
-needs to follow and program it.
+Тепер звернемо увагу на одну з основних проблем у фінальному
+проекті — слідування по лінії. У проекті робот повинен буде рухатися до
+декількох різних місць, але якщо робити це, орієнтуючись лише на відстань,
+робот може не дістатися до потрібного місця. Що робити, якщо колеса прокручуються
+під час руху? Що робити, якщо робот повинен рухатися по складній кривій?
+Слідувати за лінією простіше, ніж точно виміряти маршрут, яким повинен рухатися робот,
+і запрограмувати його.
 
-How do we follow a line?
+Як слідувати лінії?
 ------------------------
 
-Consider using one of the reflectance sensors. As a refresher, gives a reading
-from 0 (black) to 1 (white). Assuming that the reflectance sensor is
-approximately at the center of the robot, it will at least partially reading the
-black line when the robot is centered on the line. What type of logic would we
-need if we wanted to follow the center of the line?
+Розгляньте можливість використання одного з датчиків відбиття. 
+Нагадуємо, що він видає значення від 0 (чорний) до 1 (білий). 
+Припускаючи, що датчик відбиття знаходиться
+приблизно в центрі робота, він буде хоча б частково зчитувати
+чорну лінію, коли робот знаходиться по центру лінії. Який тип логіки нам
+потрібен, якщо ми хочемо слідувати за центром лінії?
 
-Well, if the reflectance sensor reads black, it means the robot is perfectly on
-the line, and we'd want to go straight, setting the motors at the same speed.
-But if the reflectance sensor reads grey or white, it would mean that the robot
-is partially or completely off the line. We'd want to correct this by steering
-it back to the center, but does it turn left or right?
+Ну, якщо датчик відбиття показує чорний колір, це означає, що робот знаходиться точно на
+лінії, і ми хочемо рухатися прямо, встановивши двигуни на однакову швидкість.
+Але якщо датчик відбиття показує сірий або білий колір, це означає, що робот
+частково або повністю з'їхав з лінії. Ми хочемо виправити це, повертаючи
+його назад до центру, але чи повертати вліво чи вправо?
 
-Unfortunately, there's no way to tell. The robot has no way of knowing which
-direction it is drifting off the line. Instead, try following an edge of the
-line. If we try to follow the left edge, then there's two possible states in
-which the robot reacts.
+На жаль, цього неможливо визначити. Робот не має можливості дізнатися, в якому
+напрямку він відхиляється від лінії. Замість цього спробуйте слідувати за краєм
+лінії. Якщо ми спробуємо слідувати за лівим краєм, то існує два можливих стани, в
+яких реагує робот.
 
-* If the sensor reads closer to white, that means we're too far to the left, so
-  we need to turn slightly to the right.
-* If the sensor reads closer to black, that means we're too far to the right, so
-  we need to turn slightly to the left.
+* Якщо датчик показує значення, ближче до білого, це означає, що ми занадто далеко вліво, тому  
+  нам потрібно трохи повернути вправо.
+* Якщо датчик показує значення, ближче до чорного, це означає, що ми занадто далеко вправо, тому  
+  нам потрібно трохи повернути вліво.
 
-And that's it! We want to keep polling (getting the value of) the reflectance
-sensor quickly, and at each time determine whether it's closer to white (with a
-value less than 0.5) or closer to black (with a value greater than 0.5), and
-depending on the result, either set the motor to turn right (set left motor
-speed to be faster than right) or turn left (set right motor speed to be faster
-than left).
+І все! Ми хочемо продовжувати швидко опитувати (отримувати значення) відбивального
+і щоразу визначати, чи він ближче до білого (зі значенням менше 0,5) чи до чорного (зі значенням більше 0,5), і залежно від результату, або налаштовувати двигун на поворот праворуч (встановлювати швидкість лівого двигуна швидшою за правий), або поворот ліворуч (встановлювати швидкість правого двигуна швидшою
+за лівий).
 
-This seems like a solution involving an if-else statement. Our condition would
-be related to whether the value is greater or less than 0.5.
+Це схоже на рішення, що передбачає використання оператора if-else. Наша умова буде
+пов'язана з тим, чи значення більше або менше 0,5.
 
-An :code:`if` / :code:`else` statement allows you to run different blocks of
-code based on a *condition* (the same kind of *condition* you used in a
-:code:`while` loop)
+Оператор :code:`if` / :code:`else` дозволяє виконувати різні блоки
+коду на основі *умови* (такого ж типу, як *умова*, яку ви використовували в циклі
+:code:`while`)
 
-Consider the following example code:
+Розглянемо наступний приклад коду:
 
 .. tab-set::
 
@@ -70,31 +68,27 @@ Consider the following example code:
             :width: 300
 
     
-In this example code we just show different messages on the computer based
-on the value of the left encoder, but you could put whatever code you want
-in the blocks instead. For example, you could have the robot turn clockwise
-or counterclockwise depending on a condition using an :code:`if` /
-:code:`else` statement.
+У цьому прикладі коду ми просто показуємо різні повідомлення на комп'ютері на основі
+значення лівого енкодера, але ви можете ввести будь-який код, який захочете,
+у блоки. Наприклад, ви можете змусити робота повертати за годинниковою стрілкою
+або проти годинникової стрілки залежно від умови, використовуючи оператор :code:`if` /
+:code:`else`.
 
 .. figure:: media/on_off_control.png
     :align: center
 
-    Actions your robot should take based on what the sensor sees.
+    Дії, які повинен виконати ваш робот на основі того, що бачить датчик.
 
-Above is an illustration of how we'd want the robot to act based on the reading
-of the sensor.
+Вище наведено ілюстрацію того, як ми хочемо, щоб робот діяв на основі показань
+сенсора.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Write some code which uses an :code:`if` / :code:`else` statement to turn 
-    the robot one direction or another based on the reflectance sensor. To do 
-    this, you'll use the :code:`drivetrain.set_speed` function using different
-    speeds for the left and right wheels. Remember, using a higher speed on the
-    left wheel will make the robot turn right, and vice versa. You can use your 
-    ``is_over_line()`` function to check if the sensor sees a line.
+    Напишіть код, який використовує оператор :code:`if` / :code:`else`, щоб повернути     
+    робота в той чи інший бік на основі даних датчика відбиття. Для цього     
+    використовуйте функцію :code:`drivetrain.set_speed`, задаючи різні    
+    швидкості для лівого і правого коліс. Пам'ятайте, що використання більш високої швидкості на    
+    лівому колесі змусить робота повернути праворуч, і навпаки. Ви можете використовувати свою     
+    функцію ``is_over_line()``, щоб перевірити, чи бачить датчик лінію.
 
-    You will need to experiment with different speed values for each wheel; too
-    high and your robot will drive off the line before it gets a chance to
-    correct for it, too low and your robot will not correct in time and will
-    spin in circles. Try to get your robot to follow the line as fast as you
-    can!
+    Вам доведеться експериментувати з різними значеннями швидкості для кожного колеса; якщо швидкість      буде занадто високою, ваш робот з'їде з лінії, не встигнувши її виправити, а якщо занадто низькою,     ваш робот не встигне виправити положення і буде крутитися по колу. Постарайтеся, щоб ваш робот         слідував за лінією якомога швидше!
