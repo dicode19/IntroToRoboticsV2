@@ -1,41 +1,34 @@
-Implementing a Proportional Controller
+Впровадження пропорційного контролера
 ======================================
 
-Now that you've learned about how proportional controllers, let's implement one for our distance tracking activity,
-where we want to keep the robot some distance from the object in front of it using the rangefinder!
+Тепер, коли ви дізналися про пропорційні контролери, давайте реалізуємо один для нашої діяльності з відстеження відстані, де ми хочемо тримати робота на деякій відстані від об'єкта перед ним за допомогою далекоміра!
 
-Defining Terminology
+Визначення термінології
 --------------------
 
-Let's identify the terms we'll need to use in our code:
+Давайте визначимо терміни, які нам знадобляться в нашому коді:
 
-**Set Point** or desired value: In this example, this is some set distance from the rangefinder we want the robot to be at. 
-For this example, let's say 20cm.
+**Задана точка** або бажане значення: у цьому прикладі це певна відстань від далекоміра, на якій ми хочемо, щоб знаходився робот. 
+Для цього прикладу візьмемо 20 см.
 
-**Process Variable** or current value: We obtain our measured value from reading the rangerfinder value. This is
-:code:`rangefinder.distance()`.
+**Змінна процесу** або поточне значення: Ми отримуємо виміряне значення, зчитуючи значення далекоміра. Це :code:`rangefinder.distance()`.
 
-Our goal is for our process variable (the rangefinder distance) to approach the set point (20 cm).
+Наша мета полягає в тому, щоб змінна процесу (відстань дальноміра) наблизилася до заданого значення (20 см).
 
-Thus, our **error** is calculated as :code:`error = rangefinder.distance() - 20`. Note that :code:`error = 20 - rangefinder.distance()`
-is also "correct". The distinction in sign is simply whichever makes more sense for your application. Here, if we had an error of 30cm,
-we would want to drive forward 10cm, so we would want a positive error to make our motors spin forward.
+Таким чином, наша **помилка** обчислюється як :code:`error = rangefinder.distance() - 20`. Зверніть увагу, що :code:`error = 20 - rangefinder.distance()` також є «правильним». Різниця в знаках полягає просто в тому, що має більше сенсу для вашого застосування. Тут, якщо ми мали б похибку 30 см,
+ми хотіли б проїхати вперед на 10 см, тому нам потрібна позитивна похибка, щоб наші двигуни оберталися вперед.
 
-**Control Output**: In this case, this is our motor effort. This is because we want to drive with a speed proportional
-to the distance error. As a reminder for P control, this will be calculated as :code:`motor_effort = Kp * error`.
+**Вихідний сигнал управління**: У даному випадку це зусилля двигуна. Це пов'язано з тим, що ми хочемо рухатися зі швидкістю, пропорційною помилці відстані. Нагадаємо, що для P-регулювання це буде розраховуватися як :code:`motor_effort = Kp * error`.
 
-**Kp**: This is our proportional gain. Though we will need to tune this value, we can guess a somewhat reasonable value
-by considering the range of values our error can take, and the domain of our control output. In this case, if we're 30cm away
-from the object, our error will be 10. We can guess that at this sufficient distance we will want to drive forward at a maximum
-effort of 1, as effort is restricted to the domain :math:`[-1, 1]`. Thus, we can guess that :code:`Kp = 1/10 = 0.1`. Of course,
-this isn't likely the final value that works best for your robot, but it's a good starting point.
+**Kp**: Це наш пропорційний коефіцієнт підсилення. Хоча нам потрібно буде налаштувати це значення, ми можемо припустити досить розумне значення, враховуючи діапазон значень, які може приймати наша похибка, та область нашого контрольного виходу. У цьому випадку, якщо ми знаходимося на відстані 30 см
+від об'єкта, наша похибка буде дорівнювати 10. Ми можемо припустити, що на такій достатній відстані ми захочемо рухатися вперед з максимальним зусиллям 1, оскільки зусилля обмежене областю :math:`[-1, 1]`. Таким чином, ми можемо припустити, що :code:`Kp = 1/10 = 0,1`. Звичайно, це, ймовірно, не остаточне значення, яке найкраще підходить для вашого робота, але це хороший відправний пункт.
 
-Implementing the Controller
+Впровадження контролера
 ---------------------------
 
-Now that we've defined our terms, let's write the code!
+Тепер, коли ми визначили терміни, давайте напишемо код!
 
-Let's start by defining our proportional gain and our set point:
+Почнемо з визначення пропорційного коефіцієнта підсилення та заданого значення:
 
 .. tab-set::
 
@@ -51,7 +44,7 @@ Let's start by defining our proportional gain and our set point:
         .. image:: media/variables.png
             :width: 300
 
-Next, we want to enter some sort of loop to continuously read our rangefinder value and update our motor effort from our controller output.
+Далі ми хочемо ввести якийсь цикл, щоб постійно зчитувати значення датчика відстані та оновлювати зусилля двигуна з виходу контролера.
 
 .. tab-set::
 
@@ -72,16 +65,15 @@ Next, we want to enter some sort of loop to continuously read our rangefinder va
         .. image:: media/pcode.png
             :width: 500
 
-Each iteration of the loop consists of the following steps:
-    #. Read the rangefinder value to get the current distance
-    #. Calculate the error
-    #. Calculate the control output through Kp * error
-    #. Set the drivetrain motor efforts to the control output
-    #. Wait for a short period of time
+Кожна ітерація циклу складається з наступних кроків:    
+    #. Зчитати значення дальноміра, щоб отримати поточну відстань    
+    #. Обчислити похибку    
+    #. Обчислити вихідний сигнал управління за допомогою Kp * похибка    
+    #. Встановити зусилля двигуна трансмісії на вихідний сигнал управління    
+    #. Зачекати короткий проміжок часу
 
-This code should give us a working solution to maintain a set distance from the object in front of the robot!
+Цей код повинен дати нам робоче рішення для підтримки заданої відстані від об'єкта, що знаходиться перед роботом!
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Try moving the object in front of the robot and watch the robot attempt to maintain the set distance! What
-    happens when you increase Kp? Decrease it? What value of Kp works best for your robot?
+    Спробуйте перемістити об'єкт перед роботом і спостерігайте, як робот намагається підтримувати          задану відстань! Що відбувається, коли ви збільшуєте Kp? А коли зменшуєте? Яке значення Kp             найкраще підходить для вашого робота?
