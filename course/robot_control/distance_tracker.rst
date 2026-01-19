@@ -1,16 +1,16 @@
-Distance Tracking 
+Відстеження відстані 
 =================
 
-Now that we've covered on-off control, let's use that information to track an object from a certain distance. 
+Тепер, коли ми розглянули управління вмиканням-вимиканням, давайте використаємо цю інформацію для відстеження об'єкта з певної відстані. 
 
-The Process
+Процес
 -----------
 
-Essentially, we want our robot to go towards the object if it's too far and away from the object if it's too close. 
+По суті, ми хочемо, щоб наш робот рухався до об'єкта, якщо він занадто далеко, і віддалявся від об'єкта, якщо він занадто близько. 
 
-We can do this by using the distance sensor to determine how far away the object is and then using that information to determine how the direction in which the robot should be going.
+Ми можемо це зробити, використовуючи датчик відстані, щоб визначити, як далеко знаходиться об'єкт, а потім використовуючи цю інформацію, щоб визначити, в якому напрямку повинен рухатися робот.
 
-For this activity, let's use a target distance of 30 cm. 
+Для цього завдання візьмемо цільову відстань 30 см. 
 
 .. tab-set::
 
@@ -35,8 +35,8 @@ For this activity, let's use a target distance of 30 cm.
         .. image:: media/SimpleStandoff.png
             :width: 500
 
-You'll notice that this code causes the robot to move back and forth, or oscillate, as the sonar distance continuously swaps between being greater than and less than 30 cm.
-So what if we add a third case that tells the robot's motors to stop when sonar distance equals 30 cm?
+Ви помітите, що цей код змушує робота рухатися вперед і назад, або коливатися, оскільки відстань сонара постійно змінюється від більшої до меншої за 30 см.
+А що буде, якщо ми додамо третій випадок, який змусить двигуни робота зупинитися, коли відстань сонара дорівнюватиме 30 см?
 
 .. tab-set::
 
@@ -63,10 +63,8 @@ So what if we add a third case that tells the robot's motors to stop when sonar 
         .. image:: media/SimpleStandoffStop.png
             :width: 500
 
-Unfortunately, even with this code, our robot still doesn't stop! The issue is that the distance sensor is so precise that it
-never reads exactly 30 cm. We can combat this by making our robot stop when it's *close* to 30 cm instead of *exactly* 30 cm.
-We can do this by creating a range in which our robot stops called a "deadband." Using a range of +- 2.5 cm, our new code would look like this:
-
+На жаль, навіть з цим кодом наш робот все одно не зупиняється! Проблема в тому, що датчик відстані настільки точний, що ніколи не показує точно 30 см. Ми можемо вирішити цю проблему, змусивши нашого робота зупинятися, коли він *наближається* до 30 см, а не *точно* досягає 30 см.
+Ми можемо це зробити, створивши діапазон, в якому наш робот зупиняється, який називається «мертвою зоною». Використовуючи діапазон +- 2,5 см, наш новий код буде виглядати так:
 
 .. tab-set::
 
@@ -95,11 +93,11 @@ We can do this by creating a range in which our robot stops called a "deadband."
             :width: 550
 
 .. note:: 
-    Notice how, instead of hardcoding numbers such as 27.5 and 32.5, we used variables. This gives us two benefits:
+    Зверніть увагу, що замість жорсткого кодування чисел, таких як 27,5 і 32,5, ми використовували        змінні. Це дає нам дві переваги:
     
-    1. We can easily change the desired distance and tolerance without having to change the code itself.
+    1. Ми можемо легко змінити бажану відстань і допуск без необхідності змінювати сам код.
     
-    2. It's much easier to decipher what the code is doing, using "magic" numbers like 27.5 and 32.5 can be confusing to read because the user has to figure out what those numbers mean.
+    2. Набагато простіше розшифрувати, що робить код, використовуючи «магічні» числа, такі як 27,5 і         32,5, які можуть заплутати читача, оскільки користувач повинен з'ясувати, що означають ці             числа.
 
-This code should allow the robot to stop when it senses a sonar distance of ~30 cm. Our issue now is that
-there is a potential error of 2.5 cm from our desired following distance. Luckily, in the next section, we'll learn about something called "proportional control"...
+Цей код повинен дозволити роботу зупинитися, коли він відчуває відстань сонара ~30 см. Наша проблема зараз полягає в тому, що
+існує потенційна похибка 2,5 см від бажаної відстані слідування. На щастя, в наступному розділі ми дізнаємося про таке поняття, як «пропорційне регулювання»...
