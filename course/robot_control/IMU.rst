@@ -1,23 +1,20 @@
-Proportional Control With The IMU
+Пропорційне управління за допомогою IMU
 =================================
 
-Introduction:
+Вступ:
 -------------
 
-The XRP's circuit board contains a very useful sensor called an inertial measurement unit (IMU). 
-This sensor uses several internal senors to determine what direction the robot is pointing in, as well as 
-the acceleration in its primary directions.
+На друкованій платі XRP міститься дуже корисний датчик, який називається інерційним вимірювальним блоком (IMU). Цей датчик використовує кілька внутрішніх датчиків для визначення напрямку, в якому рухається робот, а також прискорення в основних напрямках.
 
 .. image ::
     media/6dof.jpg
 
 .. note:: 
-    The imu measures the acceleration in centimeters per second squared in the 3 main directions: 
-    forward and backward (z), side to side (x), and up and down (y).
-    It also measures the ange in degrees with yaw (turning side to side), pitch (pointing up or down),
-    and roll (tilting to a side)
+    IMU вимірює прискорення в сантиметрах на секунду в квадраті в 3 основних напрямках:     
+    вперед і назад (z), з боку в бік (x) і вгору та вниз (y).    
+    Він також вимірює кут в градусах з відхиленням (поворот з боку в бік), нахилом (направлення вгору     або вниз) і креном (нахил вбік).
 
-Getting these values is easy. The functions for getting acceleration in any axis are below:
+Отримати ці значення дуже просто. Функції для отримання прискорення по будь-якій осі наведені нижче:
 
 
 .. tab-set:: 
@@ -43,7 +40,7 @@ Getting these values is easy. The functions for getting acceleration in any axis
         .. image:: media/acceleration-blockly.png
             :width: 600
 
-Getting the angles in each axis is just as easy, the functions for doing so are below:
+Отримати кути в кожній осі так само просто, функції для цього наведені нижче:
 
 .. tab-set:: 
 
@@ -68,14 +65,12 @@ Getting the angles in each axis is just as easy, the functions for doing so are 
         .. image:: media/gyro-blockly.png
             :width: 500
 
-You can use these values to determine the direction your robot is pointed in, the steepness of a surface 
-it is driving up, or even the sideways tilt if it is driving on an uneven surface.
+Ви можете використовувати ці значення, щоб визначити напрямок, в якому спрямований ваш робот, крутизну поверхні, по якій він рухається, або навіть бічний нахил, якщо він рухається по нерівній поверхні.
 
-Turning With The IMU
+Поворот з IMU
 --------------------
 
-Turning to an angle is the most common use of the IMU. If you know what heading you want your 
-robot to turn to, you can set up a proportional control loop to move your measured heading to your desired heading.
+Поворот під кутом є найпоширенішим застосуванням IMU. Якщо ви знаєте, в якому напрямку ви хочете, щоб ваш робот повернув, ви можете налаштувати пропорційний контур управління, щоб перемістити виміряний напрямок у бажаний напрямок.
 
 .. tab-set::
 
