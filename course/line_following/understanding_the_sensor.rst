@@ -1,33 +1,33 @@
-Understanding the line sensor
+Розуміння лінійного датчика
 =============================
 
-In the last module, you used the distance sensor to measure distances and make 
-the XRP follow along a wall. The XRP has another sensor that allows it to 
-navigate: the **line following sensor**.
+В останньому модулі ви використовували датчик відстані для вимірювання відстаней і 
+змушували XRP рухатися вздовж стіни. XRP має ще один датчик, який дозволяє йому 
+навігації: **датчик слідування лінії**.
 
-The line following sensor consists of two "reflectance" sensors. Simply put, the
-reflectance sensor shines a light at the ground and measures how much of the 
-light is reflected back. The darker an object is, the less light it reflects.
-The sensor uses infrared light, just like a TV remote, so the light is not 
-visible to the human eye.
+Датчик слідування за лінією складається з двох датчиків «відбиття». 
+Простіше кажучи, датчик відбиття світить світлом на землю і вимірює, 
+скільки світла відбивається назад. Чим темніший об'єкт, тим менше світла він відбиває.
+Датчик використовує інфрачервоне світло, як і пульт дистанційного керування телевізором, 
+тому світло не видиме для людського ока.
 
-This sensor is perfect for sensing dark lines on a light background! If the 
-sensor is on top of a dark line, less light will be reflected back, and if it is
-not on a line, more light will be reflected back. You can use this information 
-in your code to let the robot decide what to do in these situations.
+Цей датчик ідеально підходить для виявлення темних ліній на світлому тлі! Якщо 
+датчик знаходиться над темною лінією, відбиватиметься менше світла, а якщо він
+не знаходиться над лінією, відбиватиметься більше світла. Ви можете використовувати 
+цю інформацію у своєму коді, щоб робот міг вирішувати, що робити в таких ситуаціях.
 
-The XRP has *two* reflectance sensors, a left sensor and a right sensor. If you
-look at the bottom of your XRP on the sensor board, you will see the two
-sensors. **S1** is the left sensor and **S2** is the right sensor. Later in the
-module you will learn a way to use both sensors to follow lines very smoothly, 
-For this lesson, we will only use the *right* sensor.
+XRP має *два* датчики відбиття: лівий і правий. Якщо ви
+подивитеся на нижню частину XRP на платі датчика, ви побачите два
+датчики. **S1** — це лівий датчик, а **S2** — правий. Пізніше в цьому
+модулі ви дізнаєтеся, як використовувати обидва датчики для дуже плавного слідування лініям. 
+У цьому уроці ми будемо використовувати тільки *правий* датчик.
 
 .. figure:: media/line_sensors.png
     :align: center
 
-    The two reflectance sensors on the XRP.
+    Два датчики відбиття на XRP.
 
-**XRPLib** provides functions to read the values of the reflectance sensors:
+**XRPLib** надає функції для зчитування значень датчиків відбиття:
 
 .. code-block:: python
 
@@ -39,69 +39,69 @@ For this lesson, we will only use the *right* sensor.
     # Reads the right sensor and stores the value in the variable "right"
     right = reflectance.get_right()
 
-Before doing anything with a new sensor, you need to have a good understanding 
-of the values it will give you in different conditions. For the reflectance 
-sensor, it would be good to know what the sensor reports when it is completely 
-off of the line (seeing a white surface), completely on the line (seeing a 
-black surface), and some "middle of the road" values, when the sensor is half 
-on the line and half off the line.
+Перш ніж робити що-небудь з новим датчиком, потрібно добре розуміти 
+значення, які він буде видавати в різних умовах. Для датчика відбиття 
+було б добре знати, що він показує, коли знаходиться повністю 
+поза лінією (бачить білу поверхню), повністю на лінії (бачить 
+чорну поверхню) і деякі «проміжні» значення, коли датчик знаходиться 
+наполовину на лінії і наполовину поза лінією.
 
 .. tip:: 
 
-    Remember that for this exercise you should only be using the *right* line 
-    sensor. Make sure that you center the correct part of the sensor board over
-    the line when taking your measurements.
+    Пам'ятайте, що для цього завдання ви повинні використовувати тільки *правий* лінійний     
+    датчик. Переконайтеся, що ви центруєте правильну частину плати датчика над    
+    лінією під час вимірювань.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Write code to read the value of the right reflectance sensor and use the
-    webserver to log and graph the values in an infinite loop. Move the XRP
-    around on a white surface with a line, and take note of the values the
-    sensor reads in the different conditions above.
+    Напишіть код для зчитування значення правого датчика відбиття і використовуйте    
+    веб-сервер для реєстрації та графічного відображення значень у нескінченному циклі. 
+    Переміщайте XRP по білій поверхні з лінією і записуйте значення, які    
+    датчик зчитує в різних умовах, зазначених вище.
 
-What do you notice from the values you measured? The documentation for the 
-``reflectance`` module in **XRPLib** states that the ``get_left()`` and 
-``get_right()`` functions return a number between 0 and 1. Did your values ever 
-reach exactly 0 or exactly 1? Can you tell which range of numbers corresponds to
-seeing white and which range of numbers corresponds to seeing black?
+Що ви помітили в виміряних значеннях? У документації до 
+модуля «reflectance» в **XRPLib** зазначено, що функції «get_left()» та 
+«get_right()» повертають число від 0 до 1. Чи досягали ваші значення 
+точно 0 або точно 1? Чи можете ви сказати, який діапазон чисел відповідає
+баченню білого кольору, а який — баченню чорного?
 
 .. figure:: media/reflectance_sensor_graph.png
     :align: center
 
-    Example graph of reflectance sensor data.
+    Приклад графіку даних датчика відбиття.
 
-Above is an example graph of some data from the reflectance sensor. At around 
-50 units on the X axis, the reflectance sensor was moved over a line (this data 
-was recorded while the robot was driving across a line) and at around 60 units,
-the reflectance sensor was moved back off of the line. Does your graph look 
-similar to the one above?
+Вище наведено приклад графіка деяких даних з датчика відбиття. Приблизно в точці 
+50 одиниць на осі X датчик відбиття був переміщений над лінією (ці дані 
+були записані, коли робот рухався по лінії), а приблизно в точці 60 одиниць
+датчик відбиття був переміщений назад з лінії. Чи схожий ваш графік 
+на наведений вище?
 
 .. note:: 
 
-    Your graph will not look exactly the same as ours. No two reflectance 
-    sensors are exactly the same, so it is important for you to take your own 
-    measurements with your own robot.
+    Ваш графік не буде виглядати точно так само, як наш. 
+    Немає двох однакових датчиків відбиття, тому важливо, 
+    щоб ви проводили власні вимірювання за допомогою власного робота.
 
-It's good to experiment with the reflectance sensor to see what it does, but you
-took this data for a reason. The line following sensor reports back a number, 
-but what we'd really like it to tell us is whether it sees a line or not. To do 
-this, you'll need to select a "threshold" value, where if the sensor reports a 
-value greater than the threshold, we can confidently assume the sensor is seeing
-a line, and if the sensor reports a value below the threshold, we can assume it 
-is not seeing a line.
+Добре експериментувати з датчиком відбиття, щоб побачити, як він працює, але ви
+взяли ці дані не просто так. Датчик слідування лінії повідомляє число, 
+але насправді ми хочемо, щоб він повідомляв, бачить він лінію чи ні. Для цього 
+вам потрібно вибрати «порогове» значення, при якому, якщо датчик повідомляє 
+значення, яке перевищує поріг, ми можемо з упевненістю припустити, що датчик бачить
+лінію, а якщо датчик повідомляє значення нижче порогу, ми можемо припустити, що 
+він не бачить лінію.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Look at your graph and select a threshold value that makes sense to you.
-    A number around halfway between the minimum and the maximum value you 
-    measured is a good starting point.
+    Подивіться на графік і виберіть порогове значення, яке вам здається доцільним.    
+    Число, яке знаходиться приблизно посередині між мінімальним і максимальним значенням, 
+    яке ви виміряли, є хорошим початковим пунктом.
 
-    Write a function called ``is_over_line()`` which reads the value of the
-    right reflectance sensor and returns ``True`` if the sensor sees a line
-    (value above the threshold) or ``False`` if it does not. Don't delete this
-    function when you're done, because you'll use it for the rest of the module!
+    Напишіть функцію під назвою ``is_over_line()``, яка зчитує значення    
+    правого датчика відбиття і повертає ``True``, якщо датчик бачить лінію    
+    (значення вище порогу), або ``False``, якщо не бачить. Не видаляйте цю    
+    функцію, коли закінчите, тому що ви будете використовувати її в решті модуля!
 
-    Use the webserver to log the result of calling your function in an infinite 
-    loop. Move your robot around a surface with lines on it to make sure it 
-    always returns the correct value based on what the sensor is seeing. If you 
-    are getting incorrect values, adjust your threshold value.
+    Використовуйте веб-сервер, щоб записати результат виклику вашої функції в нескінченному     
+    циклі. Переміщайте робота по поверхні з лініями, щоб переконатися, що він     
+    завжди повертає правильне значення на основі того, що бачить датчик. Якщо ви     
+    отримуєте неправильні значення, відрегулюйте порогове значення.
