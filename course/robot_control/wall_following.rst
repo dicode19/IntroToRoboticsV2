@@ -1,34 +1,31 @@
-Introduction to Wall Following
+Вступ до слідування за стіною
 ==============================
-Now that you've developed a program to keep a certain distance from an object, let's implement this by having the XRP follow a wall while maintaining a target distance.
 
-Building a control law
+Тепер, коли ви розробили програму для збереження певної відстані від об'єкта, давайте реалізуємо це, змусивши XRP слідувати за стіною, підтримуючи цільову відстань.
+
+Створення закону управління
 ----------------------
 
-when you follow a wall, all you need to do is steer the robot so you can keep a certain distance from the wall.
-If you are following a wall on your right side, you will turn right if you are too far and left if you are too close.
-We can easily do this with a proportional control loop. The steering correction can be proportional to the error,
-in this case the difference between the distance to the wall and the target distance to the wall.
-
+Коли ви рухаєтеся вздовж стіни, все, що вам потрібно зробити, це керувати роботом так, щоб підтримувати певну відстань від стіни. Якщо ви рухаєтеся вздовж стіни праворуч від себе, ви повернете праворуч, якщо відстань занадто велика, і ліворуч, якщо відстань занадто мала. Це легко зробити за допомогою пропорційного контуру регулювання. Корекція керування може бути пропорційною похибці, у цьому випадку різниці між відстанню до стіни та цільовою відстанню до стіни.
  
 .. tip::
-   Remember that you will want to incorporate a "base effort" to ensure that the robot is moving forward at all times. Let's set this to **0.5**.
+   Пам'ятайте, що вам потрібно буде додати «базове зусилля», щоб робот постійно рухався вперед.        Встановимо його значення на **0,5**.
 
-   It is also important to note that the side you choose to plate your ultrasonic range finder will affect the implmentation of the control law. 
+   Також важливо зазначити, що сторона, яку ви оберете для розміщення ультразвукового далекоміра, вплине на реалізацію закону управління. 
 
-Now, implement a proportional controller given the steps that you have previously followed and the tips noted above. 
+Тепер реалізуйте пропорційний контролер, враховуючи кроки, які ви виконали раніше, та поради, зазначені вище. 
 
-Watch this video to see what a working wall-follower looks like. 
+Перегляньте це відео, щоб побачити, як виглядає робочий пристрій для стеження за стіною. 
 
  .. image:: media/wallfollowing.gif
 
 
-Implementing Wall Following
----------------------------
+Реалізація функції «Слідування за стіною»
+-----------------------------------------
 
-Today, let's use the information we learned last time to actually implement a wall-follower. 
+Сьогодні давайте використаємо інформацію, яку ми дізналися минулого разу, щоб фактично реалізувати слідування за стіною. 
 
-Here is some code that would allow your XRP to track a wall on the right side of the robot. 
+Ось код, який дозволить вашому XRP відстежувати стіну з правого боку робота. 
 
 .. tab-set::
 
