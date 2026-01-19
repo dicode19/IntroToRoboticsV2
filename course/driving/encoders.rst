@@ -1,41 +1,34 @@
 The Encoders
 ============
 
-In the last lesson we mentioned *encoders*. What are they and what do they do?
+На минулому уроці ми згадували про *енкодери*. Що це таке і для чого вони потрібні?
 
-Encoders are sensors which measure how far each motor (and thus each wheel) has
-rotated. We mentioned that our motors aren't perfect, so when we tell them to go
-a certain effort we don't know how fast it is actually rotating. Encoders 
-measure exactly what the motor is doing and report this information back to the 
-XRP.
+Енкодери — це датчики, які вимірюють, наскільки обернувся кожен двигун (а отже, і кожне колесо).
+Ми вже згадували, що наші двигуни не ідеальні, тому коли ми даємо їм команду виконати певне зусилля, ми не знаємо, з якою швидкістю вони насправді обертаються. 
+Енкодери точно вимірюють роботу двигуна і передають цю інформацію назад до XRP.
 
 .. image:: media/blog017-image001-disks-resolution.jpg
 
-An encoder uses a disk like the one above with alternating clear and black 
-squares. The disk is attached to the output shaft of the motor. A small light 
-is shined through the edge of the disk, and a sensor on the other side sees the
-light. When a black part of the disk is in front of the light, the sensor sees
-nothing. When a clear part of the disk is in front of the light, the sensor can
-see the light. As the disk rotates, the sensor constantly switches from seeing 
-and not seeing the light. The XRP can automatically count how many times it has
-switched between seeing and not seeing the light, and can use this to calculate 
-how far the wheel has moved.
+Енкодер використовує диск, подібний до наведеного вище, з чергуванням прозорих і чорних 
+квадратів. 
+Диск прикріплений до вихідного валу двигуна. Невелике світло просвічується через край диска, а датчик з іншого боку бачить це світло. 
+Коли чорна частина диска знаходиться перед світлом, датчик нічого не бачить. 
+Коли світла частина диска знаходиться перед світлом, датчик може бачити світло. 
+Коли диск обертається, датчик постійно перемикається між баченням і небаченням світла. 
+XRP може автоматично підрахувати, скільки разів він перемикався між баченням і небаченням світла, і використовувати це для обчислення відстані, на яку перемістилося колесо.
 
-The size of the black and clear squares determines how *precise* the encoder is.
-As the squares get smaller, the light switches more times for the same amount of
-rotations of the wheel, and thus we can more precisely measure the distance. The
-downside of having really tiny squares is that the XRP's processor needs to work
-harder to keep up with counting all the switches. In the image above you can see
-some disks with different levels of precision.
+Розмір чорних і прозорих квадратів визначає *точність* енкодера. 
+Чим менші квадрати, тим частіше світло перемикається при однаковій кількості обертів колеса, і, отже, ми можемо більш точно виміряти відстань. 
+Недоліком дуже маленьких квадратів є те, що процесор XRP повинен працювати напруженіше, щоб встигати підраховувати всі перемикання. 
+На зображенні вище ви можете побачити декілька дисків з різним рівнем точності.
 
 .. tip:: 
 
-    The disk and sensor in the XRP is hidden inside the motor's plastic case, so
-    you won't be able to see them.
+    Диск і датчик в XRP приховані всередині пластикового корпусу двигуна, тому ви не зможете їх     побачити.
 
-The XRP handles doing all the math to convert these switches into a real 
-distance measurement for you, so you don't have to worry about it. We can use 
-some new :code:`drivetrain` functions to see what the encoders are measuring:
+XRP виконує всі обчислення, щоб перетворити ці перемикання в реальне 
+вимірювання відстані для вас, тому вам не потрібно про це турбуватися. 
+Ми можемо використовувати деякі нові :code:`drivetrain` функції, щоб побачити, що вимірюють енкодери:
 
 .. tab-set:: 
 
@@ -55,78 +48,75 @@ some new :code:`drivetrain` functions to see what the encoders are measuring:
         .. image:: media/encoder.png
             :width: 300
 
-This code uses something new: a :code:`while` *loop*. A :code:`while` loop will
-run the code underneath it until a *condition* is no longer equal to
-:code:`True`. In this case, the *condition* is the keyword :code:`True`, which
-means that this code will run until :code:`True` doesn't equal :code:`True`.
-Since this will never happen, the code will run forever unless you stop it 
-manually on your computer.
+Цей код використовує щось нове: :code:`while` *loop*. Цикл :code:`while` буде
+виконувати код, що знаходиться під ним, доки *умова* не перестане дорівнювати
+:code:`True`. 
+У цьому випадку *умовою* є ключове слово :code:`True`, що
+означає, що цей код буде виконуватися доти, доки :code:`True` не перестане дорівнювати :code:`True`. 
+Оскільки це ніколи не відбудеться, код буде виконуватися нескінченно, доки ви не зупините його вручну на своєму комп'ютері.
 
 .. tip:: 
 
-    You will learn more about loops and conditions later in the course.
+    Більше про цикли та умови ви дізнаєтеся пізніше в цьому курсі.
 
-The code should run forever, display the drivetrain's left encoder position, and
-then wait for one second. Then, it repeats and does this forever. If we didn't 
-wait for one second, the XRP would read and send the encoder position to your 
-computer as fast as it could (very fast!) which would be too much data for your 
-computer to display at once on the screen.
+Код повинен працювати безперервно, відображати положення лівого енкодера трансмісії, а
+потім чекати одну секунду. 
+Потім він повторюється і робить це безперервно. Якщо ми не 
+чекатимемо одну секунду, XRP зчитуватиме і надсилатиме положення енкодера на ваш 
+комп'ютер так швидко, як тільки зможе (дуже швидко!), що буде занадто великим обсягом даних для вашого комп'ютера, щоб відобразити їх одночасно на екрані.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Try running this code to see what happens. Spin the left wheel of the XRP
-    by hand and notice how the number changes.
+    Спробуйте запустити цей код, щоб побачити, що відбудеться. Поверніть ліве колесо XRP 
+    рукою і зверніть увагу, як змінюється число.
 
-Calculating distance
+Розрахунок відстані
 --------------------
 
-Let's learn a bit about how the XRP uses the encoder to calculate how far the 
-robot has moved.
+Давайте дізнаємося трохи про те, як XRP використовує кодер для обчислення відстані, на яку 
+просунувся робот.
 
-The XRP knows the diameter of the robot's wheels; every XRP has the same wheels!
+XRP знає діаметр коліс робота; всі XRP мають однакові колеса!
 
-If a car's wheel rolls on the ground one full revolution, how far does the car
-move? The car moves by one *circumference* of the circle:
+Якщо колесо автомобіля робить один повний оберт на землі, то на яку відстань проїде автомобіль?
+Автомобіль проїде на відстань, що дорівнює одному *окружності* кола:
 
 .. image:: media/Circle-Graphic-1024x576-2.png
 
 .. tip:: 
 
-    Reminder that the circumference of a circle is the distance around it.
+    Нагадуємо, що довжина кола — це відстань по його периметру.
 
-    The circumference is calculated as :math:`C = \pi \cdot d`, where :math:`d`
-    is the *diameter* of the circle.
+    Окружність обчислюється як :math:`C = \pi \cdot d`, де :math:`d`    
+    є *діаметром* кола.
 
-If a car wheel (which is a circle with a circumference of 100 inches) rotates 5
-times, how far does the car go? How would you find that?
+Якщо колесо автомобіля (яке є колом з довжиною окружності 100 дюймів) обертається 5
+разів, то яку відстань проїде автомобіль? Як це можна обчислити?
 
 .. image:: media/P316_1-1.png
  
-You would rotate the wheel once, and find that it has traveled 100 inches,
-because the wheel would trace out it's circumference on the ground. Then, you
-would rotate it a second time, and see it move another 100 inches. Then a third,
-a fourth and a fifth time, and see the wheel has traced out it's circumference
-on the ground 5 times. 
+Ви обертаєте колесо один раз і бачите, що воно проїхало 100 дюймів,
+тому що колесо прокреслило свою окружність на землі. Потім ви
+обертаєте його вдруге і бачите, що воно проїхало ще 100 дюймів. Потім втретє,
+вчетверте і вп'яте, і бачите, що колесо прокреслило свою окружність
+на землі 5 разів. 
 
-The amount it has traveled is 5 times the circumference. This can be used for
-any number of rotations. If you rotate the wheel 3 times, you would move forward
-3 times the circumference (300 inches), if you rotated it 1 and a half times,
-you would move forward one and a half times the circumference (150 inches). 
+Відстань, яку воно проїхало, в 5 разів перевищує довжину кола. Це можна використовувати для
+будь-якої кількості обертів. Якщо ви обернете колесо 3 рази, ви проїдете вперед
+в 3 рази більше довжини кола (300 дюймів), якщо ви обернете його 1,5 рази,
+ви проїдете вперед в 1,5 рази більше довжини кола (150 дюймів). 
 
 .. math:: 
     
     d\text{ cm} = (\text{number of rotations}) \cdot (\text{circumference})
 
-The XRP uses this equation to automatically calculate how far the wheels have 
-moved in centimeters using the encoders.
+XRP використовує це рівняння для автоматичного обчислення відстані, на яку перемістилися колеса, в сантиметрах за допомогою енкодерів.
 
-Driving a distance (again)
+Проїхати відстань (знову)
 --------------------------
 
-In the last lesson you used a constant speed and a time to drive a distance. 
-Now that you know that the encoders actually measure the distance, it would be 
-better to use them for your :code:`drive_distance` function. We can modify your 
-function to use a :code:`While` loop:
+На минулому уроці ви використовували постійну швидкість і час для проходження відстані. 
+Тепер, коли ви знаєте, що енкодери насправді вимірюють відстань, було б краще використовувати їх для вашої функції :code:`drive_distance`. Ми можемо модифікувати вашу функцію, щоб використовувати :code:`While` цикл:
 
 .. tab-set:: 
 
@@ -146,51 +136,45 @@ function to use a :code:`While` loop:
             :width: 300
     
 
-This code block uses a loop to constantly check if the left encoder position is
-less than the distance you want the robot to go. Once it is no longer less than 
-this distance, the loop stops running and the code moves on to the next line.
-In this case, the next line tells the robot to stop.
+Цей блок коду використовує цикл для постійної перевірки, чи положення лівого енкодера є
+меншим за відстань, яку ви хочете, щоб робот пройшов. Як тільки воно перестає бути меншим за 
+цю відстань, цикл припиняє роботу, і код переходить до наступного рядка.
+У цьому випадку наступний рядок наказує роботу зупинитися.
 
-.. admonition:: Try it out
+.. admonition:: Спробуйте
 
-    Replace your :code:`drive_distance` function with this new one. Try it out
-    next to a meter stick. Is it more or less accurate than before?
+    Замініть свою функцію :code:`drive_distance` на цю нову. Випробуйте її    
+    біля метрової лінійки. Чи є вона більш або менш точною, ніж попередня?
 
-.. admonition:: Challenge
+.. admonition:: Випробування
 
-    This code only checks the left encoder. Since both wheels are moving the
-    same speed, this *should* be fine, but as we said, the motors aren't
-    perfect. Can you think of a way to combine both encoder values together?
+    Цей код перевіряє тільки лівий енкодер. Оскільки обидва колеса рухаються з однаковою            швидкістю, це *повинно* бути нормально, але, як ми вже говорили, двигуни не ідеальні. Чи        можете ви придумати спосіб об'єднати обидва значення енкодера?
 
-    To read the right encoder, you use
+    Щоб прочитати правий енкодер, використовуйте
     :code:`drivetrain.get_right_encoder_position()`
 
-Turning to a heading
+Перехід до заголовка
 ---------------------
 
-Once you know how to drive a certain distance with the XRP, it is easy to turn to a certain heading with it. 
-First, you need to calculate the distance that a wheel must travel so that you are facing the correct heading,
-and then simply rotate the XRP until the encoders have traveled that distance.
+Як тільки ви дізнаєтеся, як проїхати певну відстань за допомогою XRP, вам буде легко повернути на певний курс. 
+Спочатку потрібно розрахувати відстань, яку має проїхати колесо, щоб ви опинилися на правильному курсі, а потім просто повернути XRP, поки енкодери не проїдуть цю відстань.
 
-Calculating the necessary distance is complicated, but we can break down this problem into steps.
+Розрахунок необхідної відстані є складним, але ми можемо розбити цю задачу на етапи.
 
-first, lets make a fraction that represents from 0.0 to 1.0 how far around the robot's circumference 
-the wheels need to travel. In this case 0.0 is 0 degrees and 1.0 is 360 degrees. 
+Спочатку давайте створимо дріб, який відображає від 0,0 до 1,0, наскільки колеса робота повинні проїхати по колу. 
+У цьому випадку 0,0 дорівнює 0 градусам, а 1,0 дорівнює 360 градусам. 
 
-Now to get the distance the wheel travels, we need to multiply this fraction by the total distance the wheel
-travels to rotate 360 degrees, this number is the circumference of a circle with the diameter same diameter 
-as the robot. We can calculare this by multiplying the wheel track distance by pi. 
+Тепер, щоб отримати відстань, яку проходить колесо, нам потрібно помножити цю частку на загальну відстань, яку колесо
+проходить, щоб обернутися на 360 градусів. Це число є довжиною кола з діаметром, що дорівнює діаметру 
+робота. Ми можемо обчислити це, помноживши відстань проходження колеса на пі. 
 
-finally, to get the number of wheel rotations, we need to divide this distance by the circumference of 
-the wheel, or pi times the wheel diameter. We can cancel pi from both sides of this division and that
-leaves us with.  
+Нарешті, щоб отримати кількість обертів колеса, нам потрібно розділити цю відстань на довжину кола колеса, або на пі помножене на діаметр колеса. Ми можемо скасувати пі з обох сторін цього ділення, і це дає нам.  
 
 .. math:: 
 
     \frac{\text{target degrees} \cdot \text{robot wheel track}} {360 \cdot \text{wheel diameter}}
 
-Now that we have the number of wheel rotations, the rest of the program is easy. just turn the robot in the direction of the turn, and stop once
-the number of rotations has exceeded the calculated rotation goal.
+Тепер, коли ми маємо кількість обертів коліс, решта програми є простою. Просто поверніть робота в напрямку повороту і зупиніться, коли кількість обертів перевищить розраховану ціль обертання.
 
 .. tab-set::
 
