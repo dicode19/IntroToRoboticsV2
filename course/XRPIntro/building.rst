@@ -4,3 +4,4 @@
 
 Збірка робота XRP проста, а повний набір інструкцій та відео, що показує процес, можна знайти в 
 `Посібнику користувача XRP`<https://xrpusersguide.readthedocs.io/en/latest/course/building.html>`_.
+the `XRP User Guide <https://xrpusersguide.readthedocs.io/en/latest/course/building.html>`_.
